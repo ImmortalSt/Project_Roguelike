@@ -1,0 +1,40 @@
+{
+  "streets": [
+    {
+      "streets1": "test"
+    },
+    {
+      "streets2": "test"
+    },
+    {
+      "streets3": "test"
+    }
+  ],
+  "zavod": [
+    {
+      "zavod1": "test"
+    },
+    {
+      "zavod2": "test"
+    },
+    {
+      "zavod3": "test"
+    }
+  ],
+  "centre": [
+    {
+      "centre1": "test"
+    },
+    {
+      "centre2": "test"
+    },
+    {
+      "centre3": "test"
+    }
+  ],
+  "exchange": [
+    {
+      "exchange-final": "test"
+    }
+  ]
+}
