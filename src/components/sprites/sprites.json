@@ -1,0 +1,107 @@
+{
+  "zombies": [
+    {
+      "zombie-usual": [
+        {
+          "standby": "test"
+        },
+        {
+          "attack1": "test"
+        },
+        {
+          "attack2": "test"
+        }
+      ],
+      "zombie-rabotyaga": [
+        {
+          "standby": "test"
+        },
+        {
+          "attack1": "test"
+        },
+        {
+          "attack2": "test"
+        }
+      ],
+      "zombie-evolved": [
+        {
+          "standby": "test"
+        },
+        {
+          "attack1": "test"
+        },
+        {
+          "attack2": "test"
+        }
+      ]
+    }
+  ],
+  "humans": [
+    {
+      "human-civ": [
+        {
+          "standby": "test"
+        },
+        {
+          "attack1": "test"
+        },
+        {
+          "attack2": "test"
+        }
+      ],
+      "human-zavod": [
+        {
+          "standby": "test"
+        },
+        {
+          "attack1": "test"
+        },
+        {
+          "attack2": "test"
+        }
+      ],
+      "human-military": [
+        {
+          "standby": "test"
+        },
+        {
+          "attack1": "test"
+        },
+        {
+          "attack2": "test"
+        }
+      ],
+      "boss-helicopter": [
+        {
+          "standby": "test"
+        },
+        {
+          "attack1": "test"
+        },
+        {
+          "attack2": "test"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "charon-baby": "test"
+    },
+    {
+      "extra-arm": "test"
+    },
+    {
+      "lasersight": "test"
+    },
+    {
+      "explosive-ammo": "test"
+    },
+    {
+      "survival-book": "test"
+    },
+    {
+      "covid-19": "test"
+    }
+  ]
+}
