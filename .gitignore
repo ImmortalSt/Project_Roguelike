@@ -1,4 +1,6 @@
 # Prerequisites
+out/
+.vs/
 *.d
 build/
 # Compiled Object files
