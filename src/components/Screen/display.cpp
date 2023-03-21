@@ -1,4 +1,5 @@
 #include "display.h"
+#include <iostream>
 
 Display* Display::_display = 0;
 

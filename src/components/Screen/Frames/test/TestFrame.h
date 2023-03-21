@@ -12,14 +12,8 @@ public:
         return "Test";
     }
 
-    //std::map<std::string, Field> getFields() override {
-    //    auto result = std::map<std::string, Field>();
-    //    result["Load bar"] = {14, 26, 105}; 
-    //    return result;
-    //};
-
-    std::string getFilePath() override {
-        return "/home/ubuntu/git/Project_Roguelike/Project_Roguelike/src/components/Screen/Frames/test/Test.txt";
+    std::string getReletiveFilePath() override {
+        return "src\\components\\screen\\frames\\test\\Test.txt"; // It shows Visual Studio, when you click on the file
     }
 };
 

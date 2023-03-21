@@ -4,6 +4,7 @@
 #include "Frames/IncludeAllFrames.h"
 #include "FrameComponent.h"
 #include <vector>
+#include <map>
 
 class Display {
 private:
