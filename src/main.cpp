@@ -1,5 +1,5 @@
 #include "components/Screen/display.h"
-#include "components/utills/utils.h"
+#include "components/utils/utils.h"
 
 int main() {
     setlocale(LC_ALL, "");
