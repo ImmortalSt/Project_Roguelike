@@ -1,8 +1,17 @@
+#include <windows.h>
 #include "components/Screen/display.h"
 #include "components/utills/utils.h"
+#include <locale.h>
+#include <synchapi.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
+#include <fcntl.h>
+#include <io.h>
 
 int main() {
-    setlocale(LC_ALL, "");
+
+    std::wcout.imbue(std::locale("en_US.UTF-16"));
     Display* display = Display::getDisplay();
     std::vector<FrameComponent> temp;
     std::vector<std::wstring> templist;
@@ -15,7 +24,7 @@ int main() {
         templist[0] = repeat(L"█", i % 30);
         temp[0].lines = templist;
         display->printFrame(FrameNames::Test, temp);
-        usleep(100000);
+        Sleep(5000);
         Clear();
     }
     return 0;
