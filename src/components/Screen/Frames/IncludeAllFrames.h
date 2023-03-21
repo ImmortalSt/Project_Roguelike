@@ -2,6 +2,7 @@
 #define INCLUDEALLFRAMES_H
 
 #include "test/TestFrame.h"
+#include <map>
 
 enum FrameNames {
     Test

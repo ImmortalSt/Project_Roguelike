@@ -12,6 +12,6 @@ add_executable(Rogulike
 	src/components/Screen/Frames/FrameBase.h
 	src/components/Screen/Frames/test/TestFrame.h
 	src/components/Screen/Frames/IncludeAllFrames.h
-	src/components/utils/utils.cpp
-	src/components/utils/utils.h
+	src/components/utills/utils.cpp
+	src/components/utills/utils.h
 	)
