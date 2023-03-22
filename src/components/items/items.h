@@ -30,10 +30,34 @@ public:
         return m_damage;
     }
 
-    void print() const {
-        std::cout << "Name: " << m_name << "\n";
-        std::cout << "ID: " << m_id << "\n";
-        std::cout << "Damage: " << m_damage << "\n";
-    }
 };
 
+class MedKit : public Item {
+protected:
+    int m_healAmount;
+
+public:
+    MedKit(std::string name, int id, int healAmount) : Item(name, id), m_healAmount(healAmount) {}
+
+    virtual ~MedKit() {}
+
+    int getHealAmount() const {
+        return m_healAmount;
+    }
+
+};
+
+class Armor : public Item {
+protected:
+    int m_armorAmount;
+
+public:
+    Armor(std::string name, int id, int armorAmount) : Item(name, id), m_armorAmount(armorAmount) {}
+
+    virtual ~Armor() {}
+
+    int getArmorAmount() const {
+        return m_armorAmount;
+    }
+
+};
