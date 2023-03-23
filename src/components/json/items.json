@@ -1,0 +1,29 @@
+{
+  "items": {
+    "weapons": {
+      "pistol": "test",
+      "shotgun": "test",
+      "rifle": "test",
+      "kitchen_knife": "test",
+      "hunter_knife": "test",
+      "military_knife": "test",
+      "bitok": "test"
+    },
+    "med_kit": {
+      "small": "test",
+      "medium": "test",
+      "big": "test"
+    },
+    "armor": {
+      "small": "test",
+      "medium": "test",
+      "big": "test"
+    },
+    "spec_item": {
+      "1": "test",
+      "2": "test",
+      "3": "test",
+      "4": "test"
+    }
+  }
+}

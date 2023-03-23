@@ -24,6 +24,15 @@
     <ClCompile Include="src\components\utills\utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\json\test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\json\Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\json\Source2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\screen\display.h">
@@ -47,5 +56,11 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="src\components\Screen\Frames\test\Test.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\components\json\locations.json" />
+    <None Include="src\components\json\items.json" />
+    <None Include="src\components\json\player.json" />
+    <None Include="src\components\json\enemy.json" />
   </ItemGroup>
 </Project>

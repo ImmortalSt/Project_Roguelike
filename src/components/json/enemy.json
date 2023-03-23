@@ -1,0 +1,49 @@
+{
+  "zombies": {
+    "weak": {
+      "standby": "test",
+      "attack": [
+        "anim1",
+        "anim2",
+        "anim3"
+      ]
+    },
+    "rabotyaga": {
+      "standby": "test",
+      "attack": [
+        "anim1",
+        "anim2",
+        "anim3"
+      ]
+    },
+    "strong": {
+      "standby": "test",
+      "attack": [
+        "anim1",
+        "anim2",
+        "anim3"
+      ]
+    },
+    "poison": {
+      "standby": "test",
+      "attack": [
+        "anim1",
+        "anim2",
+        "anim3"
+      ]
+    },
+    "boss": {
+      "standby": "test",
+      "attack1": [
+        "anim1",
+        "anim2",
+        "anim3"
+      ],
+      "attack2": [
+        "anim1",
+        "anim2",
+        "anim3"
+      ]
+    }
+  }
+}
