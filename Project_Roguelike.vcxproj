@@ -115,51 +115,6 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\adl_serializer.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\byte_container_with_subtype.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\abi_macros.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\conversions\from_json.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\conversions\to_chars.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\conversions\to_json.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\exceptions.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\hash.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\input\binary_reader.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\input\input_adapters.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\input\json_sax.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\input\lexer.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\input\parser.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\input\position_t.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\iterators\internal_iterator.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\iterators\iteration_proxy.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\iterators\iterator_traits.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\iterators\iter_impl.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\iterators\json_reverse_iterator.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\iterators\primitive_iterator.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\json_pointer.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\json_ref.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\macro_scope.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\macro_unscope.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\meta\call_std\begin.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\meta\call_std\end.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\meta\cpp_future.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\meta\detected.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\meta\identity_tag.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\meta\is_sax.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\meta\std_fs.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\meta\type_traits.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\meta\void_t.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\output\binary_writer.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\output\output_adapters.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\output\serializer.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\string_concat.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\string_escape.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\detail\value_t.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\json.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\json_fwd.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\ordered_map.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\thirdparty\hedley\hedley.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\include\nlohmann\thirdparty\hedley\hedley_undef.hpp" />
-    <ClInclude Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\single_include\nlohmann\json.hpp" />
     <ClInclude Include="src\components\screen\display.h" />
     <ClInclude Include="src\components\screen\FrameComponent.h" />
     <ClInclude Include="src\components\screen\frames\FrameBase.h" />
@@ -171,8 +126,6 @@
     <Text Include="src\components\Screen\Frames\test\Test.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\LICENSE.MIT" />
-    <None Include="..\..\..\..\AppData\Local\Temp\Rar$DRa16288.45367\meson.build" />
     <None Include="src\components\json\enemy.json" />
     <None Include="src\components\json\items.json" />
     <None Include="src\components\json\locations.json" />
