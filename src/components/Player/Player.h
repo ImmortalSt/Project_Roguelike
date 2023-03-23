@@ -26,12 +26,16 @@ public:
 		return hp;
 	}
 
-	void SetHP(int _hp) {
-		hp = _hp;
+	void TakeDamage(int damage) {
+		hp -= damage;
+	}
+
+	void AddHP(int _hp) {
+		hp += _hp;
 	}
 
 	int GetShield() {
-		return shield;
+		re
 	}
 
 	void SetShield(int _shield) {
@@ -42,12 +46,11 @@ public:
 		return name;
 	}
 
-	void SetName(std::string _name) {
-		name = _name;
+	void GetSprite() {
+		throw std::Exception("It is not realized yet");
 	}
 
-
-
+	
 };
 
 #endif
