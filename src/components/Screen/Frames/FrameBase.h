@@ -20,20 +20,9 @@ protected:
         std::wstring line;
         while (in.eof() == false) {
             getline(in, line);
-
-//
-            //if (line.length() !=  WIDTH) 
-            //    throw std::length_error("the file width does not match the screen width " 
-            //        + std::to_string((int)WIDTH) + " != " + std::to_string(line.length()) 
-            //        + " " + "" + " " + filePath);
-//
             line += L"\n";
             lines.push_back(line);
         }
-        //if(lines.size() != HEIGHT)
-        //    throw std::length_error("the file HEIGHT does not match the screen HEIGHT " 
-        //            + std::to_string((int)HEIGHT) + " != " + std::to_string(lines.size()) 
-        //            + " " + filePath);
     }
 
 public:
@@ -45,7 +34,6 @@ public:
         return lines;
     }
     virtual std::string getName() = 0;
-   // virtual std::map<std::string, Field> getFields() = 0;
 };
 
 #endif
