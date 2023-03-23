@@ -1,0 +1,14 @@
+{
+  "player": {
+    "plaer_walk": [
+      "anim1",
+      "anim2",
+      "anim3"
+    ],
+    "player_atk": [
+      "attack1",
+      "attack2",
+      "attack3"
+    ]
+  }
+}

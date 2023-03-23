@@ -101,7 +101,15 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\aerze\source\repos\jsonwork\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\json\Source.cpp" />
+    <ClCompile Include="src\components\json\Source2.cpp" />
+    <ClCompile Include="src\components\json\test.cpp" />
     <ClCompile Include="src\components\screen\display.cpp" />
     <ClCompile Include="src\components\utills\utils.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -116,6 +124,12 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="src\components\Screen\Frames\test\Test.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\components\json\enemy.json" />
+    <None Include="src\components\json\items.json" />
+    <None Include="src\components\json\locations.json" />
+    <None Include="src\components\json\player.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
