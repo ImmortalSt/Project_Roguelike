@@ -7,15 +7,18 @@ class Player {
 private:
 	std::string name;
 	int hp;
-	int shield;
-	
+	int armor;
+	int coins;
+	int damage;
 
 public:
 
-	Player(std::string _name, int _hp, int _shield) {
+	Player(std::string _name, int _hp, int _damage, int _armor, int _coins) {
 		name = _name;
 		hp = _hp;
-		shield = _shield;
+		armor = _armor;
+		coins = _coins;
+		damage = _damage;
 	}
 
 	Player(std::string _name) {
@@ -30,20 +33,49 @@ public:
 		hp -= damage;
 	}
 
-	void AddHP(int _hp) {
+	void addHP(int _hp) {
 		hp += _hp;
 	}
+	
 
-	int GetShield() {
-		re
+	int GetArmor() {
+		return armor;
 	}
 
-	void SetShield(int _shield) {
-		shield = _shield;
+	void setArmor(int _armor) {
+		armor = _armor;
+	}
+
+	int addArmor(int _armor) {
+		armor += _armor;
 	}
 
 	std::string GetName() {
 		return name;
+	}
+	
+	int getCoins(int _coins) {
+		return coins;
+	}
+	
+	int addCoins(int _coins) {
+		coins += _coins;
+	}
+
+	int removeCoins(int _coins) {
+		if (coins < _coins) {
+			std::cout << "Not enough money" << std::endl;
+		}
+		else {
+			coins -= _coins;
+		}
+	}
+
+	int getDamage(int _damage) {
+		damage = _damage;
+	}
+	int addDamage(int _damage) {
+		damage += _damage;
 	}
 
 	void GetSprite() {

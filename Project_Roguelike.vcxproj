@@ -110,6 +110,7 @@
     <ClCompile Include="src\components\json\Source.cpp" />
     <ClCompile Include="src\components\json\Source2.cpp" />
     <ClCompile Include="src\components\json\test.cpp" />
+    <ClCompile Include="src\components\Player\Player.cpp" />
     <ClCompile Include="src\components\screen\display.cpp" />
     <ClCompile Include="src\components\utills\utils.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -120,6 +121,7 @@
     <ClInclude Include="src\components\screen\frames\FrameBase.h" />
     <ClInclude Include="src\components\screen\frames\IncludeAllFrames.h" />
     <ClInclude Include="src\components\screen\frames\test\TestFrame.h" />
+    <ClInclude Include="src\components\shop\shop.h" />
     <ClInclude Include="src\components\utills\utils.h" />
   </ItemGroup>
   <ItemGroup>

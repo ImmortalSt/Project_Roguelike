@@ -1,10 +1,11 @@
 class Item {
-protected:
-    virtual std::string m_name;
-    virtual int m_id;
+private:
+     std::string m_name;
+     int m_id;
+     int m_money;
 
 public:
-    Item(std::string name, int id) : m_name(name), m_id(id) {}
+    Item(std::string name, int id, int money) : m_name(name), m_id(id), m_money(money) {}
 
     virtual ~Item() {}
 
@@ -17,14 +18,14 @@ public:
     }
 };
 
-class Weapon : public Item {
+class DamageUp : public Item {
 protected:
     int m_damage;
 
 public:
-    Weapon(std::string name, int id, int damage) : Item(name, id), m_damage(damage) {}
+    DamageUp(std::string name, int id,int money, int damage) : Item(name, id, money), m_damage(damage) {}
 
-    virtual ~Weapon() {}
+    virtual ~DamageUp() {}
 
     int getDamage() const {
         return m_damage;
@@ -32,14 +33,14 @@ public:
 
 };
 
-class MedKit : public Item {
+class HealthUp : public Item {
 protected:
     int m_healAmount;
 
 public:
-    MedKit(std::string name, int id, int healAmount) : Item(name, id), m_healAmount(healAmount) {}
+    HealthUp(std::string name, int id, int money, int healAmount) : Item(name, id, money), m_healAmount(healAmount) {}
 
-    virtual ~MedKit() {}
+    virtual ~HealthUp() {}
 
     int getHealAmount() const {
         return m_healAmount;
@@ -47,14 +48,14 @@ public:
 
 };
 
-class Armor : public Item {
+class ArmorUp : public Item {
 protected:
     int m_armorAmount;
 
 public:
-    Armor(std::string name, int id, int armorAmount) : Item(name, id), m_armorAmount(armorAmount) {}
+    ArmorUp(std::string name, int id, int money, int armorAmount) : Item(name, id, money), m_armorAmount(armorAmount) {}
 
-    virtual ~Armor() {}
+    virtual ~ArmorUp() {}
 
     int getArmorAmount() const {
         return m_armorAmount;

@@ -1,4 +1,7 @@
-﻿class Enemy {
+﻿#include <string>
+
+
+class Enemy {
 private:
     int m_health;
     int m_attack;
