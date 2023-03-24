@@ -16,8 +16,9 @@ void Display::printFrame(FrameNames name, std::vector<FrameComponent> frameCompo
 
     for (int i = 0; i < frameComponents.size(); i++) {
         auto& frameComponent = frameComponents[i];
-        for (int j = 0; j < frameComponent.lines.size(); j++) {
-            wcsncpy(&_currentFrame.at(frameComponent.y - j - 1).at(frameComponent.x - 1), &frameComponent.lines[j][0], frameComponent.lines[j].size());
+        int componentHeight = frameComponent.lines.size();
+        for (int j = 0; j < componentHeight; j++) {
+            wcsncpy(&_currentFrame.at(frameComponent.y - j - 1).at(frameComponent.x - 1), &frameComponent.lines[componentHeight - j - 1][0], frameComponent.lines[j].size());
         }
     }
     _final_string.clear();
