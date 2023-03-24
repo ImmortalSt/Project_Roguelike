@@ -35,7 +35,7 @@ public:
 	}
 
 	int GetShield() {
-		re
+		return shield;
 	}
 
 	void SetShield(int _shield) {
