@@ -10,7 +10,17 @@ private:
 	int height;
 	std::vector<std::vector<Cell>> field;
 public:
-	Field(int _width, int _height) {
+	Field GetTestField() {
+		Field pole = Field(7, 12);
+		pole.FillSquare(0, 0, 6, 11, wall);
+		pole.FillSquare(1, 1, 5, 10, pass);
+		pole.SetCell(2, 2, player);
+		pole.SetCell(2, 8, enemy);
+		pole.SetCell(4, 8, shop);
+		return pole;
+
+	}
+	Field(int _height, int _width) {
 		width = _width;
 		height = _height;
 		field.resize(height);
@@ -46,7 +56,7 @@ public:
 		}
 	}
 
-	void FillSquareByState(int h1, int w1, int h2, int w2, CellState _state) {
+	void FillSquare(int h1, int w1, int h2, int w2, CellState _state) {
 
 		if ((h1 > h2) || (w1 > w2)) {
 			throw "Error! Incorrect values! The First Two are the Upper Left corner; The Second Two are the Lower Left corner!";
