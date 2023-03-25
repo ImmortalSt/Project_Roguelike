@@ -4,7 +4,11 @@
 enum CellState {
 	wall = 'W',
 	tunnel = 'T',
-	pass = 'P'
+	pass = 'P',
+	player = '@',
+	enemy = 'E',
+	shop = 'S',
+	empty= ' '
 };
 class Cell {
 private:
@@ -12,7 +16,7 @@ private:
 
 public:
 	Cell() {
-		state = wall;
+		state = empty;
 	}
 
 	CellState GetState() {
