@@ -17,25 +17,36 @@ public:
 		for (int i = 0; i < height; i++) {
 			field[i].resize(width);
 		}
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				field[i][j] = Cell();
+			}
+		}
 	}
 
-	void SetCell(int h, int w, char c) {
-		field[h][w].SetSymbol(c);
+
+	void SetCell(int h, int w, CellState _state) {
+		field[h][w].SetState(_state);
 	}
 
-	char GetCell(int h, int w) {
-		return field[h][w].GetSymbol();
+	char GetCellChar(int h, int w) {
+		field[h][w].GetChar();
 	}
+
+	CellState GetCellState(int h, int w) {
+		field[h][w].GetState();
+	}
+
 	void PrintField() {
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				std::cout << field[i][j].GetSymbol();
+				std::cout << field[i][j].GetChar();
 			}
 			std::cout << std::endl;
 		}
 	}
 
-	void FillSquare(int h1, int w1, int h2, int w2, char c) {
+	void FillSquareByState(int h1, int w1, int h2, int w2, CellState _state) {
 
 		if ((h1 > h2) || (w1 > w2)) {
 			throw "Error! Incorrect values! The First Two are the Upper Left corner; The Second Two are the Lower Left corner!";
@@ -50,7 +61,7 @@ public:
 
 		for (int i = h1; i <= h2; i++) {
 			for (int j = w1; j <= w2; j++) {
-				field[i][j].SetSymbol(c);
+				field[i][j].SetState(_state);
 			}
 		}
 	}
