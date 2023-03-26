@@ -40,12 +40,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -113,15 +113,28 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\enemies\common_zombie.h" />
+    <ClCompile Include="src\components\enemies\enemies.cpp" />
+    <ClCompile Include="src\components\enemies\mutant_zombie.h" />
+    <ClCompile Include="src\components\items\armor_up.h" />
+    <ClCompile Include="src\components\items\items.cpp" />
     <ClCompile Include="src\components\json\Source.cpp" />
+    <ClCompile Include="src\components\Player\Player.cpp" />
     <ClCompile Include="src\components\Screen\Assets\Assets.cpp" />
     <ClCompile Include="src\components\screen\display.cpp" />
     <ClCompile Include="src\components\utills\utils.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\enemies\enemies.h" />
+    <ClInclude Include="src\components\enemies\evolved_zombie.h" />
+    <ClInclude Include="src\components\enemies\weak_zombie.h" />
     <ClInclude Include="src\components\Field\Cell.h" />
     <ClInclude Include="src\components\Field\Field.h" />
+    <ClInclude Include="src\components\inventory\inventory.h" />
+    <ClInclude Include="src\components\items\damage_up.h" />
+    <ClInclude Include="src\components\items\hp_up.h" />
+    <ClInclude Include="src\components\items\items.h" />
     <ClInclude Include="src\components\json\nlohmann\include\nlohmann\adl_serializer.hpp" />
     <ClInclude Include="src\components\json\nlohmann\include\nlohmann\byte_container_with_subtype.hpp" />
     <ClInclude Include="src\components\json\nlohmann\include\nlohmann\detail\abi_macros.hpp" />

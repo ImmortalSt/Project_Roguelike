@@ -1,23 +1,22 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <iostream>
-
+#include "../inventory/inventory.h"
 
 class Player {
 private:
 	std::string name;
 	int hp;
 	int armor;
-	int coins;
 	int damage;
+	Inventory inventory;
 
 public:
 
-	Player(std::string _name, int _hp, int _damage, int _armor, int _coins) {
+	Player(std::string _name, int _hp, int _damage, int _armor) {
 		name = _name;
 		hp = _hp;
 		armor = _armor;
-		coins = _coins;
 		damage = _damage;
 	}
 
@@ -54,23 +53,6 @@ public:
 		return name;
 	}
 	
-	int getCoins(int _coins) {
-		return coins;
-	}
-	
-	int addCoins(int _coins) {
-		coins += _coins;
-	}
-
-	int removeCoins(int _coins) {
-		if (coins < _coins) {
-			std::cout << "Not enough money" << std::endl;
-		}
-		else {
-			coins -= _coins;
-		}
-	}
-
 	int getDamage(int _damage) {
 		damage = _damage;
 	}
@@ -79,7 +61,7 @@ public:
 	}
 
 	void GetSprite() {
-		throw std::Exception("It is not realized yet");
+		throw std::exception("It is not realized yet");
 	}
 
 	

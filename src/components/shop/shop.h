@@ -1,9 +1,21 @@
 ﻿#pragma once
 #include "../items/items.h"
+#include "../items/damage_up.h"
+#include "../items/hp_up.h"
+#include "../items/armor_up.h"
 #include "../Player/Player.h"
+#include "../inventory/inventory.h"
 #include <iostream>
 #include <map>
 #include <string>
+
+
+enum ItemsName {
+    MedKit = 4,
+    armorUp = 3,
+    damageUp = 1,
+    hpUp = 2,
+};
 
 class Store {
 public:
@@ -17,12 +29,12 @@ public:
         std::cout << "- Health potion x1 (ID: 4, price: 25, remaining: " << healthPotions << ")" << std::endl;
     }
 
-    bool buyItem(int id, Player& player, int& playerMoney) {
+    bool buyItem(ItemsName id, Inventory& inventory, Player& player) {
         switch (id) {
         case 1:
             if (damageBoosts > 0) {
-                player.addDamage(10);
-                playerMoney -= 100;
+                //inventory.AddItem(DamageUp);
+                inventory.removeCoins(100);
                 damageBoosts--;
                 return true;
             }
@@ -30,8 +42,8 @@ public:
 
         case 2:
             if (healthBoosts > 0) {
-                player.addHP(50);
-                playerMoney -= 50;
+                //inventory.AddItem(HpUp);
+                inventory.removeCoins(100);
                 healthBoosts--;
                 return true;
             }
@@ -39,8 +51,8 @@ public:
 
         case 3:
             if (armorBoosts > 0) {
-                player.addArmor(10);
-                playerMoney -= 75;
+                //inventory.AddItem(armorUp);
+                inventory.removeCoins(100);
                 armorBoosts--;
                 return true;
             }
@@ -49,7 +61,7 @@ public:
         case 4:
             if (healthPotions > 0) {
                 player.addHP(25);
-                playerMoney -= 25;
+                inventory.removeCoins(100);;
                 healthPotions--;
                 return true;
             }
@@ -60,12 +72,12 @@ public:
         }
     }
 
-    bool sellItem(int id, Player& player, int& playerMoney) {
+    bool sellItem(ItemsName id, Inventory& inventory) {
         switch (id) {
         case 1:
             if (damageBoosts < 5) {
-                player.addDamage(-10);
-                playerMoney += 50;  // Возвращаем половину стоимости товара
+                //inventory.removeItem(DamageUp);
+                inventory.addCoins(50);
                 damageBoosts++;
                 return true;
             }
@@ -73,8 +85,8 @@ public:
 
         case 2:
             if (healthBoosts < 5) {
-                player.addHP(-25);
-                playerMoney += 25;  // Возвращаем половину стоимости товара
+                //inventory.removeItem(DamageUp);
+                inventory.addCoins(50);
                 healthBoosts++;
                 return true;
             }
@@ -82,8 +94,8 @@ public:
 
         case 3:
             if (armorBoosts < 5) {
-                player.addArmor(-5);
-                playerMoney += 35;  // Возвращаем половину стоимости товара
+                //inventory.removeItem(DamageUp);
+                inventory.addCoins(50);
                 armorBoosts++;
                 return true;
             }

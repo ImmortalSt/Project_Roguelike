@@ -30,6 +30,24 @@
     <ClCompile Include="src\components\json\Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\enemies\enemies.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\items\items.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Player\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\enemies\common_zombie.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\enemies\mutant_zombie.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\items\armor_up.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\screen\display.h">
@@ -198,6 +216,30 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Player\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\shop\shop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\enemies\enemies.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\items\items.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\enemies\weak_zombie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\enemies\evolved_zombie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\items\damage_up.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\items\hp_up.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\inventory\inventory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
