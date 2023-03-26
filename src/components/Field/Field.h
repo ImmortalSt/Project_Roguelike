@@ -75,6 +75,22 @@ public:
 			}
 		}
 	}
+
+	int GetHeight() {
+		return height;
+	}
+
+	int GetWidth() {
+		return width;
+	}
+
+	void SetHeight(int _height) {
+		height = _height;
+	}
+
+	void SetWidth(int _width) {
+		width = _width;
+	}
 };
 
 #endif
