@@ -1,25 +1,34 @@
 #ifndef CELL_H
 #define CELL_H
 #include <iostream>
-
+enum CellState {
+	wall = 'W',
+	tunnel = 'T',
+	pass = 'P',
+	player = '@',
+	enemy = 'E',
+	shop = 'S',
+	empty= ' '
+};
 class Cell {
 private:
-	char symbol;
+	CellState state;
 
 public:
 	Cell() {
-
-	}
-	Cell(char _symbol) {
-		symbol = _symbol;
+		state = empty;
 	}
 
-	char GetSymbol() {
-		return symbol;
+	CellState GetState() {
+		return state;
 	}
 
-	void SetSymbol(char _symbol) {
-		symbol = _symbol;
+	void SetState(CellState _state) {
+		state = _state;
+	}
+
+	char GetChar() {
+		return state;
 	}
 };
 
