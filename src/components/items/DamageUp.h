@@ -5,11 +5,11 @@ protected:
     int m_damage;
 
 public:
-    DamageUp(std::string name, int id, int money, int damage) : Item(name, id, money), m_damage(damage) {}
+    DamageUp(std::string name, int id, int damage) : Item(name, id), m_damage(damage) {}
 
     virtual ~DamageUp() {}
 
-    int getDamage() const {
+    int getDamageAmount() const {
         return m_damage;
     }
 

@@ -4,10 +4,9 @@ class Item {
 private:
      std::string m_name;
      int m_id;
-     int m_money;
 
 public:
-    Item(std::string name, int id, int money) : m_name(name), m_id(id), m_money(money) {}
+    Item(std::string name, int id) : m_name(name), m_id(id) {}
 
     virtual ~Item() {}
 

@@ -18,66 +18,63 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\screen\display.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\utills\utils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\Screen\Assets\Assets.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\json\Source.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\enemies\enemies.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\components\items\items.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\json\Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="src\components\Player\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\enemies\common_zombie.h">
+    <ClCompile Include="src\components\Screen\Assets\Assets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\enemies\mutant_zombie.h">
+    <ClCompile Include="src\components\screen\display.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\items\armor_up.h">
+    <ClCompile Include="src\components\utills\utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\components\screen\display.h">
+    <ClInclude Include="src\components\enemies\common_zombie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\screen\FrameComponent.h">
+    <ClInclude Include="src\components\enemies\enemies.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\screen\frames\FrameBase.h">
+    <ClInclude Include="src\components\enemies\evolved_zombie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\screen\frames\IncludeAllFrames.h">
+    <ClInclude Include="src\components\enemies\mutant_zombie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\screen\frames\test\TestFrame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\utills\utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\Screen\Frames\Main\MainFrame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\Screen\Assets\Assets.h">
+    <ClInclude Include="src\components\enemies\weak_zombie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Field\Cell.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Field\Field.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\inventory\inventory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\items\ArmorUp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\items\DamageUp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\items\HealthUp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\items\items.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\components\json\nlohmann\include\nlohmann\detail\conversions\from_json.hpp">
@@ -218,37 +215,32 @@
     <ClInclude Include="src\components\Player\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\components\Screen\Assets\Assets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Screen\Frames\Main\MainFrame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\screen\frames\test\TestFrame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\screen\frames\FrameBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\screen\frames\IncludeAllFrames.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\screen\display.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\screen\FrameComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="src\components\shop\shop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\enemies\enemies.h">
+    <ClInclude Include="src\components\utills\utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\items\items.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\enemies\weak_zombie.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\enemies\evolved_zombie.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\items\damage_up.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\items\hp_up.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\inventory\inventory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="src\components\Screen\Frames\test\Test.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\components\Screen\Frames\Main\MainFrame.txt" />
-    <None Include="src\components\Screen\Assets\Assets.json" />
-    <None Include="src\components\json\items.json" />
   </ItemGroup>
 </Project>

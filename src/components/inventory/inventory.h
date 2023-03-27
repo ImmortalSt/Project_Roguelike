@@ -1,5 +1,6 @@
 #include "../items/items.h"
 #include "../Player/Player.h"
+#include "../shop/shop.h"
 #include <vector>
 #include <iostream>
 #include <string>
@@ -32,21 +33,36 @@ class Inventory {
 		}
 	}
 
-	void AddItem(Item item) {
+	bool AddItem(Item item, Player player) {
 		_inventory.push_back(item);
-		if (item.getName == "damageUp")
+		if (item.getName() == "DamageUp") {
+			player.addDamage(10);
+			return true;
+		}
+		if (item.getName() == "ArmorUp") {
+			player.addArmor(10);
+			return true;
+		}
+		if (item.getName() == "HealthUp") {
+			player.addHP(30);
+			return true;
+		}
+		else {
+			return false;
 		}
 	}
-	void removeItem(Item item) {
+	bool removeItem(Item item) {
 
 		std::string target = item.getName();
 
-		std::vector<Item>::iterator it = find( _inventory.begin(), _inventory.end(), target);
+		std::vector<Item>::iterator it = find(_inventory.begin(), _inventory.end(), target);
 
 		if (it == _inventory.end())
-			throw::exception("Item was not found");
+			return false;
 		else
-			cout << "item removed" << endl;
+			//int idx = std::distance(_inventory.begin(), it);
+			_inventory.erase(it);
+			return true;
 	}
 
 	int getCount(Item item) {

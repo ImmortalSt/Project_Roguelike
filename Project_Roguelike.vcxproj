@@ -113,10 +113,7 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\components\enemies\common_zombie.h" />
     <ClCompile Include="src\components\enemies\enemies.cpp" />
-    <ClCompile Include="src\components\enemies\mutant_zombie.h" />
-    <ClCompile Include="src\components\items\armor_up.h" />
     <ClCompile Include="src\components\items\items.cpp" />
     <ClCompile Include="src\components\json\Source.cpp" />
     <ClCompile Include="src\components\Player\Player.cpp" />
@@ -126,14 +123,17 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\enemies\common_zombie.h" />
     <ClInclude Include="src\components\enemies\enemies.h" />
     <ClInclude Include="src\components\enemies\evolved_zombie.h" />
+    <ClInclude Include="src\components\enemies\mutant_zombie.h" />
     <ClInclude Include="src\components\enemies\weak_zombie.h" />
     <ClInclude Include="src\components\Field\Cell.h" />
     <ClInclude Include="src\components\Field\Field.h" />
     <ClInclude Include="src\components\inventory\inventory.h" />
-    <ClInclude Include="src\components\items\damage_up.h" />
-    <ClInclude Include="src\components\items\hp_up.h" />
+    <ClInclude Include="src\components\items\ArmorUp.h" />
+    <ClInclude Include="src\components\items\DamageUp.h" />
+    <ClInclude Include="src\components\items\HealthUp.h" />
     <ClInclude Include="src\components\items\items.h" />
     <ClInclude Include="src\components\json\nlohmann\include\nlohmann\adl_serializer.hpp" />
     <ClInclude Include="src\components\json\nlohmann\include\nlohmann\byte_container_with_subtype.hpp" />
@@ -190,14 +190,6 @@
     <ClInclude Include="src\components\screen\frames\test\TestFrame.h" />
     <ClInclude Include="src\components\shop\shop.h" />
     <ClInclude Include="src\components\utills\utils.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="src\components\Screen\Frames\test\Test.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\components\json\items.json" />
-    <None Include="src\components\Screen\Assets\Assets.json" />
-    <None Include="src\components\Screen\Frames\Main\MainFrame.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

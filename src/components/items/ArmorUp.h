@@ -5,7 +5,7 @@ protected:
     int m_armorAmount;
 
 public:
-    ArmorUp(std::string name, int id, int money, int armorAmount) : Item(name, id, money), m_armorAmount(armorAmount) {}
+    ArmorUp(std::string name, int id, int armorAmount) : Item(name, id), m_armorAmount(armorAmount) {}
 
     virtual ~ArmorUp() {}
 
