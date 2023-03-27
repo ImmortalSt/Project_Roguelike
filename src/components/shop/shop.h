@@ -19,7 +19,7 @@ enum ItemsName {
 
 class Store {
 public:
-    Store() : damageBoosts(5), healthBoosts(5), armorBoosts(5), healthPotions(10) {}
+    Store() : damageBoosts(5), healthBoosts(5), armorBoosts(5), healthPotions(1) {}
 
     //void showItems() const {
     //    std::cout << "Available items:" << std::endl;
