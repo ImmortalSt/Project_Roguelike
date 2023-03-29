@@ -114,6 +114,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\components\json\Source.cpp" />
+    <ClCompile Include="src\components\Map\MapGenerate.cpp" />
     <ClCompile Include="src\components\Screen\Assets\Assets.cpp" />
     <ClCompile Include="src\components\screen\display.cpp" />
     <ClCompile Include="src\components\utills\utils.cpp" />
