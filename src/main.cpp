@@ -5,10 +5,28 @@
 #include <io.h>
 #include "components/json/nlohmann/single_include/nlohmann/json.hpp"
 #include <fstream>
+#include <iostream>
+#include "ExternalThread.h"
+#include <thread>
+#include "components/Events/OnButtonClickHandler.h"
 
+ButtonClickEvent onClickEvent;
+
+//class Test : OnButtonClickHandler {
+//    void OnButtonClick(char button) {
+//        std::wcout << button << button << button << button << button << button << button << button << button << button << button << button << button;
+//    }
+//};
 
 int main() {
     _setmode(_fileno(stdout), _O_U16TEXT);
+
+    std::thread EventsObservebleThread(EventsObservebleThreadFunction, onClickEvent);
+    EventsObservebleThread.detach();
+
+
+    onClickEvent.Register((IAction<char>*)new Test());
+
     Display* display = Display::getDisplay();
     std::vector<FrameComponent> temp;
     std::vector<std::wstring> templist;

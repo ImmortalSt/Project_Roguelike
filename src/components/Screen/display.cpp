@@ -3,7 +3,6 @@
 #include <Windows.h>
 #include "../utills/utils.h"
 
-
 Display* Display::_display = 0;
 
 static std::vector<std::wstring> _currentFrame;
@@ -25,6 +24,7 @@ void Display::printFrame(FrameNames name, std::vector<FrameComponent> frameCompo
     for (int i = 0; i < frame->HEIGHT; i++)
         _final_string.append(_currentFrame[i]);
     Clear();
+    //fmt::printf("%ls", _final_string);
     std::wcout << _final_string;
     Sleep(freeze);
 }
