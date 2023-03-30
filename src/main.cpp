@@ -22,7 +22,7 @@ int main() {
         temp[0].lines = a->GetAsset(Assets::AssetsName::Test);
         display->printFrame(FrameNames::Test, temp, 500);
     }
-
+    
     return 0;
 }
 
