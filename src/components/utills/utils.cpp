@@ -56,9 +56,10 @@ Field GetTestField() {
 void PrintField(Field _field) {
 	for (int i = 0; i < _field.GetHeight(); i++) {
 		for (int j = 0; j < _field.GetWidth(); j++) {
-			std::cout << _field.GetCellChar(i, j);
+			auto a = _field.GetCellChar(i, j);
+			std::wcout << a;
 		}
-		std::cout << std::endl;
+		std::wcout << std::endl;
 	}
 };
 

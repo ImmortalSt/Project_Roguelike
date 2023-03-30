@@ -1,6 +1,6 @@
-#include <Field.h>
-#include <utils.cpp>
+#include "../Field/Field.h"
 #include <time.h>
+#include "../utills/utils.h"
 
 //void PrintField(Field* _field) {
 //	for (int i = 0; i < _field->GetHeight(); i++) {

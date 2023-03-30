@@ -24,4 +24,12 @@ vector<string> RebuildFieldInStrings(Field _field);
 
 void PrintFieldInStrings(vector<string> _field);
 
+const int* Massive_of_rand_l();
+
+const int* Massive_of_rand_h();
+
+Field* Make_border(const int* arr_h, const int* arr_l);
+
+int* rand_arr(const int a);
+
 #endif
