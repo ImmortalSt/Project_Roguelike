@@ -39,6 +39,9 @@
     <ClCompile Include="src\components\utills\utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\Map\MapGenerate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\enemies\common_zombie.h">
