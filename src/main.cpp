@@ -9,7 +9,10 @@
 #include "ExternalThread.h"
 #include <thread>
 #include "components/Events/OnButtonClickHandler.h"
-
+#include "include/fmt/core.h"
+#include "include/fmt/format.h"
+#include "include/fmt/format-inl.h"
+#include "src/format.cc"
 ButtonClickEvent onClickEvent;
 
 //class Test : OnButtonClickHandler {
@@ -25,7 +28,7 @@ int main() {
     EventsObservebleThread.detach();
 
 
-    onClickEvent.Register((IAction<char>*)new Test());
+    //onClickEvent.Register((IAction<char>*)new Test());
 
     Display* display = Display::getDisplay();
     std::vector<FrameComponent> temp;
@@ -40,7 +43,7 @@ int main() {
         temp[0].lines = a->GetAsset(Assets::AssetsName::Test);
         display->printFrame(FrameNames::Test, temp, 500);
     }
-    
+    //fmt::print("Hello World"); //https://hackingcpp.com/cpp/libs/fmt.html
     return 0;
 }
 
