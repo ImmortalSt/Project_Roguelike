@@ -10,7 +10,10 @@ private:
 	int height;
 	std::vector<std::vector<Cell>> field;
 public:
-	Field(int _height, int _width) {
+		Field() {
+
+		}
+		Field(int _height, int _width) {
 		width = _width;
 		height = _height;
 		field.resize(height);
