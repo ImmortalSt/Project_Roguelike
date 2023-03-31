@@ -2,7 +2,6 @@
 #define PLAYER_H
 #include <iostream>
 #include "../inventory/inventory.h"
-
 class Player {
 private:
 	std::string name;
@@ -15,16 +14,14 @@ private:
 	int armor;
 	int damage;
 	Inventory inventory;
-
-
 public:
 	Player() {
 
 	}
-	Player(std::string _name, int _hp, int _shield, int _x, int _y) {
+	Player(std::string _name, int _hp, int _armor, int _x, int _y) {
 		name = _name;
 		hp = _hp;
-		shield = _shield;
+		armor = _armor;
 		x = _x;
 		y = _y;
 	Player(std::string _name, int _hp, int _damage, int _armor) {
@@ -41,6 +38,8 @@ public:
 	int GetHP() {
 		return hp;
 	}
+
+	void AddHP(int _hp) {
 
 	void TakeDamage(int damage) {
 		hp -= damage;
@@ -63,6 +62,21 @@ public:
 		armor += _armor;
 	}
 
+	void TakeDamage(int damage) {
+		hp -= damage;
+	}
+
+	int getDamage(int _damage) {
+		damage = _damage;
+	}
+	int addDamage(int _damage) {
+		damage += _damage;
+	}
+
+	void GetSprite() {
+		throw std::exception("It is not realized yet");
+	}
+
 	std::string GetName() {
 		return name;
 	}
@@ -74,9 +88,6 @@ public:
 		damage += _damage;
 	}
 
-	void GetSprite() {
-		throw std::exception("It is not realized yet");
-	}
 
 	void SetX(int _x) {
 		x = _x;
