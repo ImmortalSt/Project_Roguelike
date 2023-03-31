@@ -1,8 +1,8 @@
 #ifndef MAP_H
 #define MAP_H
-#include "Field.h"
-#include "utils.h"
-#include "Player.h"
+#include "../Field/Field.h"
+#include "../utills/utils.h"
+#include "../Player/Player.h"
 //#include "enemies/enemies.h"
 class Map {
 private:
