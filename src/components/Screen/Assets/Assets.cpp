@@ -7,7 +7,7 @@ std::vector<std::wstring> Assets::ReadAsset(std::string name)
     auto asset = _json[name];
     std::vector<std::wstring> result;
 
-    for each (auto line in asset)
+    for (auto line: asset)
     {
         result.push_back(converter.from_bytes(line.get<std::string>().c_str()));
     }

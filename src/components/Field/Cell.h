@@ -1,10 +1,10 @@
-#ifndef CELL_H
+﻿#ifndef CELL_H
 #define CELL_H
 #include <iostream>
 enum CellState {
 	wall = 'W',
-	tunnel = 'T',
-	pass = 'P',
+	tunnel = '.',
+	pass = ' ',
 	player = '@',
 	enemy = 'E',
 	shop = 'S',
@@ -16,7 +16,7 @@ private:
 
 public:
 	Cell() {
-		state = empty;
+		state = CellState::empty;
 	}
 
 	CellState GetState() {

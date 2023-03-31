@@ -8,6 +8,15 @@
 #include <vector>
 #include <string>
 #include "../Field/Field.h"
+#if defined(_WIN32) || defined(__CYGWIN__)
+#include <conio.h>
+#elif defined(__linux__)
+#include <stdio.h>
+#include <stdlib.h>
+#else
+#error Unknown environment!
+#endif
+
 using namespace std;
 
 std::wstring repeat(std::wstring a, unsigned int b);
@@ -23,5 +32,15 @@ void PrintField(Field _field);
 vector<string> RebuildFieldInStrings(Field _field);
 
 void PrintFieldInStrings(vector<string> _field);
+
+const int* Massive_of_rand_l();
+
+const int* Massive_of_rand_h();
+
+Field* Make_border(const int* arr_h, const int* arr_l);
+
+int* rand_arr(const int a);
+
+char _getchar();
 
 #endif
