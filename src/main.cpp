@@ -13,6 +13,7 @@
 #include "include/fmt/format.h"
 #include "include/fmt/format-inl.h"
 #include "src/format.cc"
+#include "../MapGenerator/MapGenerate.h"
 ButtonClickEvent onClickEvent;
 
 //class Test : OnButtonClickHandler {
@@ -45,5 +46,7 @@ int main() {
     }
     //fmt::print("Hello World"); //https://hackingcpp.com/cpp/libs/fmt.html
     return 0;
+
+  
 }
 

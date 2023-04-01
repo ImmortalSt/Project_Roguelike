@@ -1,6 +1,8 @@
 #include "../Field/Field.h"
 #include <time.h>
 #include "../utills/utils.h"
+#include "../enemies/enemies.h"
+#include"../Player/Player.h"
 
 //void PrintField(Field* _field) {
 //	for (int i = 0; i < _field->GetHeight(); i++) {
@@ -12,8 +14,14 @@
 //}
 
 class Map_gen {
+private:
+	Player igrok;
+	Enemy zomb;
+	Field* pole;
 public:
-	Field* Generate(const int num_en, const int num_rm) {
+
+	Map_gen* Generate(const int num_en, const int num_rm) {
+		Map_gen* map;
 		const int* arr_l = Massive_of_rand_l();
 		const int* arr_h = Massive_of_rand_h();
 		Field* ma = Make_border(arr_h, arr_l);
@@ -109,21 +117,34 @@ public:
 
 			}
 		}
-		/*int a = 0;
-		for (int i = 0; i < 22; i++) {
-			for (int j = 0; j < 134; j++) {
-				int l =  1 + rand() % 22;
-				int k = 1 +  rand() % 134;
-				if (ma->GetCellChar(l, k) == pass) {
-					ma->SetCell(l, k, enemy);
-					a++;
-					if (a >= num_en) {
-						break;
-					}
+		map->pole = ma;
+
+		int a = 0;
+		for (int i = 0; i < 22 * 134; i++) {
+			int l =  1 + rand() % 22;
+			int k = 1 +  rand() % 134;
+			if (ma->GetCellChar(l, k) == pass) {
+				ma->SetCell(l, k, enemy);
+				a++;
+				if (a >= num_en) {
+					break;
 				}
 			}
-		}*/
-		return ma;
+		}
+
+		return map;
+	}
+
+	Field* GetField() {
+		return pole;
+	}
+
+	Enemy GetEnemy() {
+		return zomb;
+	}
+
+	Player GetPlayer() {
+		return igrok;
 	}
 };
 

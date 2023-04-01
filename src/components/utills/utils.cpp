@@ -53,10 +53,10 @@ Field GetTestField() {
 	return _field;
 };
 
-void PrintField(Field _field) {
-	for (int i = 0; i < _field.GetHeight(); i++) {
-		for (int j = 0; j < _field.GetWidth(); j++) {
-			auto a = _field.GetCellChar(i, j);
+void PrintField(Field* _field) {
+	for (int i = 0; i < _field->GetHeight(); i++) {
+		for (int j = 0; j < _field->GetWidth(); j++) {
+			auto a = _field->GetCellChar(i, j);
 			std::wcout << a;
 		}
 		std::wcout << std::endl;
