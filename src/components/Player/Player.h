@@ -1,113 +1,81 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <iostream>
+#include <stdio.h>
 #include "../inventory/inventory.h"
 class Player {
 private:
-	std::string name;
-	int hp;
-
-	int shield;
-	int x;
-	int y;
-
-	int armor;
-	int damage;
-	Inventory inventory;
+	std::string m_name;
+	int m_hp;
+	int m_armor;
+	int m_x;
+	int m_y;
+	int m_damage;
+	Inventory m_inventory;
 public:
-	Player() {
 
-	}
-	Player(std::string _name, int _hp, int _armor, int _x, int _y) {
-		name = _name;
-		hp = _hp;
-		armor = _armor;
-		x = _x;
-		y = _y;
-	Player(std::string _name, int _hp, int _damage, int _armor) {
-		name = _name;
-		hp = _hp;
-		armor = _armor;
-		damage = _damage;
+	Player(std::string name, int hp, int damage, int armor, Inventory inventory, int x, int y)
+		: m_name(name), m_hp(hp), m_damage(damage), m_armor(armor), m_inventory(inventory), m_x(x), m_y(y) {}
+
+	std::string getName() const {
+		return m_name;
 	}
 
-	Player(std::string _name) {
-		name = _name;
+	int getHP() {
+		return m_hp;
 	}
 
-	int GetHP() {
-		return hp;
+	void addHP(int hp) {
+		m_hp += hp;
 	}
 
-	void AddHP(int _hp) {
-
-	void TakeDamage(int damage) {
-		hp -= damage;
+	void takeDamage(int damage) {
+		m_hp -= damage;
+		if (m_hp <= 0) {
+			//
+		}
 	}
 
-	void addHP(int _hp) {
-		hp += _hp;
-	}
-	
-
-	int GetArmor() {
-		return armor;
+	int getDamage(int damage) {
+		m_damage = damage;
 	}
 
-	void setArmor(int _armor) {
-		armor = _armor;
+	int addDamage(int damage) {
+		m_damage += damage;
 	}
 
-	int addArmor(int _armor) {
-		armor += _armor;
+	int getArmor() {
+		return m_armor;
 	}
 
-	void TakeDamage(int damage) {
-		hp -= damage;
+	int addArmor(int armor) {
+		m_armor += armor;
 	}
 
-	int getDamage(int _damage) {
-		damage = _damage;
-	}
-	int addDamage(int _damage) {
-		damage += _damage;
-	}
 
 	void GetSprite() {
 		throw std::exception("It is not realized yet");
 	}
 
-	std::string GetName() {
-		return name;
-	}
-	
-	int getDamage(int _damage) {
-		damage = _damage;
-	}
-	int addDamage(int _damage) {
-		damage += _damage;
-	}
-
-
-	void SetX(int _x) {
-		x = _x;
+	void SetX(int x) {
+		m_x = x;
 	}
 
 	int GetX() {
-		return x;
+		return m_x;
 	}
 
-	void SetY(int _y) {
-		y = _y;
+	void SetY(int y) {
+		m_y = y;
 	}
 
 	int GetY() {
-		return y;
+		return m_y;
 	}
 
-	void SetXY(int _x, int _y) {
-		x = _x;
-		y = _y;
+	void SetXY(int x, int y) {
+		m_x = x;
+		m_y = y;
 	}
 };
 

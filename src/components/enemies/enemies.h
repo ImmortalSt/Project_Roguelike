@@ -1,13 +1,17 @@
 ﻿class Enemy {
 protected:
-    int m_health;
-    int m_attack;
-    int m_defense;
+    int m_hp;
+    int m_damage;
+    int m_armor;
 
     int x;
     int y;
 
 public:
+
+    Enemy(int hp, int damage, int armor)
+        : m_hp(hp), m_damage(damage), m_armor(armor) {}
+
     Enemy() {
 
     }
@@ -17,6 +21,7 @@ public:
         y = _y;
     }
 
+
     virtual ~Enemy() {}
 
     virtual void update() {}
@@ -25,22 +30,22 @@ public:
 
     virtual void takeDamage(int damage) {
         // Вычисляем получаемый урон, учитывая защиту врага
-        int actualDamage = damage - m_defense;
+        int actualDamage = damage - m_armor;
         if (actualDamage > 0) {
-            m_health -= actualDamage;
+            m_hp -= actualDamage;
         }
     }
 
-    virtual int getHealth() const {
-        return m_health;
+    virtual int getHp() const {
+        return m_hp;
     }
 
-    virtual int getAttack() const {
-        return m_attack;
+    virtual int getDamage() const {
+        return m_damage;
     }
 
-    virtual int getDefense() const {
-        return m_defense;
+    virtual int getArmor() const {
+        return m_armor;
     }
 
     void SetX(int _x) {

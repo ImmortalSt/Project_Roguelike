@@ -9,11 +9,7 @@
 #include "ExternalThread.h"
 #include <thread>
 #include "components/Events/OnButtonClickHandler.h"
-#include "include/fmt/core.h"
-#include "include/fmt/format.h"
-#include "include/fmt/format-inl.h"
-#include "src/format.cc"
-#include "../MapGenerator/MapGenerate.h"
+
 ButtonClickEvent onClickEvent;
 
 //class Test : OnButtonClickHandler {
@@ -22,7 +18,27 @@ ButtonClickEvent onClickEvent;
 //    }
 //};
 
+BOOL ShowConsoleCursor(BOOL bShow)
+{
+    CONSOLE_CURSOR_INFO cci;
+    HANDLE hStdOut;
+    hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    if (hStdOut == INVALID_HANDLE_VALUE)
+        return FALSE;
+    if (!GetConsoleCursorInfo(hStdOut, &cci))
+        return FALSE;
+    cci.bVisible = bShow;
+    if (!SetConsoleCursorInfo(hStdOut, &cci))
+        return FALSE;
+    return TRUE;
+}
+
 int main() {
+
+    ShowConsoleCursor(FALSE);
+
+
+    ShowCursor(FALSE);
     _setmode(_fileno(stdout), _O_U16TEXT);
 
     std::thread EventsObservebleThread(EventsObservebleThreadFunction, onClickEvent);
@@ -44,9 +60,7 @@ int main() {
         temp[0].lines = a->GetAsset(Assets::AssetsName::Test);
         display->printFrame(FrameNames::Test, temp, 500);
     }
-    //fmt::print("Hello World"); //https://hackingcpp.com/cpp/libs/fmt.html
+    
     return 0;
-
-  
 }
 

@@ -34,7 +34,7 @@ public:
         switch (id) {
         case 1:
             if (damageBoosts > 0) {
-                inventory.AddItem(item, player);
+                inventory.addItem(item, player);
                 inventory.removeCoins(100);
                 damageBoosts--;
                 return true;
@@ -43,7 +43,7 @@ public:
 
         case 2:
             if (healthBoosts > 0) {
-                inventory.AddItem(item, player);
+                inventory.addItem(item, player);
                 inventory.removeCoins(100);
                 healthBoosts--;
                 return true;
@@ -52,7 +52,7 @@ public:
 
         case 3:
             if (armorBoosts > 0) {
-                inventory.AddItem(item, player);
+                inventory.addItem(item, player);
                 inventory.removeCoins(100);
                 armorBoosts--;
                 return true;

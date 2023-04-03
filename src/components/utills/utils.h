@@ -1,4 +1,4 @@
-#ifndef UTILS_H
+﻿#ifndef UTILS_H
 #define UTILS_H
 
 #include <iostream>
@@ -18,6 +18,7 @@
 #endif
 
 using namespace std;
+
 
 std::wstring repeat(std::wstring a, unsigned int b);
 
