@@ -7,7 +7,6 @@
 #include <map>
 #include "Frames/FrameBase.h"
 #include "Assets/Assets.h"
-
 class Display {
 private:
     static Display* _display;

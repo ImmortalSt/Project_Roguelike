@@ -1,7 +1,22 @@
+#define FMT_HEADER_ONLY
+
 #include "display.h"
 #include <iostream>
 #include <Windows.h>
 #include "../utills/utils.h"
+#include "../fastprint/include/fmt/core.h"
+#include "../fastprint/include/fmt/xchar.h"
+#include "../fastprint/include/fmt/args.h"
+#include "../fastprint/include/fmt/format.h"
+#include "../fastprint/include/fmt/chrono.h"
+#include "../fastprint/include/fmt/compile.h"
+#include "../fastprint/include/fmt/format-inl.h"
+#include "../fastprint/include/fmt/os.h"
+#include "../fastprint/include/fmt/ostream.h"
+#include "../fastprint/include/fmt/printf.h"
+#include "../fastprint/include/fmt/ranges.h"
+#include "../fastprint/include/fmt/std.h"
+#include "../fastprint/include/fmt/color.h"
 
 Display* Display::_display = 0;
 
@@ -24,8 +39,8 @@ void Display::printFrame(FrameNames name, std::vector<FrameComponent> frameCompo
     for (int i = 0; i < frame->HEIGHT; i++)
         _final_string.append(_currentFrame[i]);
     Clear();
-    //fmt::printf("%ls", _final_string);
-    std::wcout << _final_string;
+    fmt::print( L"{}", fmt::styled(_final_string, fmt::fg(fmt::color::green)));
+    //std::wcout << _final_string;
     Sleep(freeze);
 }
 Display* Display::getDisplay(){

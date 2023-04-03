@@ -10,31 +10,32 @@ using namespace std;
 class Inventory {
 	private:
 
-	std::vector<Item> _inventory;
-	int _coins;
+	std::vector<Item> m_inventory;
+	int m_coins;
 
 	public:
+		Inventory(std::vector<Item> inventory, int coins) : m_inventory(inventory), m_coins(coins) {}
 
 	int getCoins(int coins) {
-			return _coins;
+			return m_coins;
 	}
 
 	void addCoins(int coins) {
-		coins += _coins;
+		coins += m_coins;
 	}
 
 	bool removeCoins(int coins) {
-		if (coins > _coins) {
+		if (coins > m_coins) {
 			return false;
 		}
 		else {
-			_coins -= coins;
+			m_coins -= coins;
 			return true;
 		}
 	}
 
-	bool AddItem(Item item, Player player) {
-		_inventory.push_back(item);
+	bool addItem(Item item, Player player) {
+		m_inventory.push_back(item);
 		if (item.getName() == "DamageUp") {
 			player.addDamage(10);
 			return true;
@@ -55,20 +56,20 @@ class Inventory {
 
 		std::string target = item.getName();
 
-		std::vector<Item>::iterator it = find(_inventory.begin(), _inventory.end(), target);
+		std::vector<Item>::iterator it = find(m_inventory.begin(), m_inventory.end(), target);
 
-		if (it == _inventory.end())
+		if (it == m_inventory.end())
 			return false;
 		else
 			//int idx = std::distance(_inventory.begin(), it);
-			_inventory.erase(it);
+			m_inventory.erase(it);
 			return true;
 	}
 
 	int getCount(Item item) {
 		std::string target = item.getName();
 
-		int count = std::count(_inventory.begin(), _inventory.end(), target);
+		int count = std::count(m_inventory.begin(), m_inventory.end(), target);
 
 		return count;
 	}

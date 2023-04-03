@@ -2,12 +2,12 @@
 
 class MutantZombie : public Enemy {   // Мутировавший зомби, урон атака защита умножены на int
 private:
-    int m_healthMultiplier;
-    int m_attackMultiplier;
-    int m_defenseMultiplier;
+    int m_hpMultiplier;
+    int m_damageMultiplier;
+    int m_armorMultiplier;
 public:
-    MutantZombie(int health, int attack, int defense, int healthMultiplier, int attackMultiplier, int defenseMultiplier)
-        : Enemy(health, attack, defense), m_healthMultiplier(healthMultiplier), m_attackMultiplier(attackMultiplier), m_defenseMultiplier(defenseMultiplier) {}
+    MutantZombie(int hp, int damage, int armor, int hpMultiplier, int damageMultiplier, int armorMultiplier)
+        : Enemy(hp, damage, armor), m_hpMultiplier(hpMultiplier), m_damageMultiplier(damageMultiplier), m_armorMultiplier(armorMultiplier) {}
 
     virtual ~MutantZombie() {}
 
@@ -19,15 +19,15 @@ public:
         // Для будущего использования
     }
 
-    virtual int getHealth() const {
-        return m_health * m_healthMultiplier;
+    virtual int getHp() const {
+        return m_hp * m_hpMultiplier;
     }
 
-    virtual int getAttack() const {
-        return m_attack * m_attackMultiplier;
+    virtual int getDamage() const {
+        return m_damage * m_damageMultiplier;
     }
 
-    virtual int getDefense() const {
-        return m_defense * m_defenseMultiplier;
+    virtual int getArmor() const {
+        return m_armor * m_armorMultiplier;
     }
 };
