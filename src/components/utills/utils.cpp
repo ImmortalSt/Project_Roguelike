@@ -127,16 +127,23 @@ Field* Make_border(const int* arr_h, const int* arr_l) {
 
 int* rand_arr(const int a) {
 	int* arr = new int[a];
-	arr[0] = 1 + rand() % 12;
-	for (int i = 0; i < a + 1; i++) {
-		arr[i + 1] = 1 + rand() % 12;
-		if (arr[i + 1] != arr[i]) {
-
+	int b = 0;
+	int c = 0;
+	int d = 0;
+	for (int i = 0; i < a; i++) {
+		b = 1 + rand() % 12;
+		for (c; c < i + 1; c++) {
+			if (arr[c] != b) {
+				d++;
+				if (d == i + 1)
+					arr[i] = b;
+			}
+			else {
+				i--;
+			}
 		}
-		else {
-			i = 0;
-		}
-
+		d = 0;
+		c = 0;
 	}
 	return arr;
 }
