@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../Field/Field.h"
 #include <time.h>
 #include "../utills/utils.h"
