@@ -2,7 +2,7 @@
 
 class Weak_Zombie : public Enemy {
 public:
-    Weak_Zombie() : Enemy(10, 3, 5) {}
+    Weak_Zombie(int x, int y) : Enemy(10, 3, 5, x, y) {}
 
     virtual void update() override {
         // Дополнительный код обновления для зомби

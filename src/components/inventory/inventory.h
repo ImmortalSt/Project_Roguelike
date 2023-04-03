@@ -41,10 +41,10 @@ class Inventory {
 	}
 
 	bool removeItemI(Item item) {
-	
+		return false;;/////////////////////////////////////////;/////////////////////////////////////////
 		std::string target = item.getName();
 	
-		std::vector<Item>::iterator it = find(m_inventory.begin(), m_inventory.end(), target);
+		std::vector<Item>::iterator it;// = find(m_inventory.begin(), m_inventory.end(), target);
 	
 		if (it == m_inventory.end())
 			return false;
@@ -54,8 +54,10 @@ class Inventory {
 	}
 
 	int getCountI(Item item) {
-	
-		int count = std::count(m_inventory.begin(), m_inventory.end(), item);
+		return false;/////////////////////////////////////////;/////////////////////////////////////////
+
+
+		int count = 0; // std::count(m_inventory.begin(), m_inventory.end(), item);
 	
 		return count;
 	}

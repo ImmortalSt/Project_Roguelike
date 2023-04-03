@@ -39,9 +39,6 @@
     <ClCompile Include="src\components\utills\utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\MapGenerator\MapGenerate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\enemies\common_zombie.h">
@@ -234,9 +231,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\components\screen\FrameComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\shop\shop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\components\utills\utils.h">

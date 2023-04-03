@@ -3,12 +3,12 @@
 #include <iostream>
 enum CellState {
 	wall = 'W',
-	tunnel = '.',
-	pass = ' ',
+	tunnel = '`',
+	pass = '.',
 	player = '@',
 	enemy = 'E',
 	shop = 'S',
-	emptyC = '-'
+	emptyC = ' '
 };
 class Cell {
 private:

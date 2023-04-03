@@ -8,6 +8,7 @@
 #include <iostream>
 #include "components/Engine/Engine.h"
 #include "components/MapGenerator/MapGenerate.h"
+#include "components/Scene/RunnerSceneFirstLevel.h"
 
 BOOL ShowConsoleCursor(BOOL bShow)
 {
@@ -27,16 +28,18 @@ BOOL ShowConsoleCursor(BOOL bShow)
 int main() {
 
     ShowConsoleCursor(FALSE);
-
-    Map_gen* a = new Map_gen();
-
-    PrintField(a->Generate(3, 3, 0)->GetField());
-
     ShowCursor(FALSE);
     _setmode(_fileno(stdout), _O_U16TEXT);
 
+    Engine* engine = new Engine();
+    Inventory inventory(std::vector<Item>(), 100);
+    Player* player = new Player("Player", 100, 10, 0, inventory, 0, 0);
+
+    RunnerSceneFirstLevel* firstScene = new RunnerSceneFirstLevel(player);
     
-    
+    engine->StartScene((Scene*)firstScene);
+
+
     return 0;
 }
 

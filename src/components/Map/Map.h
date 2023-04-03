@@ -13,6 +13,14 @@ private:
 	CellState playerscell;
 	std::vector<CellState> enemiescell;
 public:
+	Player* GetPlayer() {
+		return player_;
+	}
+
+	std::vector<Enemy>* GetEnemies() {
+		return enemies;
+	}
+
 
 	Field* GetField() {
 		return field;
@@ -31,26 +39,26 @@ public:
 	void MovePlayer(char side) {
 
 		if (side == 'l') {
-			if ((field->GetCellState(player_->GetY(), player_->GetX() - 1) != wall) && (field->GetCellState(player_->GetY(), player_->GetX() - 1) != empt) && (field->GetCellState(player_->GetY(), player_->GetX() - 1) != enemy)) {
+			if ((field->GetCellState(player_->GetY(), player_->GetX() - 1) != wall) && (field->GetCellState(player_->GetY(), player_->GetX() - 1) != emptyC) && (field->GetCellState(player_->GetY(), player_->GetX() - 1) != enemy)) {
 				field->SetCell(player_->GetY(), player_->GetX(), field_copy.GetCellState(player_->GetY(), player_->GetX()));
 				player_->SetX(player_->GetX() - 1);
 			}
 		}
 		else if (side == 'r') {
-			if ((field->GetCellState(player_->GetY(), player_->GetX() + 1) != wall) && (field->GetCellState(player_->GetY(), player_->GetX() + 1) != empt) && (field->GetCellState(player_->GetY(), player_->GetX() + 1) != enemy)) {
+			if ((field->GetCellState(player_->GetY(), player_->GetX() + 1) != wall) && (field->GetCellState(player_->GetY(), player_->GetX() + 1) != emptyC) && (field->GetCellState(player_->GetY(), player_->GetX() + 1) != enemy)) {
 				field->SetCell(player_->GetY(), player_->GetX(), field_copy.GetCellState(player_->GetY(), player_->GetX()));
 				player_->SetX(player_->GetX() + 1);
 			}
 		}
 		else if (side == 'u') {
-			if ((field->GetCellState(player_->GetY() - 1, player_->GetX()) != wall) && (field->GetCellState(player_->GetY() - 1, player_->GetX()) != empt) && (field->GetCellState(player_->GetY() - 1, player_->GetX()) != enemy)) {
+			if ((field->GetCellState(player_->GetY() - 1, player_->GetX()) != wall) && (field->GetCellState(player_->GetY() - 1, player_->GetX()) != emptyC) && (field->GetCellState(player_->GetY() - 1, player_->GetX()) != enemy)) {
 				field->SetCell(player_->GetY(), player_->GetX(), field_copy.GetCellState(player_->GetY(), player_->GetX()));
 				player_->SetY(player_->GetY() - 1);
 			}
 		}
 		else if (side == 'd') {
 
-			if ((field->GetCellState(player_->GetY() + 1, player_->GetX()) != wall) && (field->GetCellState(player_->GetY() + 1, player_->GetX()) != empt) && (field->GetCellState(player_->GetY() + 1, player_->GetX()) != enemy)) {
+			if ((field->GetCellState(player_->GetY() + 1, player_->GetX()) != wall) && (field->GetCellState(player_->GetY() + 1, player_->GetX()) != emptyC) && (field->GetCellState(player_->GetY() + 1, player_->GetX()) != enemy)) {
 				field->SetCell(player_->GetY(), player_->GetX(), field_copy.GetCellState(player_->GetY(), player_->GetX()));
 				player_->SetY(player_->GetY() + 1);
 			}
@@ -66,26 +74,26 @@ public:
 		Enemy* e = &enemies->at(id);
 
 		if (side == 'l') {
-			if ((field->GetCellState(e->GetY(), e->GetX() - 1) != wall) && (field->GetCellState(e->GetY(), e->GetX() - 1) != empt) && (field->GetCellState(e->GetY(), e->GetX() - 1) != player)) {
+			if ((field->GetCellState(e->GetY(), e->GetX() - 1) != wall) && (field->GetCellState(e->GetY(), e->GetX() - 1) != emptyC) && (field->GetCellState(e->GetY(), e->GetX() - 1) != player)) {
 				field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
 				e->SetX(e->GetX() - 1);
 				std::cout << e->GetX();
 			}
 		}
 		else if (side == 'r') {
-			if ((field->GetCellState(e->GetY(), e->GetX() + 1) != wall) && (field->GetCellState(e->GetY(), e->GetX() + 1) != empt) && (field->GetCellState(e->GetY(), e->GetX() + 1) != player)) {
+			if ((field->GetCellState(e->GetY(), e->GetX() + 1) != wall) && (field->GetCellState(e->GetY(), e->GetX() + 1) != emptyC) && (field->GetCellState(e->GetY(), e->GetX() + 1) != player)) {
 				field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
 				e->SetX(e->GetX() + 1);
 			}
 		}
 		else if (side == 'u') {
-			if ((field->GetCellState(e->GetY() - 1, e->GetX()) != wall) && (field->GetCellState(e->GetY() - 1, e->GetX()) != empt) && (field->GetCellState(e->GetY() - 1, e->GetX()) != player)) {
+			if ((field->GetCellState(e->GetY() - 1, e->GetX()) != wall) && (field->GetCellState(e->GetY() - 1, e->GetX()) != emptyC) && (field->GetCellState(e->GetY() - 1, e->GetX()) != player)) {
 				field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
 				e->SetY(e->GetY() - 1);
 			}
 		}
 		else if (side == 'd') {
-			if ((field->GetCellState(e->GetY() + 1, e->GetX()) != wall) && (field->GetCellState(e->GetY() + 1, e->GetX()) != empt) && (field->GetCellState(e->GetY() + 1, e->GetX()) != player)) {
+			if ((field->GetCellState(e->GetY() + 1, e->GetX()) != wall) && (field->GetCellState(e->GetY() + 1, e->GetX()) != emptyC) && (field->GetCellState(e->GetY() + 1, e->GetX()) != player)) {
 				field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
 				e->SetY(e->GetY() + 1);
 			}
@@ -126,7 +134,7 @@ public:
 		Field pole = Field(field->GetHeight(), field->GetWidth());
 		for (int i = 0; i < pole.GetHeight(); i++) {
 			for (int j = 0; j < pole.GetWidth(); j++) {
-				pole.SetCell(i, j, empt);
+				pole.SetCell(i, j, emptyC);
 			}
 		}
 		pole.SetCell(y, x, player);
@@ -400,10 +408,5 @@ public:
 	}
 
 };
-
-
-
-
-
 
 #endif

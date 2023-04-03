@@ -9,6 +9,6 @@ public:
 	Engine() {}
 
 	int StartScene(Scene* scene) {
-		scene->StartScene();
+		return scene->StartScene();
 	}
 };
