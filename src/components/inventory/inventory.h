@@ -17,15 +17,15 @@ class Inventory {
 	public:
 		Inventory(std::vector<Item> inventory, int coins) : m_inventory(inventory), m_coins(coins) {}
 
-	int getCoins(int coins) {
+	int getCoinsI() {
 			return m_coins;
 	}
 
-	void addCoins(int coins) {
+	void addCoinsI(int coins) {
 		coins += m_coins;
 	}
 
-	bool removeCoins(int coins) {
+	bool removeCoinsI(int coins) {
 		if (coins > m_coins) {
 			return false;
 		}
@@ -35,45 +35,30 @@ class Inventory {
 		}
 	}
 
-	//bool addItem(Item item, Player player) {
-	//	m_inventory.push_back(item);
-	//	if (item.getName() == "DamageUp") {
-	//		player.addDamage(10);
-	//		return true;
-	//	}
-	//	if (item.getName() == "ArmorUp") {
-	//		player.addArmor(10);
-	//		return true;
-	//	}
-	//	if (item.getName() == "HealthUp") {
-	//		player.addHP(30);
-	//		return true;
-	//	}
-	//	else {
-	//		return false;
-	//	}
-	//}
-	//bool removeItem(Item item) {
-	//
-	//	std::string target = item.getName();
-	//
-	//	std::vector<Item>::iterator it = find(m_inventory.begin(), m_inventory.end(), target);
-	//
-	//	if (it == m_inventory.end())
-	//		return false;
-	//	else
-	//		//int idx = std::distance(_inventory.begin(), it);
-	//		m_inventory.erase(it);
-	//		return true;
-	//}
+	bool addItemI(Item item) {
+		m_inventory.push_back(item);
+		return true;
+	}
 
-	//int getCount(Item item) {
-	//	std::string target = item.getName();
-	//
-	//	int count = std::count(m_inventory.begin(), m_inventory.end(), item);
-	//
-	//	return count;
-	//}
+	bool removeItemI(Item item) {
+	
+		std::string target = item.getName();
+	
+		std::vector<Item>::iterator it = find(m_inventory.begin(), m_inventory.end(), target);
+	
+		if (it == m_inventory.end())
+			return false;
+		else
+			m_inventory.erase(it);
+			return true;
+	}
+
+	int getCountI(Item item) {
+	
+		int count = std::count(m_inventory.begin(), m_inventory.end(), item);
+	
+		return count;
+	}
 
 
 };
