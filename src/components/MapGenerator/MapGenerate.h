@@ -5,6 +5,10 @@
 #include "../utills/utils.h"
 #include "../enemies/enemies.h"
 #include"../Player/Player.h"
+#include "../enemies/common_zombie.h"
+#include "../enemies/weak_zombie.h"
+#include "../enemies/evolved_zombie.h"
+#include "../enemies/mutant_zombie.h"
 
 //void PrintField(Field* _field) {
 //	for (int i = 0; i < _field->GetHeight(); i++) {
@@ -17,12 +21,15 @@
 
 class Map_gen {
 private:
-	vector<Enemy> banda_pidorov;
+	vector<Common_Zombie>* banda_pidorov;
+	vector<Weak_Zombie>* omejki;
+	vector<MutantZombie>* sigmas;
+	vector<Evolved_Zombie>* giga_chads;
 	Field* pole;
 public:
-	Map_gen() {}
-	Map_gen* Generate(const int num_weaks, const int num_rm, Player* igrok) {//, const int num_normal) {
-		Map_gen* map;
+	Map_gen() { }
+	Map_gen* Generate(const int num_weaks, const int num_rm, Player* igrok, const int num_normal, const int num_sigmas, const int num_giga_chads) {
+		Map_gen* map = new Map_gen();
 		const int* arr_l = Massive_of_rand_l();
 		const int* arr_h = Massive_of_rand_h();
 		Field* ma = Make_border(arr_h, arr_l);
@@ -120,19 +127,54 @@ public:
 
 		int l = 0;
 		int k = 0;
-		int d = 0;
-		map->banda_pidorov.reserve(num_weaks);
+		int d = 0, e = 0, f = 0, g = 0;
+		map->banda_pidorov = new vector<Common_Zombie>[num_normal];
+		map->giga_chads = new vector<Evolved_Zombie>[num_giga_chads];
+		map->sigmas = new vector<MutantZombie>[num_sigmas];
+		map->omejki = new vector<Weak_Zombie>[num_weaks];
 
 		for (int i = 0; i < 22 * 134; i++) {
-			l = 1 + rand() % 134;
-			k = 1 + rand() % 22;
+			l = 2 + rand() % 134;
+			k = 2 + rand() % 22;
 			if (ma->GetCellState(k, l) == pass) {
-				map->banda_pidorov[d].SetXY(l, k);
+				map->banda_pidorov[d];
 				d++;
-				if (d == num_weaks)
+			}
+				if (d == num_normal)
+					break;
+		}
+		for (int i = 0; i < 22 * 134; i++) {
+			l = 2 + rand() % 134;
+			k = 2 + rand() % 22;
+			if (ma->GetCellState(k, l) == pass) {
+			map->omejki[e];
+			e++;
+			if (e == num_weaks)
+				break;
+			
+			}
+		}
+		for (int i = 0; i < 22 * 134; i++) {
+			l = 2 + rand() % 134;
+			k = 2 + rand() % 22;
+			if (ma->GetCellState(k, l) == pass) {
+				map->sigmas[f];
+				f++;
+				if (f == num_sigmas)
 					break;
 			}
 		}
+		for (int i = 0; i < 22 * 134; i++) {
+			l = 2 + rand() % 134;
+			k = 2 + rand() % 22;
+			if (ma->GetCellState(k, l) == pass) {
+				map->giga_chads[g];
+				g++;
+				if (g == num_giga_chads)
+					break;
+			}
+		}
+
 		map->pole = ma;
 		return map;
 	}
@@ -141,22 +183,7 @@ public:
 		return pole;
 	}
 
-	vector<Enemy> GetEnemy() {
+	vector<Common_Zombie>* GetCommons() {
 		return banda_pidorov;
 	}
 };
-
-
-
-
-
-
-
-
-
-//int main() {
-//	srand(time(0));
-//	Map_gen* a = new Map_gen;
-//	Field* b = a->Generate(6, 10);
-//	PrintField(b);
-//}
