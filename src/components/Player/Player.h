@@ -2,6 +2,9 @@
 #define PLAYER_H
 #include <iostream>
 #include <stdio.h>
+#include <vector>
+#include <string>
+#include <algorithm>
 #include "../inventory/inventory.h"
 
 class Player {
@@ -52,6 +55,47 @@ public:
 
 	int addArmor(int armor) {
 		m_armor += armor;
+	}
+
+	bool addItem(Item item, Player player) {
+		m_inventory.addItemI(item);
+		if (item.getName() == "DamageUp") {
+			player.addDamage(10);
+			return true;
+		}
+		if (item.getName() == "ArmorUp") {
+			player.addArmor(10);
+			return true;
+		}
+		if (item.getName() == "HealthUp") {
+			player.addHP(30);
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	bool removeItem(Item item) {
+		m_inventory.removeItemI(item);		
+	}
+
+	int getCount(Item item) {
+		int count = m_inventory.getCountI(item);
+
+		return count;
+	}
+
+	void removeCoins(int coins) {
+		m_inventory.removeCoinsI(coins);
+	}
+
+	void addCoins(int coins) {
+		m_inventory.addCoinsI(coins);
+	}
+
+	int getCoins() {
+		return m_inventory.getCoinsI();
 	}
 
 

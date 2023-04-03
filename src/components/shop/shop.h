@@ -26,12 +26,12 @@ public:
     //}
 
 
-    bool buyItem(ItemsName id, Item item, Inventory inventory, Player player) {
+    bool buyItem(ItemsName id, Item item, Player player) {
         switch (id) {
         case 1:
             if (damageBoosts > 0) {
-                inventory.addItem(item, player);
-                inventory.removeCoins(100);
+                player.addItem(item, player);
+                player.removeCoins(100);
                 damageBoosts--;
                 return true;
             }
@@ -39,8 +39,8 @@ public:
 
         case 2:
             if (healthBoosts > 0) {
-                inventory.addItem(item, player);
-                inventory.removeCoins(100);
+                player.addItem(item, player);
+                player.removeCoins(100);
                 healthBoosts--;
                 return true;
             }
@@ -48,8 +48,8 @@ public:
 
         case 3:
             if (armorBoosts > 0) {
-                inventory.addItem(item, player);
-                inventory.removeCoins(100);
+                player.addItem(item, player);
+                player.removeCoins(100);
                 armorBoosts--;
                 return true;
             }
@@ -58,7 +58,7 @@ public:
         case 4:
             if (healthPotions > 0) {
                 player.addHP(25);
-                inventory.removeCoins(100);;
+                player.removeCoins(100);;
                 healthPotions--;
                 return true;
             }
@@ -69,12 +69,12 @@ public:
         }
     }
 
-    bool sellItem(ItemsName id, Item item, Inventory inventory) {
+    bool sellItem(ItemsName id, Item item, Player player) {
         switch (id) {
         case 1:
             if (damageBoosts < 5) {
-                inventory.removeItem(item);
-                inventory.addCoins(50);
+                player.removeItem(item);
+                player.addCoins(50);
                 damageBoosts++;
                 return true;
             }
@@ -82,8 +82,8 @@ public:
 
         case 2:
             if (healthBoosts < 5) {
-                inventory.removeItem(item);
-                inventory.addCoins(50);
+                player.removeItem(item);
+                player.addCoins(50);
                 healthBoosts++;
                 return true;
             }
@@ -91,8 +91,8 @@ public:
 
         case 3:
             if (armorBoosts < 5) {
-                inventory.removeItem(item);
-                inventory.addCoins(50);
+                player.removeItem(item);
+                player.addCoins(50);
                 armorBoosts++;
                 return true;
             }
