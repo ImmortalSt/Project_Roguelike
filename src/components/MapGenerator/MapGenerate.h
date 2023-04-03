@@ -123,7 +123,6 @@ public:
 
 		int l = 0;
 		int k = 0;
-		int d = 0, e = 0, f = 0, g = 0;
 		enemies = new vector<Enemy*>(num_normal);
 
 		for (int i = 0; i < 22 * 134; i++) {
@@ -142,7 +141,9 @@ public:
 					enemies->push_back(new MutantZombie(l, k));
 					num_giga_chads--;
 				}
-				d++;
+				else {
+					break;
+				}
 			}
 		}
 	}
