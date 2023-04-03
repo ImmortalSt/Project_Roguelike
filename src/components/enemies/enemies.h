@@ -4,9 +4,18 @@ protected:
     int m_attack;
     int m_defense;
 
+    int x;
+    int y;
+
 public:
-    Enemy(int health, int attack, int defense)
-        : m_health(health), m_attack(attack), m_defense(defense) {}
+    Enemy() {
+
+    }
+    Enemy(int health, int attack, int defense, int _x, int _y)
+        : m_health(health), m_attack(attack), m_defense(defense) {
+        x = _x;
+        y = _y;
+    }
 
     virtual ~Enemy() {}
 
@@ -32,5 +41,26 @@ public:
 
     virtual int getDefense() const {
         return m_defense;
+    }
+
+    void SetX(int _x) {
+        x = _x;
+    }
+
+    void SetY(int _y) {
+        y = _y;
+    }
+
+    void SetXY(int _x, int _y) {
+        x = _x;
+        y = _y;
+    }
+
+    int GetX() {
+        return x;
+    }
+
+    int GetY() {
+        return y;
     }
 };
