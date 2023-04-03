@@ -1,10 +1,11 @@
-#include "../items/items.h"
-#include "../Player/Player.h"
-#include "../shop/shop.h"
+#pragma once
+
 #include <vector>
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include "../items/items.h"
+
 using namespace std;
 
 class Inventory {
@@ -34,45 +35,45 @@ class Inventory {
 		}
 	}
 
-	bool addItem(Item item, Player player) {
-		m_inventory.push_back(item);
-		if (item.getName() == "DamageUp") {
-			player.addDamage(10);
-			return true;
-		}
-		if (item.getName() == "ArmorUp") {
-			player.addArmor(10);
-			return true;
-		}
-		if (item.getName() == "HealthUp") {
-			player.addHP(30);
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-	bool removeItem(Item item) {
+	//bool addItem(Item item, Player player) {
+	//	m_inventory.push_back(item);
+	//	if (item.getName() == "DamageUp") {
+	//		player.addDamage(10);
+	//		return true;
+	//	}
+	//	if (item.getName() == "ArmorUp") {
+	//		player.addArmor(10);
+	//		return true;
+	//	}
+	//	if (item.getName() == "HealthUp") {
+	//		player.addHP(30);
+	//		return true;
+	//	}
+	//	else {
+	//		return false;
+	//	}
+	//}
+	//bool removeItem(Item item) {
+	//
+	//	std::string target = item.getName();
+	//
+	//	std::vector<Item>::iterator it = find(m_inventory.begin(), m_inventory.end(), target);
+	//
+	//	if (it == m_inventory.end())
+	//		return false;
+	//	else
+	//		//int idx = std::distance(_inventory.begin(), it);
+	//		m_inventory.erase(it);
+	//		return true;
+	//}
 
-		std::string target = item.getName();
-
-		std::vector<Item>::iterator it = find(m_inventory.begin(), m_inventory.end(), target);
-
-		if (it == m_inventory.end())
-			return false;
-		else
-			//int idx = std::distance(_inventory.begin(), it);
-			m_inventory.erase(it);
-			return true;
-	}
-
-	int getCount(Item item) {
-		std::string target = item.getName();
-
-		int count = std::count(m_inventory.begin(), m_inventory.end(), target);
-
-		return count;
-	}
+	//int getCount(Item item) {
+	//	std::string target = item.getName();
+	//
+	//	int count = std::count(m_inventory.begin(), m_inventory.end(), item);
+	//
+	//	return count;
+	//}
 
 
 };

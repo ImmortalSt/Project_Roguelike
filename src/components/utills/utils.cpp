@@ -63,12 +63,12 @@ void PrintField(Field _field) {
 	}
 };
 
-vector<string> RebuildFieldInStrings(Field _field) {
-	vector<string> field;
-	field.resize(_field.GetHeight());
-	for (int i = 0; i < _field.GetHeight(); i++) {
-		for (int j = 0; j < _field.GetWidth(); j++) {
-			field[i] += _field.GetCellChar(i, j);
+vector<wstring> RebuildFieldInStrings(Field* _field) {
+	vector<wstring> field;
+	field.resize(_field->GetHeight());
+	for (int i = 0; i < _field->GetHeight(); i++) {
+		for (int j = 0; j < _field->GetWidth(); j++) {
+			field[i] += _field->GetCellChar(i, j);
 		}
 	}
 	return field;

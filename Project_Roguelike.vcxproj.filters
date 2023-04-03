@@ -39,6 +39,9 @@
     <ClCompile Include="src\components\utills\utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\MapGenerator\MapGenerate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\enemies\common_zombie.h">
@@ -60,9 +63,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Field\Field.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\inventory\inventory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\components\items\ArmorUp.h">
@@ -242,22 +242,16 @@
     <ClInclude Include="src\components\utills\utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\Events\ButtonClickEvent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\Events\IAction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\Events\IEvent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\Events\OnButtonClickHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\MapGenerator\MapGenerate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ExternalThread.h">
+    <ClInclude Include="src\components\Engine\Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Map\Map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\inventory\inventory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

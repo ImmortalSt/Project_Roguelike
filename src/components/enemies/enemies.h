@@ -8,15 +8,10 @@ protected:
     int y;
 
 public:
-
-    Enemy(int hp, int damage, int armor)
-        : m_hp(hp), m_damage(damage), m_armor(armor) {}
-
-    Enemy() {
-
-    }
-    Enemy(int health, int attack, int defense, int _x, int _y)
-        : m_health(health), m_attack(attack), m_defense(defense) {
+    Enemy(int health, int attack, int defense, int _x, int _y) {
+        m_damage = attack;
+        m_armor = defense;
+        m_hp = health;
         x = _x;
         y = _y;
     }

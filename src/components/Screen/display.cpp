@@ -17,12 +17,16 @@
 #include "../fastprint/include/fmt/ranges.h"
 #include "../fastprint/include/fmt/std.h"
 #include "../fastprint/include/fmt/color.h"
+#include "include/fmt/core.h"
+#include "include/fmt/format.h"
+#include "include/fmt/format-inl.h"
+#include "src/format.cc"
 
 Display* Display::_display = 0;
 
 static std::vector<std::wstring> _currentFrame;
 
-void Display::printFrame(FrameNames name, std::vector<FrameComponent> frameComponents, int freeze) {
+void Display::printFrame(FrameNames name, std::vector<FrameComponent*> frameComponents, int freeze) {
     FrameBase* frame = _frames[name];
 
     _currentFrame = std::vector<std::wstring>(frame->GetFrame());
@@ -30,9 +34,9 @@ void Display::printFrame(FrameNames name, std::vector<FrameComponent> frameCompo
 
     for (int i = 0; i < frameComponents.size(); i++) {
         auto& frameComponent = frameComponents[i];
-        int componentHeight = frameComponent.lines.size();
+        int componentHeight = frameComponent->lines.size();
         for (int j = 0; j < componentHeight; j++) {
-            wcsncpy(&_currentFrame.at(frameComponent.y - j - 1).at(frameComponent.x - 1), &frameComponent.lines[componentHeight - j - 1][0], frameComponent.lines[j].size());
+            wcsncpy(&_currentFrame.at(frameComponent->y - j - 1).at(frameComponent->x - 1), &frameComponent->lines[componentHeight - j - 1][0], frameComponent->lines[j].size());
         }
     }
     _final_string.clear();
@@ -40,7 +44,6 @@ void Display::printFrame(FrameNames name, std::vector<FrameComponent> frameCompo
         _final_string.append(_currentFrame[i]);
     Clear();
     fmt::print( L"{}", fmt::styled(_final_string, fmt::fg(fmt::color::green)));
-    //std::wcout << _final_string;
     Sleep(freeze);
 }
 Display* Display::getDisplay(){

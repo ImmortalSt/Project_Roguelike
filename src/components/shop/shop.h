@@ -1,13 +1,8 @@
 ﻿#pragma once
-#include "../items/items.h"
-#include "../items/DamageUp.h"
-#include "../items/HealthUp.h"
-#include "../items/ArmorUp.h"
-#include "../Player/Player.h"
-#include "../inventory/inventory.h"
 #include <iostream>
 #include <map>
 #include <string>
+#include "../items/items.h"
 
 
 enum ItemsName {
@@ -30,7 +25,7 @@ public:
     //}
 
 
-    bool buyItem(ItemsName id, Item item, Inventory& inventory, Player& player) {
+    bool buyItem(ItemsName id, Item item, Inventory inventory, Player player) {
         switch (id) {
         case 1:
             if (damageBoosts > 0) {
@@ -73,7 +68,7 @@ public:
         }
     }
 
-    bool sellItem(ItemsName id, Item item, Inventory& inventory) {
+    bool sellItem(ItemsName id, Item item, Inventory inventory) {
         switch (id) {
         case 1:
             if (damageBoosts < 5) {

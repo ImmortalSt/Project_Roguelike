@@ -25,7 +25,7 @@ private:
 public:    
     static Display* getDisplay();
 
-    void printFrame(FrameNames name, std::vector<FrameComponent> frameComponents = std::vector<FrameComponent>(), int freeze = 0);
+    void printFrame(FrameNames name, std::vector<FrameComponent*> frameComponents = std::vector<FrameComponent*>(), int freeze = 0);
 
 };
 

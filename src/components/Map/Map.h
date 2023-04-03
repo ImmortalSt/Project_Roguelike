@@ -25,26 +25,26 @@ public:
 	}
 	void MovePlayer(char side) {
 		if (side == 'l') {
-			if ((field->GetCellState(player_->GetY(), player_->GetX() - 1) != wall) && (field->GetCellState(player_->GetY(), player_->GetX() - 1) != empt)) {
+			if ((field->GetCellState(player_->GetY(), player_->GetX() - 1) != wall) && (field->GetCellState(player_->GetY(), player_->GetX() - 1) != emptyC)) {
 				field->SetCell(player_->GetY(), player_->GetX(), field_copy.GetCellState(player_->GetY(), player_->GetX()));
 				player_->SetX(player_->GetX() - 1);
 			}
 		}
 		else if (side == 'r') {
-			if ((field->GetCellState(player_->GetY(), player_->GetX() + 1) != wall) && (field->GetCellState(player_->GetY(), player_->GetX() + 1) != empt)) {
+			if ((field->GetCellState(player_->GetY(), player_->GetX() + 1) != wall) && (field->GetCellState(player_->GetY(), player_->GetX() + 1) != emptyC)) {
 				field->SetCell(player_->GetY(), player_->GetX(), field_copy.GetCellState(player_->GetY(), player_->GetX()));
 				player_->SetX(player_->GetX() + 1);
 			}
 		}
 		else if (side == 'u') {
-			if ((field->GetCellState(player_->GetY() - 1, player_->GetX()) != wall) && (field->GetCellState(player_->GetY() - 1, player_->GetX()) != empt)) {
+			if ((field->GetCellState(player_->GetY() - 1, player_->GetX()) != wall) && (field->GetCellState(player_->GetY() - 1, player_->GetX()) != emptyC)) {
 				field->SetCell(player_->GetY(), player_->GetX(), field_copy.GetCellState(player_->GetY(), player_->GetX()));
 				player_->SetY(player_->GetY() - 1);
 			}
 		}
 		else if (side == 'd') {
 			
-			if ((field->GetCellState(player_->GetY() + 1, player_->GetX()) != wall) && (field->GetCellState(player_->GetY() + 1, player_->GetX()) != empt)) {
+			if ((field->GetCellState(player_->GetY() + 1, player_->GetX()) != wall) && (field->GetCellState(player_->GetY() + 1, player_->GetX()) != emptyC)) {
 				field->SetCell(player_->GetY(), player_->GetX(), field_copy.GetCellState(player_->GetY(), player_->GetX()));
 				player_->SetY(player_->GetY() + 1);
 			}
@@ -56,26 +56,26 @@ public:
 		Enemy* e = &enemies->at(id);
 
 		if (side == 'l') {
-			if ((field->GetCellState(e->GetY(), e->GetX() - 1) != wall) && (field->GetCellState(e->GetY(), e->GetX() - 1) != empt)) {
+			if ((field->GetCellState(e->GetY(), e->GetX() - 1) != wall) && (field->GetCellState(e->GetY(), e->GetX() - 1) != emptyC)) {
 				field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
 				e->SetX(e->GetX() - 1);
 				std::cout << e->GetX();
 			}
 		}
 		else if (side == 'r') {
-			if ((field->GetCellState(e->GetY(), e->GetX() + 1) != wall) && (field->GetCellState(e->GetY(), e->GetX() + 1) != empt)) {
+			if ((field->GetCellState(e->GetY(), e->GetX() + 1) != wall) && (field->GetCellState(e->GetY(), e->GetX() + 1) != emptyC)) {
 				field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
 				e->SetX(e->GetX() + 1);
 			}
 		}
 		else if (side == 'u') {
-			if ((field->GetCellState(e->GetY() - 1, e->GetX()) != wall) && (field->GetCellState(e->GetY() - 1, e->GetX()) != empt)) {
+			if ((field->GetCellState(e->GetY() - 1, e->GetX()) != wall) && (field->GetCellState(e->GetY() - 1, e->GetX()) != emptyC)) {
 				field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
 				e->SetY(e->GetY() - 1);
 			}
 		}
 		else if (side == 'd') {
-			if ((field->GetCellState(e->GetY() + 1, e->GetX()) != wall) && (field->GetCellState(e->GetY() + 1, e->GetX()) != empt)) {
+			if ((field->GetCellState(e->GetY() + 1, e->GetX()) != wall) && (field->GetCellState(e->GetY() + 1, e->GetX()) != emptyC)) {
 				field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
 				e->SetY(e->GetY() + 1);
 			}
@@ -86,10 +86,5 @@ public:
 		field->SetCell(player_->GetY(), player_->GetX(), player);
 	}
 };
-
-
-
-
-
 
 #endif

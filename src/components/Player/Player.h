@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdio.h>
 #include "../inventory/inventory.h"
+
 class Player {
 private:
 	std::string m_name;
@@ -29,11 +30,12 @@ public:
 		m_hp += hp;
 	}
 
-	void takeDamage(int damage) {
+	int takeDamage(int damage) {
 		m_hp -= damage;
 		if (m_hp <= 0) {
-			//
+			return 1;
 		}
+		return 0;
 	}
 
 	int getDamage(int damage) {
@@ -80,4 +82,3 @@ public:
 };
 
 #endif
-

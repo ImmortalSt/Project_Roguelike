@@ -8,7 +8,7 @@ enum CellState {
 	player = '@',
 	enemy = 'E',
 	shop = 'S',
-	empty= ' '
+	emptyC = '-'
 };
 class Cell {
 private:
@@ -16,7 +16,7 @@ private:
 
 public:
 	Cell() {
-		state = CellState::empty;
+		state = CellState::emptyC;
 	}
 
 	CellState GetState() {

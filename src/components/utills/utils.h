@@ -13,8 +13,6 @@
 #elif defined(__linux__)
 #include <stdio.h>
 #include <stdlib.h>
-#else
-#error Unknown environment!
 #endif
 
 using namespace std;
@@ -30,7 +28,7 @@ Field GetTestField();
 
 void PrintField(Field _field);
 
-vector<string> RebuildFieldInStrings(Field _field);
+vector<wstring> RebuildFieldInStrings(Field* _field);
 
 void PrintFieldInStrings(vector<string> _field);
 
