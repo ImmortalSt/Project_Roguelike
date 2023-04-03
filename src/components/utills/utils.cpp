@@ -1,5 +1,13 @@
 #include "utils.h"
 
+void setcur1(int x, int y)
+{
+	COORD coord;
+	coord.X = x;
+	coord.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+};
+
 std::wstring repeat(std::wstring a, unsigned int b)
 {
     std::wstring output = L"";
@@ -9,10 +17,11 @@ std::wstring repeat(std::wstring a, unsigned int b)
     return output;
 }
 
+
 void Clear()
 {
 #ifdef _WIN32
-    system("cls");
+	setcur1(0, 0);
     //clrscr(); // including header file : conio.h
 #elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
     system("clear");
