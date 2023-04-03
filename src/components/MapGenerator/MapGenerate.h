@@ -22,7 +22,7 @@ private:
 	Field* pole;
 public:
 
-	Map_gen* Generate(const int num_en, const int num_rm) {
+	Map_gen* Generate(const int num_weaks, const int num_rm) {//, const int num_normal) {
 		Map_gen* map;
 		const int* arr_l = Massive_of_rand_l();
 		const int* arr_h = Massive_of_rand_h();
@@ -122,7 +122,7 @@ public:
 		int l = 0;
 		int k = 0;
 		int d = 0;
-		map->banda_pidorov.reserve(num_en);
+		map->banda_pidorov.reserve(num_weaks);
 
 		for (int i = 0; i < 22 * 134; i++) {
 			l = 1 + rand() % 134;
@@ -130,7 +130,7 @@ public:
 			if (ma->GetCellState(k, l) == pass) {
 				map->banda_pidorov[d].SetXY(l, k);
 				d++;
-				if (d == num_en)
+				if (d == num_weaks)
 					break;
 			}
 		}
