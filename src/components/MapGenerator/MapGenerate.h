@@ -16,7 +16,7 @@
 class Map_gen {
 private:
 	Player igrok;
-	Enemy zomb;
+	vector<Enemy> banda_pidorov;
 	Field* pole;
 public:
 
@@ -34,7 +34,6 @@ public:
 		int mid_h3 = arr_h[2] / 2;
 		int* arr = new int[num_rm];
 		int* arr_rm = rand_arr(num_rm);
-		//FillSquare(ma, 0, 0, 22, 134, shop);
 
 		for (int i = 0; i < num_rm; i++) {
 			if (arr_rm[i] == 1) {
@@ -92,8 +91,6 @@ public:
 
 				if (i == mid_h1 && (j >= mid_l1) && (j <= (arr_l[0] + arr_l[1] + arr_l[2] + mid_l4))) {
 					ma->SetCell(i, j, tunnel);
-					/*ma->SetCell(i-1, j, wall);
-					ma->SetCell(i+ 1, j, wall);*/
 				}
 				else if (i == mid_h2 + arr_h[0] && (j >= mid_l1) && (j <= (arr_l[0] + arr_l[1] + arr_l[2] + mid_l4))) {
 					ma->SetCell(i, j, tunnel);
@@ -117,21 +114,25 @@ public:
 
 			}
 		}
-		map->pole = ma;
 
-		int a = 0;
+		map->igrok.SetXY(mid_l1, mid_h1);
+
+		int l = 0;
+		int k = 0;
+		int d = 0;
+		map->banda_pidorov.reserve(num_en);
+
 		for (int i = 0; i < 22 * 134; i++) {
-			int l =  1 + rand() % 22;
-			int k = 1 +  rand() % 134;
-			if (ma->GetCellChar(l, k) == pass) {
-				ma->SetCell(l, k, enemy);
-				a++;
-				if (a >= num_en) {
+			l = 1 + rand() % 134;
+			k = 1 + rand() % 22;
+			if (ma->GetCellState(k, l) == pass) {
+				map->banda_pidorov[d].SetXY(l, k);
+				d++;
+				if (d == num_en)
 					break;
-				}
 			}
 		}
-
+		map->pole = ma;
 		return map;
 	}
 
@@ -139,8 +140,8 @@ public:
 		return pole;
 	}
 
-	Enemy GetEnemy() {
-		return zomb;
+	vector<Enemy> GetEnemy() {
+		return banda_pidorov;
 	}
 
 	Player GetPlayer() {
