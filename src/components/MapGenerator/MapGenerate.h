@@ -17,12 +17,11 @@
 
 class Map_gen {
 private:
-	Player igrok;
 	vector<Enemy> banda_pidorov;
 	Field* pole;
 public:
-
-	Map_gen* Generate(const int num_weaks, const int num_rm) {//, const int num_normal) {
+	Map_gen() {}
+	Map_gen* Generate(const int num_weaks, const int num_rm, Player* igrok) {//, const int num_normal) {
 		Map_gen* map;
 		const int* arr_l = Massive_of_rand_l();
 		const int* arr_h = Massive_of_rand_h();
@@ -117,7 +116,7 @@ public:
 			}
 		}
 
-		map->igrok.SetXY(mid_l1, mid_h1);
+		igrok->SetXY(mid_l1, mid_h1);
 
 		int l = 0;
 		int k = 0;
@@ -144,10 +143,6 @@ public:
 
 	vector<Enemy> GetEnemy() {
 		return banda_pidorov;
-	}
-
-	Player GetPlayer() {
-		return igrok;
 	}
 };
 

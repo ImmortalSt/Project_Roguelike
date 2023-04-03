@@ -1,4 +1,6 @@
-﻿class Enemy {
+﻿#pragma once
+
+class Enemy {
 protected:
     int m_hp;
     int m_damage;

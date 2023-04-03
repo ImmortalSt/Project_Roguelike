@@ -7,6 +7,7 @@
 #include <fstream>
 #include <iostream>
 #include "components/Engine/Engine.h"
+#include "components/MapGenerator/MapGenerate.h"
 
 BOOL ShowConsoleCursor(BOOL bShow)
 {
@@ -27,6 +28,9 @@ int main() {
 
     ShowConsoleCursor(FALSE);
 
+    Map_gen* a = new Map_gen();
+
+    PrintField(a->Generate(3, 3, 0)->GetField());
 
     ShowCursor(FALSE);
     _setmode(_fileno(stdout), _O_U16TEXT);

@@ -3,12 +3,14 @@
 #include "../Screen/display.h"
 #include "../utills/utils.h"
 
-class RunnerScene : Scene
+class RunnerSceneBase : Scene
 {
 public:
+	virtual Map* GetMap();
 
 
-	int StartScene(Map map) override {
+	int StartScene() override {
+		Map map = *GetMap();
 		Display* _display = Display::getDisplay();
 		FrameComponent fieldComponent;
 		std::vector<FrameComponent*> components;

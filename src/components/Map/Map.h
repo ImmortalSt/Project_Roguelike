@@ -13,6 +13,11 @@ private:
 	CellState playerscell;
 	std::vector<CellState> enemiescell;
 public:
+
+	Field* GetField() {
+		return field;
+	}
+
 	Map(Field *_field, Player *_player, std::vector<Enemy> *_enemies) {
 		field = _field;
 		player_ = _player;

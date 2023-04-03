@@ -116,7 +116,6 @@
     <ClCompile Include="src\components\enemies\enemies.cpp" />
     <ClCompile Include="src\components\items\items.cpp" />
     <ClCompile Include="src\components\json\Source.cpp" />
-    <ClCompile Include="src\components\MapGenerator\MapGenerate.cpp" />
     <ClCompile Include="src\components\Player\Player.cpp" />
     <ClCompile Include="src\components\Screen\Assets\Assets.cpp" />
     <ClCompile Include="src\components\screen\display.cpp" />
@@ -185,6 +184,9 @@
     <ClInclude Include="src\components\MapGenerator\MapGenerate.h" />
     <ClInclude Include="src\components\Map\Map.h" />
     <ClInclude Include="src\components\Player\Player.h" />
+    <ClInclude Include="src\components\Scene\RunnerSceneBase.h" />
+    <ClInclude Include="src\components\Scene\RunnerSceneFirstLevel.h" />
+    <ClInclude Include="src\components\Scene\Scene.h" />
     <ClInclude Include="src\components\Screen\Assets\Assets.h" />
     <ClInclude Include="src\components\screen\display.h" />
     <ClInclude Include="src\components\screen\FrameComponent.h" />

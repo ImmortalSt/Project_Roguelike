@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 #include "../items/items.h"
+#include "../Player/Player.h"
 
 
 enum ItemsName {
