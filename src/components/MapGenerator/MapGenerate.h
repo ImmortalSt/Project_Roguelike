@@ -1,6 +1,10 @@
+#pragma once
+
 #include "../Field/Field.h"
 #include <time.h>
 #include "../utills/utils.h"
+#include "../enemies/enemies.h"
+#include"../Player/Player.h"
 
 //void PrintField(Field* _field) {
 //	for (int i = 0; i < _field->GetHeight(); i++) {
@@ -12,8 +16,14 @@
 //}
 
 class Map_gen {
+private:
+	Player igrok;
+	vector<Enemy> banda_pidorov;
+	Field* pole;
 public:
-	Field* Generate(const int num_en, const int num_rm) {
+
+	Map_gen* Generate(const int num_weaks, const int num_rm) {//, const int num_normal) {
+		Map_gen* map;
 		const int* arr_l = Massive_of_rand_l();
 		const int* arr_h = Massive_of_rand_h();
 		Field* ma = Make_border(arr_h, arr_l);
@@ -26,7 +36,6 @@ public:
 		int mid_h3 = arr_h[2] / 2;
 		int* arr = new int[num_rm];
 		int* arr_rm = rand_arr(num_rm);
-		//FillSquare(ma, 0, 0, 22, 134, shop);
 
 		for (int i = 0; i < num_rm; i++) {
 			if (arr_rm[i] == 1) {
@@ -84,8 +93,6 @@ public:
 
 				if (i == mid_h1 && (j >= mid_l1) && (j <= (arr_l[0] + arr_l[1] + arr_l[2] + mid_l4))) {
 					ma->SetCell(i, j, tunnel);
-					/*ma->SetCell(i-1, j, wall);
-					ma->SetCell(i+ 1, j, wall);*/
 				}
 				else if (i == mid_h2 + arr_h[0] && (j >= mid_l1) && (j <= (arr_l[0] + arr_l[1] + arr_l[2] + mid_l4))) {
 					ma->SetCell(i, j, tunnel);
@@ -109,21 +116,38 @@ public:
 
 			}
 		}
-		/*int a = 0;
-		for (int i = 0; i < 22; i++) {
-			for (int j = 0; j < 134; j++) {
-				int l =  1 + rand() % 22;
-				int k = 1 +  rand() % 134;
-				if (ma->GetCellChar(l, k) == pass) {
-					ma->SetCell(l, k, enemy);
-					a++;
-					if (a >= num_en) {
-						break;
-					}
-				}
+
+		map->igrok.SetXY(mid_l1, mid_h1);
+
+		int l = 0;
+		int k = 0;
+		int d = 0;
+		map->banda_pidorov.reserve(num_weaks);
+
+		for (int i = 0; i < 22 * 134; i++) {
+			l = 1 + rand() % 134;
+			k = 1 + rand() % 22;
+			if (ma->GetCellState(k, l) == pass) {
+				map->banda_pidorov[d].SetXY(l, k);
+				d++;
+				if (d == num_weaks)
+					break;
 			}
-		}*/
-		return ma;
+		}
+		map->pole = ma;
+		return map;
+	}
+
+	Field* GetField() {
+		return pole;
+	}
+
+	vector<Enemy> GetEnemy() {
+		return banda_pidorov;
+	}
+
+	Player GetPlayer() {
+		return igrok;
 	}
 };
 
