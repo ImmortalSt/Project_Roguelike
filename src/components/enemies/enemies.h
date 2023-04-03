@@ -17,6 +17,11 @@ public:
         x = _x;
         y = _y;
     }
+    Enemy(int health, int attack, int defense) {
+        m_damage = attack;
+        m_armor = defense;
+        m_hp = health;
+    }
 
 
     virtual ~Enemy() {}

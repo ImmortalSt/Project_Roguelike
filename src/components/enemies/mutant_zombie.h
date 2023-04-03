@@ -5,8 +5,9 @@ private:
     int m_hpMultiplier;
     int m_damageMultiplier;
     int m_armorMultiplier;
+
 public:
-    MutantZombie(int hp, int damage, int armor, int hpMultiplier, int damageMultiplier, int armorMultiplier)
+    MutantZombie(int hp, int damage, int armor, int hpMultiplier, int damageMultiplier, int armorMultiplier, int )
         : Enemy(hp, damage, armor), m_hpMultiplier(hpMultiplier), m_damageMultiplier(damageMultiplier), m_armorMultiplier(armorMultiplier) {}
 
     virtual ~MutantZombie() {}

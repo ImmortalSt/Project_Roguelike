@@ -3,7 +3,7 @@
     "main_frame": {
       "menu": "test",
       "game_frame": "test",
-      "end_frame": "test",
+      "end_frame": "test"
     }
   },
   "rooms": [
