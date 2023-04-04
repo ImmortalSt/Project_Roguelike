@@ -176,27 +176,16 @@ public:
 				for (int k = l; k <= r; k++) {
 					pole.SetCell(y + i, k, field->GetCellState(y + i, k));
 				}
+				if (y - i >= 0) {
+					for (int k = l; k <= r; k++) {
+						pole.SetCell(y - i, k, field->GetCellState(y - i, k));
+					}
+				}
 			}
 
-			if (y - i >= 0) {
-				int l, r;
-				for (int j = 1; j <= n; j++) {
-					if (x - j >= 0) {
-						l = x - j;
-					}
-				}
-				for (int j = 1; j <= n; j++) {
-					if (x + j <= field->GetWidth() - 1) {
-						r = x + j;
-					}
-				}
-				for (int k = l; k <= r; k++) {
-					pole.SetCell(y - i, k, field->GetCellState(y - i, k));
-				}
-			}
+
 		}
 		return pole;
-
 	}
 
 };
