@@ -9,7 +9,7 @@ private:
 	Field* field;
 	Field field_copy;
 	Player* player_;
-	std::vector<Enemy>* enemies;
+	std::vector<Enemy*>* enemies;
 	CellState playerscell;
 	std::vector<CellState> enemiescell;
 public:
@@ -17,7 +17,8 @@ public:
 		return player_;
 	}
 
-	std::vector<Enemy>* GetEnemies() {
+
+	std::vector<Enemy*>* GetEnemies() {
 		return enemies;
 	}
 
@@ -26,14 +27,14 @@ public:
 		return field;
 	}
 
-	Map(Field *_field, Player *_player, std::vector<Enemy> *_enemies) {
+	Map(Field *_field, Player *_player, std::vector<Enemy*> *_enemies) {
 		field = _field;
 		player_ = _player;
 		field_copy = *_field;
 		enemies = _enemies;
 		field->SetCell(player_->GetY(), player_->GetX(), player);
 		for (auto en : *enemies) {
-			field->SetCell(en.GetY(), en.GetX(), enemy);
+			field->SetCell(en->GetY(), en->GetX(), enemy);
 		}
 	}
 	void MovePlayer(char side) {
@@ -64,14 +65,14 @@ public:
 			}
 		}
 		for (auto en : *enemies) {
-			field->SetCell(en.GetY(), en.GetX(), enemy);
+			field->SetCell(en->GetY(), en->GetX(), enemy);
 		}
 		field->SetCell(player_->GetY(), player_->GetX(), player);
 	}
 
 	void MoveEnemy(int id, char side) {
 
-		Enemy* e = &enemies->at(id);
+		Enemy* e = enemies->at(id);
 
 		if (side == 'l') {
 			if ((field->GetCellState(e->GetY(), e->GetX() - 1) != wall) && (field->GetCellState(e->GetY(), e->GetX() - 1) != emptyC) && (field->GetCellState(e->GetY(), e->GetX() - 1) != player)) {
@@ -99,7 +100,7 @@ public:
 			}
 		}
 		for (auto en : *enemies) {
-			field->SetCell(en.GetY(), en.GetX(), enemy);
+			field->SetCell(en->GetY(), en->GetX(), enemy);
 		}
 		field->SetCell(player_->GetY(), player_->GetX(), player);
 
@@ -109,8 +110,8 @@ public:
 		int enemy_id = 0;
 		int check = 0;
 		for (auto en : *enemies) {
-			int x = en.GetX();
-			int y = en.GetY();
+			int x = en->GetX();
+			int y = en->GetY();
 			if ((field->GetCellState(y, x - 1) == player) || (field->GetCellState(y, x + 1) == player) || (field->GetCellState(y + 1, x - 1) == player) || (field->GetCellState(y + 1, x) == player) || (field->GetCellState(y + 1, x + 1) == player) || (field->GetCellState(y - 1, x - 1) == player) || (field->GetCellState(y - 1, x) == player) || (field->GetCellState(y - 1, x + 1) == player)) {
 				check = 1;
 				break;

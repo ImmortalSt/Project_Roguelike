@@ -7,7 +7,6 @@
 #include"../Player/Player.h"
 #include "../enemies/common_zombie.h"
 #include "../enemies/weak_zombie.h"
-#include "../enemies/evolved_zombie.h"
 #include "../enemies/mutant_zombie.h"
 
 //void PrintField(Field* _field) {
@@ -24,6 +23,11 @@ private:
 	vector<Enemy*>* enemies;
 	Field* pole;
 public:
+
+	vector<Enemy*>* GetEnemies() {
+		return enemies;
+	}
+
 	Map_gen() { }
 	void Generate(const int num_rm, Player* igrok, int num_weaks, int num_normal, int num_giga_chads) {
 		const int* arr_l = Massive_of_rand_l();
@@ -123,7 +127,7 @@ public:
 
 		int l = 0;
 		int k = 0;
-		enemies = new vector<Enemy*>(num_normal);
+		enemies = new vector<Enemy*>();
 
 		for (int i = 0; i < 22 * 134; i++) {
 			l = 2 + rand() % 130;
@@ -144,8 +148,11 @@ public:
 				else {
 					break;
 				}
+				ma->SetCell(k,l, enemy);
 			}
 		}
+
+		pole = ma;
 	}
 
 	Field* GetField() {

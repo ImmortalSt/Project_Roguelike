@@ -9,6 +9,7 @@
 #include "components/Engine/Engine.h"
 #include "components/MapGenerator/MapGenerate.h"
 #include "components/Scene/RunnerSceneFirstLevel.h"
+#include <time.h>
 
 BOOL ShowConsoleCursor(BOOL bShow)
 {
@@ -26,6 +27,7 @@ BOOL ShowConsoleCursor(BOOL bShow)
 }
 
 int main() {
+    srand(time(0));
 
     ShowConsoleCursor(FALSE);
     ShowCursor(FALSE);
