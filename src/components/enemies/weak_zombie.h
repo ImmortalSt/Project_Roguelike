@@ -4,12 +4,8 @@ class Weak_Zombie : public Enemy {
 public:
     Weak_Zombie(int x, int y) : Enemy(10, 3, 5, x, y) {}
 
-    virtual void update() override {
-        // Дополнительный код обновления для зомби
-    }
-
-    virtual void render() override {
-        // Дополнительный код рендеринга для зомби
+    std::vector<std::wstring> GetSprite() override {
+        return Assets::GetAsset(Assets::AssetsName::Zombie_Waek);
     }
 
     virtual void takeDamage(int damage) override {

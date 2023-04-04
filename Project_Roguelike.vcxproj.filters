@@ -39,15 +39,15 @@
     <ClCompile Include="src\components\utills\utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\Scene\BattleScene.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\enemies\common_zombie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\components\enemies\enemies.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\enemies\evolved_zombie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\components\enemies\mutant_zombie.h">

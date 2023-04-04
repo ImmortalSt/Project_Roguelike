@@ -40,7 +40,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -117,6 +117,7 @@
     <ClCompile Include="src\components\items\items.cpp" />
     <ClCompile Include="src\components\json\Source.cpp" />
     <ClCompile Include="src\components\Player\Player.cpp" />
+    <ClCompile Include="src\components\Scene\BattleScene.h" />
     <ClCompile Include="src\components\Screen\Assets\Assets.cpp" />
     <ClCompile Include="src\components\screen\display.cpp" />
     <ClCompile Include="src\components\utills\utils.cpp" />
@@ -125,7 +126,6 @@
   <ItemGroup>
     <ClInclude Include="src\components\enemies\common_zombie.h" />
     <ClInclude Include="src\components\enemies\enemies.h" />
-    <ClInclude Include="src\components\enemies\evolved_zombie.h" />
     <ClInclude Include="src\components\enemies\mutant_zombie.h" />
     <ClInclude Include="src\components\enemies\weak_zombie.h" />
     <ClInclude Include="src\components\Engine\Engine.h" />

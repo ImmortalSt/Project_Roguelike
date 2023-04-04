@@ -1,6 +1,5 @@
 #pragma once
 #include "Scene.h"
-#include "../Screen/display.h"
 
 class RunnerSceneBase : Scene
 {
@@ -21,19 +20,13 @@ public:
 		fieldComponent.x = 4;
 		fieldComponent.y = 24;
 
-		FrameComponent CharactComponentHp;
-		components.push_back(&CharactComponentHp);
-		CharactComponentHp.x = 5;
-		CharactComponentHp.y = 24;
-		std::vector<std::wstring> CharactHp;
-		CharactHp.push_back(L"");
+		FrameComponent CharactComponent;
+		components.push_back(&CharactComponent);
+		CharactComponent.lines.push_back(L"");
+		CharactComponent.lines.push_back(L"");
+		CharactComponent.x = 4;
+		CharactComponent.y = 27;
 
-		FrameComponent CharactComponentArmor;
-		components.push_back(&CharactComponentArmor);
-		CharactComponentArmor.x = 5;
-		CharactComponentArmor.y = 26;
-		std::vector<std::wstring> CharactArmor;
-		CharactArmor.push_back(L"");
 
 		while (true)
 		{
@@ -43,17 +36,20 @@ public:
 			else if (GetAsyncKeyState(VK_RIGHT)) map.MovePlayer('r');
 			else if (GetAsyncKeyState('U') & 0x8000) {
 				if (abs(map.GetPlayer()->GetY() - ShopXY.second) + abs(map.GetPlayer()->GetX() - ShopXY.first) < 4) {
-					return ToShop;
+					return 1111;
 				}
 			}
 
-			//fieldComponent.lines = RebuildFieldInStrings(&map.RebuildFieldWithFOV());
-			fieldComponent.lines = RebuildFieldInStrings(map.GetField());
+			if (map.GetCatchByEnemy() != -1) {
 
-			CharactHp[0] = L"Your hp : " + std::to_wstring(map.GetPlayer()->getHP());
-			CharactArmor[0] = L"Your armor : " + std::to_wstring(map.GetCatchByEnemy());
-			CharactComponentHp.lines = CharactHp;
-			CharactComponentArmor.lines = CharactArmor;
+			}
+
+
+			fieldComponent.lines = RebuildFieldInStrings(&map.RebuildFieldWithFOV());
+			//fieldComponent.lines = RebuildFieldInStrings(map.GetField());
+
+			CharactComponent.lines[0] = L"Your hp : " + std::to_wstring(map.GetPlayer()->getHP());
+			CharactComponent.lines[1] = L"Your armor : " + std::to_wstring(map.GetCatchByEnemy());
 
 			_display->printFrame(FrameNames::Main, components);
 

@@ -10,6 +10,7 @@
 #include "components/MapGenerator/MapGenerate.h"
 #include "components/Scene/RunnerSceneFirstLevel.h"
 #include <time.h>
+#include "components/Scene/BattleScene.h"
 
 BOOL ShowConsoleCursor(BOOL bShow)
 {
@@ -35,11 +36,13 @@ int main() {
 
     Engine* engine = new Engine();
     Inventory inventory(std::vector<Item>(), 100);
-    Player* player = new Player("Player", 100, 10, 0, inventory, 0, 0);
+    Player* player = new Player("Player", 100, 11, 3, inventory, 0, 0);
+    Enemy* zombie = new Common_Zombie(0, 0);
 
-    RunnerSceneFirstLevel* firstScene = new RunnerSceneFirstLevel(player);
-    
-    engine->StartScene((Scene*)firstScene);
+
+    Scene* battleScene = (Scene*) new BattleScene(player, zombie);
+     
+    engine->StartScene(battleScene);
 
 
     return 0;

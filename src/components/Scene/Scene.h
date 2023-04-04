@@ -1,9 +1,6 @@
 #pragma once
 #include "../Map/Map.h"
-
-enum SceneState {
-	ToShop
-};
+#include "../Screen/display.h"
 
 class Scene {
 public:

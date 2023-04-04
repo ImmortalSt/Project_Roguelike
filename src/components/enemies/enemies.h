@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "../Screen/Assets/Assets.h"
 
 class Enemy {
 protected:
@@ -24,11 +25,7 @@ public:
     }
 
 
-    virtual ~Enemy() {}
-
-    virtual void update() {}
-
-    virtual void render() {}
+    virtual std::vector<std::wstring> GetSprite() = 0;
 
     virtual void takeDamage(int damage) {
         // Вычисляем получаемый урон, учитывая защиту врага
