@@ -12,9 +12,6 @@ public:
 
 	int StartScene() override {
 		Map map = *GetMap();
-		map.GetField()->SetCell(map.GetPlayer()->GetY() - 1, map.GetPlayer()->GetX(), CellState::shop);
-		ShopXY.first = map.GetPlayer()->GetX();
-		ShopXY.second = map.GetPlayer()->GetY() - 1;
 
 		Display* _display = Display::getDisplay();
 		FrameComponent fieldComponent;
@@ -54,7 +51,7 @@ public:
 			fieldComponent.lines = RebuildFieldInStrings(map.GetField());
 
 			CharactHp[0] = L"Your hp : " + std::to_wstring(map.GetPlayer()->getHP());
-			CharactArmor[0] = L"Your armor : " + std::to_wstring(map.GetPlayer()->getArmor());
+			CharactArmor[0] = L"Your armor : " + std::to_wstring(map.GetCatchByEnemy());
 			CharactComponentHp.lines = CharactHp;
 			CharactComponentArmor.lines = CharactArmor;
 

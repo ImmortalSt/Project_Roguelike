@@ -11,9 +11,10 @@ public:
 	}
 	Map* GetMap() override {
 		Map_gen* map_gen = new Map_gen();
-		map_gen->Generate(3, _player, 1, 1, 1, 1);
+		map_gen->Generate(3, _player, 1, 1, 1);
 
-		Map* map = new Map(map_gen->GetField(), _player, new std::vector<Enemy>());
+		Map* map = new Map(map_gen->GetField(), _player, map_gen->GetEnemies());
+
 		return map;
 	}
 };

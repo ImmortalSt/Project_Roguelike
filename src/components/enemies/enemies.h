@@ -38,6 +38,11 @@ public:
         }
     }
 
+   /////////////////////////////// int MoveToPoint(int x, int y) {
+   ///////////////////////////////
+   /////////////////////////////// }
+
+
     virtual int getHp() const {
         return m_hp;
     }
