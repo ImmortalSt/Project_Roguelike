@@ -10,8 +10,6 @@ private:
 	Field field_copy;
 	Player* player_;
 	std::vector<Enemy*>* enemies;
-	CellState playerscell;
-	std::vector<CellState> enemiescell;
 public:
 	Player* GetPlayer() {
 		return player_;
@@ -65,7 +63,9 @@ public:
 			}
 		}
 		for (auto en : *enemies) {
-			field->SetCell(en->GetY(), en->GetX(), enemy);
+			if (field->GetCellState(en->GetY(), en->GetX()) != enemy_dead) {
+				field->SetCell(en->GetY(), en->GetX(), enemy);
+			}
 		}
 		field->SetCell(player_->GetY(), player_->GetX(), player);
 	}
@@ -73,37 +73,59 @@ public:
 	void MoveEnemy(int id, char side) {
 
 		Enemy* e = enemies->at(id);
+		if (field->GetCellState(e->GetY(), e->GetX()) == enemy) {
+			if (side == 'l') {
+				if ((field->GetCellState(e->GetY(), e->GetX() - 1) != wall) && (field->GetCellState(e->GetY(), e->GetX() - 1) != emptyC) && (field->GetCellState(e->GetY(), e->GetX() - 1) != player)) {
+					field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
+					e->SetX(e->GetX() - 1);
+					std::cout << e->GetX();
+				}
+			}
+			else if (side == 'r') {
+				if ((field->GetCellState(e->GetY(), e->GetX() + 1) != wall) && (field->GetCellState(e->GetY(), e->GetX() + 1) != emptyC) && (field->GetCellState(e->GetY(), e->GetX() + 1) != player)) {
+					field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
+					e->SetX(e->GetX() + 1);
+				}
+			}
+			else if (side == 'u') {
+				if ((field->GetCellState(e->GetY() - 1, e->GetX()) != wall) && (field->GetCellState(e->GetY() - 1, e->GetX()) != emptyC) && (field->GetCellState(e->GetY() - 1, e->GetX()) != player)) {
+					field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
+					e->SetY(e->GetY() - 1);
+				}
+			}
+			else if (side == 'd') {
+				if ((field->GetCellState(e->GetY() + 1, e->GetX()) != wall) && (field->GetCellState(e->GetY() + 1, e->GetX()) != emptyC) && (field->GetCellState(e->GetY() + 1, e->GetX()) != player)) {
+					field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
+					e->SetY(e->GetY() + 1);
+				}
+			}
+			for (auto en : *enemies) {
+				if (field->GetCellState(en->GetY(), en->GetX()) != enemy_dead) {
+					field->SetCell(en->GetY(), en->GetX(), enemy);
+				}
+			}
+			field->SetCell(player_->GetY(), player_->GetX(), player);
 
-		if (side == 'l') {
-			if ((field->GetCellState(e->GetY(), e->GetX() - 1) != wall) && (field->GetCellState(e->GetY(), e->GetX() - 1) != emptyC) && (field->GetCellState(e->GetY(), e->GetX() - 1) != player)) {
-				field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
-				e->SetX(e->GetX() - 1);
-				std::cout << e->GetX();
-			}
 		}
-		else if (side == 'r') {
-			if ((field->GetCellState(e->GetY(), e->GetX() + 1) != wall) && (field->GetCellState(e->GetY(), e->GetX() + 1) != emptyC) && (field->GetCellState(e->GetY(), e->GetX() + 1) != player)) {
-				field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
-				e->SetX(e->GetX() + 1);
-			}
-		}
-		else if (side == 'u') {
-			if ((field->GetCellState(e->GetY() - 1, e->GetX()) != wall) && (field->GetCellState(e->GetY() - 1, e->GetX()) != emptyC) && (field->GetCellState(e->GetY() - 1, e->GetX()) != player)) {
-				field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
-				e->SetY(e->GetY() - 1);
-			}
-		}
-		else if (side == 'd') {
-			if ((field->GetCellState(e->GetY() + 1, e->GetX()) != wall) && (field->GetCellState(e->GetY() + 1, e->GetX()) != emptyC) && (field->GetCellState(e->GetY() + 1, e->GetX()) != player)) {
-				field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
-				e->SetY(e->GetY() + 1);
-			}
-		}
-		for (auto en : *enemies) {
-			field->SetCell(en->GetY(), en->GetX(), enemy);
-		}
-		field->SetCell(player_->GetY(), player_->GetX(), player);
+		
+	}
 
+	int CheckEnemies() {
+		int k = 0;
+		for (int i = 0; i < field->GetHeight(); i++) {
+			for (int j = 0; j < field->GetWidth(); j++) {
+				if (field->GetCellState(i, j) == enemy) {
+					k++;
+				}
+			}
+		}
+		return k;
+	}
+
+	void KillEnemy(int id) {
+		Enemy* en = enemies->at(id);
+		field->SetCell(en->GetY(), en->GetX(), enemy_dead);
+		field_copy.SetCell(en->GetY(), en->GetX(), enemy_dead);
 	}
 
 	int GetCatchByEnemy() {
@@ -127,284 +149,53 @@ public:
 
 	}
 
-	Field RebuildFieldWithFOV() {
+	Field RebuildFieldWithFOV(int radius) {
 		int x = player_->GetX();
 		int y = player_->GetY();
-		int x_new;
-		int y_new;
+		int r = radius;
+		vector<int> arr(r + 1);
+		for (int i = 0; i < r + 1; i++) {
+			arr[i] = r - i + 1;
+			arr[0] = arr[1] = r;
+		}
 		Field pole = Field(field->GetHeight(), field->GetWidth());
-		for (int i = 0; i < pole.GetHeight(); i++) {
-			for (int j = 0; j < pole.GetWidth(); j++) {
-				pole.SetCell(i, j, emptyC);
+		for (int i = 0; i <= r; i++) {
+			int n = arr[i];
+			if ((y + i) <= field->GetHeight() - 1) {
+				int l, r;
+				for (int j = 1; j <= n; j++) {
+					if (x - j >= 0) {
+						l = x - j;
+					}
+				}
+				for (int j = 1; j <= n; j++) {
+					if (x + j <= field->GetWidth() - 1) {
+						r = x + j;
+					}
+				}
+				for (int k = l; k <= r; k++) {
+					pole.SetCell(y + i, k, field->GetCellState(y + i, k));
+				}
 			}
-		}
-		pole.SetCell(y, x, player);
-		if (y - 4 >= 0) {
-			int l;
-			int r;
-			if (x - 1 >= 0) {
-				l = x - 1;
-			}
-			else {
-				l = x;
-			}
-			if (x + 1 <= field->GetWidth() - 1) {
-				r = x + 1;
-			}
-			else {
-				r = x;
-			}
-			for (int i = l; i <= r; i++) {
-				pole.SetCell(y - 4, i, field->GetCellState(y - 4, i));
-			}
-		}
 
-		if (y - 3 >= 0) {
-			int l;
-			int r;
-			if (x - 2 >= 0) {
-				l = x - 2;
-			}
-			else if (x - 1 >= 0) {
-				l = x - 1;
-			}
-			else {
-				l = x;
-			}
-			if (x + 2 <= field->GetWidth() - 1) {
-				r = x + 2;
-			}
-			else if (x + 1 <= field->GetWidth() - 1) {
-				r = x + 1;
-			}
-			else {
-				r = x;
-			}
-			for (int i = l; i <= r; i++) {
-				pole.SetCell(y - 3, i, field->GetCellState(y - 3, i));
+			if (y - i >= 0) {
+				int l, r;
+				for (int j = 1; j <= n; j++) {
+					if (x - j >= 0) {
+						l = x - j;
+					}
+				}
+				for (int j = 1; j <= n; j++) {
+					if (x + j <= field->GetWidth() - 1) {
+						r = x + j;
+					}
+				}
+				for (int k = l; k <= r; k++) {
+					pole.SetCell(y - i, k, field->GetCellState(y - i, k));
+				}
 			}
 		}
-		if (y - 2 >= 0) {
-			int l;
-			int r;
-			if (x - 3 >= 0) {
-				l = x - 3;
-			}
-			else if (x - 2 >= 0) {
-				l = x - 2;
-			}
-			else if (x - 1 >= 0) {
-				l = x - 1;
-			}
-			else {
-				l = x;
-			}
-			if (x + 3 <= field->GetWidth() - 1) {
-				r = x + 3;
-			}
-			else if (x + 2 <= field->GetWidth() - 1) {
-				r = x + 2;
-			}
-			else if (x + 1 <= field->GetWidth() - 1) {
-				r = x + 1;
-			}
-			else {
-				r = x;
-			}
-			for (int i = l; i <= r; i++) {
-				pole.SetCell(y - 2, i, field->GetCellState(y - 2, i));
-			}
-		}
-		if (y - 1 >= 0) {
-			int l;
-			int r;
-			if (x - 4 >= 0) {
-				l = x - 4;
-			}
-			else if (x - 3 >= 0) {
-				l = x - 3;
-			}
-			else if (x - 2 >= 0) {
-				l = x - 2;
-			}
-			else if (x - 1 >= 0) {
-				l = x - 1;
-			}
-			else {
-				l = x;
-			}
-			if (x + 4 <= field->GetWidth() - 1) {
-				r = x + 4;
-			}
-			else if (x + 3 <= field->GetWidth() - 1) {
-				r = x + 3;
-			}
-			else if (x + 2 <= field->GetWidth() - 1) {
-				r = x + 2;
-			}
-			else if (x + 1 <= field->GetWidth() - 1) {
-				r = x + 1;
-			}
-			else {
-				r = x;
-			}
-			for (int i = l; i <= r; i++) {
-				pole.SetCell(y - 1, i, field->GetCellState(y - 1, i));
-			}
-		}
-		if (y + 1 <= field->GetHeight() - 1) {
-			int l;
-			int r;
-			if (x - 4 >= 0) {
-				l = x - 4;
-			}
-			else if (x - 3 >= 0) {
-				l = x - 3;
-			}
-			else if (x - 2 >= 0) {
-				l = x - 2;
-			}
-			else if (x - 1 >= 0) {
-				l = x - 1;
-			}
-			else {
-				l = x;
-			}
-			if (x + 4 <= field->GetWidth() - 1) {
-				r = x + 4;
-			}
-			else if (x + 3 <= field->GetWidth() - 1) {
-				r = x + 3;
-			}
-			else if (x + 2 <= field->GetWidth() - 1) {
-				r = x + 2;
-			}
-			else if (x + 1 <= field->GetWidth() - 1) {
-				r = x + 1;
-			}
-			else {
-				r = x;
-			}
-			for (int i = l; i <= r; i++) {
-				pole.SetCell(y + 1, i, field->GetCellState(y + 1, i));
-			}
-		}
-		if (y + 2 <= field->GetHeight() - 1) {
-			int l;
-			int r;
-			if (x - 3 >= 0) {
-				l = x - 3;
-			}
-			else if (x - 2 >= 0) {
-				l = x - 2;
-			}
-			else if (x - 1 >= 0) {
-				l = x - 1;
-			}
-			else {
-				l = x;
-			}
-			if (x + 3 <= field->GetWidth() - 1) {
-				r = x + 3;
-			}
-			else if (x + 2 <= field->GetWidth() - 1) {
-				r = x + 2;
-			}
-			else if (x + 1 <= field->GetWidth() - 1) {
-				r = x + 1;
-			}
-			else {
-				r = x;
-			}
-			for (int i = l; i <= r; i++) {
-				pole.SetCell(y + 2, i, field->GetCellState(y + 2, i));
-			}
-		}
-		if (y + 3 <= field->GetHeight() - 1) {
-			int l;
-			int r;
-			if (x - 2 >= 0) {
-				l = x - 2;
-			}
-			else if (x - 1 >= 0) {
-				l = x - 1;
-			}
-			else {
-				l = x;
-			}
-			if (x + 2 <= field->GetWidth() - 1) {
-				r = x + 2;
-			}
-			else if (x + 1 <= field->GetWidth() - 1) {
-				r = x + 1;
-			}
-			else {
-				r = x;
-			}
-			for (int i = l; i <= r; i++) {
-				pole.SetCell(y + 3, i, field->GetCellState(y + 3, i));
-			}
-		}
-		if (y + 4 <= field->GetHeight() - 1) {
-			int l;
-			int r;
-			if (x - 1 >= 0) {
-				l = x - 1;
-			}
-			else {
-				l = x;
-			}
-			if (x + 1 <= field->GetWidth() - 1) {
-				r = x + 1;
-			}
-			else {
-				r = x;
-			}
-			for (int i = l; i <= r; i++) {
-				pole.SetCell(y + 4, i, field->GetCellState(y + 4, i));
-			}
-		}
-		if (1 == 1) {
-			int l;
-			int r;
-			if (x - 4 >= 0) {
-				l = x - 4;
-			}
-			else if (x - 3 >= 0) {
-				l = x - 3;
-			}
-			else if (x - 2 >= 0) {
-				l = x - 2;
-			}
-			else if (x - 1 >= 0) {
-				l = x - 1;
-			}
-			else {
-				l = x;
-			}
-			if (x + 4 <= field->GetWidth() - 1) {
-				r = x + 4;
-			}
-			else if (x + 3 <= field->GetWidth() - 1) {
-				r = x + 3;
-			}
-			else if (x + 2 <= field->GetWidth() - 1) {
-				r = x + 2;
-			}
-			else if (x + 1 <= field->GetWidth() - 1) {
-				r = x + 1;
-			}
-			else {
-				r = x;
-			}
-			for (int i = l; i <= r; i++) {
-				pole.SetCell(y, i, field->GetCellState(y, i));
-			}
-		}
-
-
 		return pole;
-
 
 	}
 
