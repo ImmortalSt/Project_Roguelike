@@ -34,7 +34,7 @@ public:
 
 			_playerComponent.lines = AssetsInstance->GetAsset(Assets::AssetsName::Player1);
 			_EnemyComponent.lines = _enemy->GetSprite();
-			_PlayerParameters.lines[0] = L"HP: " + std::to_wstring(_player->getHP());
+			_PlayerParameters.lines[0] = L"HP: " + std::to_wstring(_player->getCurHP());
 			_PlayerParameters.lines[1] = L"Armor: " + std::to_wstring(_player->getArmor());
 			_PlayerParameters.lines[2] = L"Your damege: " + std::to_wstring(_player->getDamage());
 

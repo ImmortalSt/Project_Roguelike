@@ -12,6 +12,7 @@ class Item {
 private:
     std::string m_name;
     int m_id;
+    int m_param;
 
 public:
     Item(std::string name, int id) : m_name(name), m_id(id) {}
@@ -24,5 +25,8 @@ public:
 
     int getId() const {
         return m_id;
+    }
+    virtual int getParam() {
+        return m_param;
     }
 };
