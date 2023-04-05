@@ -31,7 +31,7 @@ public:
 
 	Assets* AssetsInstance = Assets::GetInstance();
 
-	std::vector<std::wstring> GetAssetsName(int num) {
+	std::vector<std::wstring> GetSprite(int num) {
 		if (num == 1) {
 			return AssetsInstance->GetAsset(Assets::AssetsName::Player1);
 		}
@@ -40,9 +40,6 @@ public:
 		}
 		else if (num == 3) {
 			return AssetsInstance->GetAsset(Assets::AssetsName::Player3);
-		}
-		else {
-			return AssetsInstance->GetAsset(Assets::AssetsName::Player1);
 		}
 	}
 
@@ -66,6 +63,7 @@ public:
 	int takeDamage(int damage) {
 		m_cur_hp -= damage;
 		if (m_cur_hp <= 0) {
+			m_cur_hp = 0;
 			return 1;
 		}
 		return 0;
@@ -122,11 +120,6 @@ public:
 
 	int getCoins() {
 		return m_inventory.getCoinsI();
-	}
-
-
-	void GetSprite() {
-		throw std::exception("It is not realized yet");
 	}
 
 	void SetX(int x) {
