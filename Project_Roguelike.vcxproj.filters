@@ -257,5 +257,8 @@
     <ClInclude Include="src\components\Scene\RunnerSceneFirstLevel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\components\shop\shop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

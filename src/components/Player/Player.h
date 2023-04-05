@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include "../items/items.h"
 #include "../inventory/inventory.h"
 
 class Player {
@@ -57,31 +58,16 @@ public:
 		m_armor += armor;
 	}
 
-	bool addItem(Item item, Player player) {
-		m_inventory.addItemI(item);
-		if (item.getName() == "DamageUp") {
-			player.addDamage(10);
-			return true;
-		}
-		if (item.getName() == "ArmorUp") {
-			player.addArmor(10);
-			return true;
-		}
-		if (item.getName() == "HealthUp") {
-			player.addHP(30);
-			return true;
-		}
-		else {
-			return false;
-		}
+	bool addItem(Item* item) {
+		m_inventory.addItem(item);
 	}
 
-	bool removeItem(Item item) {
-		m_inventory.removeItemI(item);		
+	bool removeItem(ItemsName item) {
+		m_inventory.removeItem(item);		
 	}
 
-	int getCount(Item item) {
-		int count = m_inventory.getCountI(item);
+	int getCount(ItemsName item) {
+		int count = m_inventory.getCount(item);
 
 		return count;
 	}

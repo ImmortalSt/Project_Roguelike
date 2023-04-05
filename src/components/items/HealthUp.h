@@ -5,7 +5,7 @@ protected:
     int m_healAmount;
 
 public:
-    HealthUp(std::string name, int id, int healAmount) : Item(name, id), m_healAmount(healAmount) {}
+    HealthUp(std::string name, int healAmount) : Item(name, ItemsName::hpUp), m_healAmount(healAmount) {}
 
     virtual ~HealthUp() {}
 
