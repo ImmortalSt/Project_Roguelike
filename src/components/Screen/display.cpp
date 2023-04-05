@@ -40,7 +40,7 @@ void Display::printFrame(FrameNames name, std::vector<FrameComponent*> frameComp
             wcsncpy(&_currentFrame.at(frameComponent->y - j - 1).at(frameComponent->x - 1), frameComponent->lines.at(componentHeight - j - 1).c_str(), lenght);
         }
     }
-    _final_string.clear();
+    _final_string = L"";
     for (int i = 0; i < frame->HEIGHT; i++)
         _final_string.append(_currentFrame[i]);
     Clear();

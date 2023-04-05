@@ -27,7 +27,7 @@ public:
 	}
 
 	int getHP() {
-		return m_hp;
+		return m_hp ;
 	}
 
 	void addHP(int hp) {
@@ -42,8 +42,8 @@ public:
 		return 0;
 	}
 
-	int getDamage(int damage) {
-		m_damage = damage;
+	int getDamage() {
+		return m_damage;
 	}
 
 	int addDamage(int damage) {
@@ -60,10 +60,18 @@ public:
 
 	bool addItem(Item* item) {
 		m_inventory.addItem(item);
+		if (item->getId() == ItemsName::armorUp) addArmor(10);
+		if (item->getId() == ItemsName::damageUp) addDamage(10);
+		if (item->getId() == ItemsName::hpUp) addArmor(100);
 	}
 
 	bool removeItem(ItemsName item) {
-		m_inventory.removeItem(item);		
+		if (m_inventory.removeItem(item) == 0)
+			return false;
+		if (item == ItemsName::armorUp) addArmor(-10);
+		if (item == ItemsName::damageUp) addDamage(-10);
+		if (item == ItemsName::hpUp) addArmor(-100);
+		return true;
 	}
 
 	int getCount(ItemsName item) {

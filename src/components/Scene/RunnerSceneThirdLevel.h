@@ -6,7 +6,7 @@ class RunnerSceneThirdLevel : RunnerSceneBase {
 private:
 	Player* _player;
 public:
-	RunnerSceneSecondLevel(Player* player) {
+	RunnerSceneThirdLevel(Player* player) {
 		_player = player;
 	}
 	Map* GetMap() override {

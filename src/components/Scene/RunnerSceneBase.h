@@ -3,8 +3,6 @@
 
 class RunnerSceneBase : Scene
 {
-private:
-	std::pair<int, int> ShopXY;
 public:
 	virtual Map* GetMap() = 0;
 
@@ -35,9 +33,9 @@ public:
 			else if (GetAsyncKeyState(VK_LEFT)) map.MovePlayer('l');
 			else if (GetAsyncKeyState(VK_RIGHT)) map.MovePlayer('r');
 			else if (GetAsyncKeyState('U') & 0x8000) {
-				if (abs(map.GetPlayer()->GetY() - ShopXY.second) + abs(map.GetPlayer()->GetX() - ShopXY.first) < 4) {
-					return 1111;
-				}
+				//if (abs(map.GetPlayer()->GetY() - ShopXY.second) + abs(map.GetPlayer()->GetX() - ShopXY.first) < 4) {
+					std::exception("pass");
+				//}
 			}
 
 			if (map.GetCatchByEnemy() != -1) {

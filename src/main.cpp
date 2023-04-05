@@ -35,13 +35,13 @@ int main() {
     _setmode(_fileno(stdout), _O_U16TEXT);
 
     Engine* engine = new Engine();
-    Inventory inventory(std::vector<Item>(), 100);
+    Inventory inventory(std::vector<Item*>(), 100);
     Player* player = new Player("Player", 100, 11, 3, inventory, 0, 0);
     Enemy* zombie = new Common_Zombie(0, 0);
 
 
-    Scene* battleScene = (Scene*) new BattleScene(player, zombie);
-     
+    //Scene* battleScene = (Scene*) new BattleScene(player, zombie);
+    Scene* battleScene = (Scene*) new RunnerSceneFirstLevel(player);
     engine->StartScene(battleScene);
 
 
