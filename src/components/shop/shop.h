@@ -6,13 +6,6 @@
 #include "../Player/Player.h"
 
 
-enum ItemsName {
-    damageUp = 1,
-    hpUp,
-    armorUp,
-    medKit
-};
-
 class Store {
 public:
     Store() : damageBoosts(5), healthBoosts(5), armorBoosts(5), healthPotions(1) {}
@@ -26,11 +19,13 @@ public:
     //}
 
 
-    bool buyItem(ItemsName id, Item item, Player player) {
+    bool buyItem(Item* item, Player player) {
+        int id;
+        item->getId() == id;
         switch (id) {
         case 1:
             if (damageBoosts > 0) {
-                player.addItem(item, player);
+                player.addItem(item);
                 player.removeCoins(100);
                 damageBoosts--;
                 return true;
@@ -39,7 +34,7 @@ public:
 
         case 2:
             if (healthBoosts > 0) {
-                player.addItem(item, player);
+                player.addItem(item);
                 player.removeCoins(100);
                 healthBoosts--;
                 return true;
@@ -48,7 +43,7 @@ public:
 
         case 3:
             if (armorBoosts > 0) {
-                player.addItem(item, player);
+                player.addItem(item);
                 player.removeCoins(100);
                 armorBoosts--;
                 return true;
@@ -69,8 +64,8 @@ public:
         }
     }
 
-    bool sellItem(ItemsName id, Item item, Player player) {
-        switch (id) {
+    bool sellItem(ItemsName item, Player player) {
+        switch (item) {
         case 1:
             if (damageBoosts < 5) {
                 player.removeItem(item);

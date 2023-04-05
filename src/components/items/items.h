@@ -1,16 +1,19 @@
 #pragma once
 #include <string>
 
+enum ItemsName {
+    damageUp = 1,
+    hpUp,
+    armorUp,
+    medKit
+};
+
 class Item {
 private:
-     std::string m_name;
-     int m_id;
+    std::string m_name;
+    int m_id;
 
 public:
-    bool operator==(Item& l) {
-        return m_name == l.getName();
-    }
-
     Item(std::string name, int id) : m_name(name), m_id(id) {}
 
     virtual ~Item() {}
