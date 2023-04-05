@@ -13,7 +13,7 @@ public:
         return AssetsInstance->GetAsset(Assets::AssetsName::ZombieMutant);
     }
 
-    int GetFOV() override { return 11; }
+    int GetFOV() override { return 7; }
 
     std::string GetName() {
         return "Nicado Avocado";
