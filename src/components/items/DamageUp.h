@@ -9,7 +9,7 @@ public:
 
     virtual ~DamageUp() {}
 
-    int getDamageAmount() const {
+    virtual int getParam() override {
         return m_damage;
     }
 

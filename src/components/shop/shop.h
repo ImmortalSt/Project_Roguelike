@@ -8,8 +8,10 @@
 
 class Store {
 public:
-    Store() : damageBoosts(5), healthBoosts(5), armorBoosts(5), healthPotions(1) {}
+    Store(int damageBoosts, int healthBoosts, int armorBoosts, int healthPotions)
+        : damageBoosts(damageBoosts), healthBoosts(healthBoosts), armorBoosts(armorBoosts), healthPotions(healthPotions) {}
 
+    virtual ~Store() {};
     //void showItems() const {
     //    std::cout << "Available items:" << std::endl;
     //    std::cout << "- Damage boost x1 (ID: 1, price: 100, remaining: " << damageBoosts << ")" << std::endl;
@@ -19,14 +21,13 @@ public:
     //}
 
 
-    bool buyItem(Item* item, Player player) {
-        int id;
-        item->getId() == id;
+    bool buyItem(Item* item, Player* player) {
+        int id = item->getId();
         switch (id) {
         case 1:
             if (damageBoosts > 0) {
-                player.addItem(item);
-                player.removeCoins(100);
+                player->removeCoins(100);
+                player->addItem(item);
                 damageBoosts--;
                 return true;
             }
@@ -34,8 +35,8 @@ public:
 
         case 2:
             if (healthBoosts > 0) {
-                player.addItem(item);
-                player.removeCoins(100);
+                player->removeCoins(100);
+                player->addItem(item);
                 healthBoosts--;
                 return true;
             }
@@ -43,8 +44,8 @@ public:
 
         case 3:
             if (armorBoosts > 0) {
-                player.addItem(item);
-                player.removeCoins(100);
+                player->removeCoins(100);
+                player->addItem(item);
                 armorBoosts--;
                 return true;
             }
@@ -52,8 +53,8 @@ public:
 
         case 4:
             if (healthPotions > 0) {
-                player.addHP(25);
-                player.removeCoins(100);;
+                player->removeCoins(50);
+                player->Heal();
                 healthPotions--;
                 return true;
             }
@@ -64,12 +65,13 @@ public:
         }
     }
 
-    bool sellItem(ItemsName item, Player player) {
-        switch (item) {
+    bool sellItem(Item* item, Player* player) {
+        int id = item->getId();
+        switch (id) {
         case 1:
             if (damageBoosts < 5) {
-                player.removeItem(item);
-                player.addCoins(50);
+                player->removeItem(item);
+                player->addCoins(50);
                 damageBoosts++;
                 return true;
             }
@@ -77,8 +79,8 @@ public:
 
         case 2:
             if (healthBoosts < 5) {
-                player.removeItem(item);
-                player.addCoins(50);
+                player->removeItem(item);
+                player->addCoins(50);
                 healthBoosts++;
                 return true;
             }
@@ -86,8 +88,8 @@ public:
 
         case 3:
             if (armorBoosts < 5) {
-                player.removeItem(item);
-                player.addCoins(50);
+                player->removeItem(item);
+                player->addCoins(50);
                 armorBoosts++;
                 return true;
             }
@@ -106,5 +108,4 @@ private:
     int healthBoosts;
     int armorBoosts;
     int healthPotions;
-
 };

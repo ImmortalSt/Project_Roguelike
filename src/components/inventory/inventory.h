@@ -40,10 +40,10 @@ public:
 
 		m_inventory.push_back(item);
 	}
-	bool removeItem(ItemsName itemName) {
-
+	bool removeItem(Item* item) {
+		int ID = item->getId();
 		for (int i = 0; i < m_inventory.size(); i++) {
-			if (m_inventory[i]->getId() == itemName) {
+			if (m_inventory[i]->getId() == ID) {
 				m_inventory.erase(m_inventory.begin() + i);
 				return true;
 			}

@@ -46,7 +46,7 @@ public:
 			fieldComponent.lines = RebuildFieldInStrings(&map.RebuildFieldWithFOV(9));
 			//fieldComponent.lines = RebuildFieldInStrings(map.GetField());
 
-			CharactComponent.lines[0] = L"Your hp : " + std::to_wstring(map.GetPlayer()->getHP());
+			CharactComponent.lines[0] = L"Your hp : " + std::to_wstring(map.GetPlayer()->getCurHP());
 			CharactComponent.lines[1] = L"Your armor : " + std::to_wstring(map.GetCatchByEnemy());
 
 			_display->printFrame(FrameNames::Main, components);

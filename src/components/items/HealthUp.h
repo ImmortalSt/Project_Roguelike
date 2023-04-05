@@ -9,7 +9,7 @@ public:
 
     virtual ~HealthUp() {}
 
-    int getHealAmount() const {
+    virtual int getParam() override {
         return m_healAmount;
     }
 

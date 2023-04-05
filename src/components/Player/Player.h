@@ -8,10 +8,12 @@
 #include "../items/items.h"
 #include "../inventory/inventory.h"
 
+
 class Player {
 private:
 	std::string m_name;
-	int m_hp;
+	int m_max_hp;
+	int m_cur_hp;
 	int m_armor;
 	int m_x;
 	int m_y;
@@ -19,24 +21,33 @@ private:
 	Inventory m_inventory;
 public:
 
-	Player(std::string name, int hp, int damage, int armor, Inventory inventory, int x, int y)
-		: m_name(name), m_hp(hp), m_damage(damage), m_armor(armor), m_inventory(inventory), m_x(x), m_y(y) {}
+	Player(std::string name, int max_hp, int cur_hp, int damage, int armor, Inventory inventory, int x, int y)
+		: m_name(name), m_max_hp(max_hp), m_cur_hp(cur_hp), m_damage(damage), m_armor(armor), m_inventory(inventory), m_x(x), m_y(y) {}
 
 	std::string getName() const {
 		return m_name;
 	}
 
-	int getHP() {
-		return m_hp ;
+	int getMaxHP() {
+		return m_max_hp;
+	}
+
+	int getCurHP() {
+		return m_cur_hp ;
+	}
+
+	void Heal() {
+		m_cur_hp = m_max_hp;
 	}
 
 	void addHP(int hp) {
-		m_hp += hp;
+		m_max_hp += hp;
+		m_cur_hp = m_max_hp;
 	}
 
 	int takeDamage(int damage) {
-		m_hp -= damage;
-		if (m_hp <= 0) {
+		m_cur_hp -= damage;
+		if (m_cur_hp <= 0) {
 			return 1;
 		}
 		return 0;
@@ -46,7 +57,7 @@ public:
 		return m_damage;
 	}
 
-	int addDamage(int damage) {
+	void addDamage(int damage) {
 		m_damage += damage;
 	}
 
@@ -54,23 +65,24 @@ public:
 		return m_armor;
 	}
 
-	int addArmor(int armor) {
+	void addArmor(int armor) {
 		m_armor += armor;
 	}
 
-	bool addItem(Item* item) {
+	void addItem(Item* item) {
 		m_inventory.addItem(item);
-		if (item->getId() == ItemsName::armorUp) addArmor(10);
-		if (item->getId() == ItemsName::damageUp) addDamage(10);
-		if (item->getId() == ItemsName::hpUp) addArmor(100);
+		if (item->getId() == ItemsName::armorUp) addArmor(item->getParam());
+		if (item->getId() == ItemsName::damageUp) addDamage(item->getParam());
+		if (item->getId() == ItemsName::hpUp) addHP(item->getParam());
+
 	}
 
-	bool removeItem(ItemsName item) {
+	bool removeItem(Item* item) {
 		if (m_inventory.removeItem(item) == 0)
 			return false;
-		if (item == ItemsName::armorUp) addArmor(-10);
-		if (item == ItemsName::damageUp) addDamage(-10);
-		if (item == ItemsName::hpUp) addArmor(-100);
+		if (item->getId() == ItemsName::armorUp) addArmor(-(item->getParam()));
+		if (item->getId() == ItemsName::damageUp) addDamage(-(item->getParam()));
+		if (item->getId() == ItemsName::hpUp) addHP(-(item->getParam()));
 		return true;
 	}
 
@@ -80,8 +92,10 @@ public:
 		return count;
 	}
 
-	void removeCoins(int coins) {
-		m_inventory.removeCoinsI(coins);
+	bool removeCoins(int coins) {
+		if (m_inventory.removeCoinsI(coins) == false)
+			throw exception("Not enough money");
+		return true;
 	}
 
 	void addCoins(int coins) {

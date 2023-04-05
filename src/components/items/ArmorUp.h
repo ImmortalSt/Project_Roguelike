@@ -5,11 +5,11 @@ protected:
     int m_armorAmount;
 
 public:
-    ArmorUp(std::string name, int id, int armorAmount) : Item(name, id), m_armorAmount(armorAmount) {}
+    ArmorUp(std::string name, int armorAmount) : Item(name, ItemsName::armorUp), m_armorAmount(armorAmount) {}
 
     virtual ~ArmorUp() {}
 
-    int getArmorAmount() const {
+    virtual int getParam() override {
         return m_armorAmount;
     }
 
