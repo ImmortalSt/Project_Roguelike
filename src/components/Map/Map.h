@@ -29,6 +29,13 @@ public:
 		field = _field;
 		player_ = _player;
 		field_copy = *_field;
+		for (int i = 0; i < field_copy.GetHeight(); i++) {
+			for (int j = 0; j < field_copy.GetWidth(); j++) {
+				if (field_copy.GetCellState(i, j) == enemy) {
+					field_copy.SetCell(i, j, pass);
+				}
+			}
+		}
 		enemies = _enemies;
 		field->SetCell(player_->GetY(), player_->GetX(), player);
 		for (auto en : *enemies) {
