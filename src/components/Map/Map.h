@@ -4,13 +4,19 @@
 #include "../utills/utils.h"
 #include "../Player/Player.h"
 #include "../enemies/enemies.h"
+#include "../shop/shop.h"
+
 class Map {
 private:
 	Field* field;
 	Field field_copy;
 	Player* player_;
 	std::vector<Enemy*>* enemies;
+	Store* store;
 public:
+	Store* GetStore() {
+		return store;
+	}
 	Player* GetPlayer() {
 		return player_;
 	}
@@ -25,7 +31,8 @@ public:
 		return field;
 	}
 
-	Map(Field *_field, Player *_player, std::vector<Enemy*> *_enemies) {
+	Map(Field *_field, Player *_player, std::vector<Enemy*> *_enemies, Store* _store) {
+		store = _store;
 		field = _field;
 		player_ = _player;
 		field_copy = *_field;
@@ -133,6 +140,7 @@ public:
 		Enemy* en = enemies->at(id);
 		field->SetCell(en->GetY(), en->GetX(), enemy_dead);
 		field_copy.SetCell(en->GetY(), en->GetX(), enemy_dead);
+		enemies->erase(enemies->begin() + id);
 	}
 
 	int GetCatchByEnemy() {

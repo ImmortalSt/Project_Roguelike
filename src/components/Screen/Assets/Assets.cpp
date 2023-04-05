@@ -15,6 +15,7 @@ Assets::Assets()
 	_assets[AssetsName::Player2] = ReadAsset("Player2");
 	_assets[AssetsName::Player3] = ReadAsset("Player3");
 	_assets[AssetsName::Medkit] = ReadAsset("Medkit");
+	_assets[AssetsName::shop] = ReadAsset("shop");
 }
 
 

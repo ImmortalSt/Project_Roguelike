@@ -22,7 +22,7 @@ public:
 		Zombie_Common, 
 		ZombieMutant,
 		Player1, Player2, Player3,
-		Medkit
+		Medkit, shop
 	};
 
 	static Assets* GetInstance();

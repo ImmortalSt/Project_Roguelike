@@ -15,6 +15,7 @@
 #include "components/items/HealthUp.h"
 #include "components/items/ArmorUp.h"
 #include "components/items/DamageUp.h"
+#include "components/Scene/ShopScene.h"
 
 BOOL ShowConsoleCursor(BOOL bShow)
 {
@@ -40,20 +41,10 @@ int main() {
 
     Engine* engine = new Engine();
     Inventory inventory(std::vector<Item*>(), 500);
-    Player* player = new Player("Player", 100, 100, 15, 3, inventory, 0, 0);
-    Enemy* zombie = new Common_Zombie(0, 0);
-    Store* store = new Store(2, 2, 2, 2);
-    HealthUp* hpup = new HealthUp("healthup", 40);
-    ArmorUp* armorUp = new ArmorUp("armorUp", 10);
-    store->buyItem(hpup, player);
-    store->buyItem(armorUp, player);
-    store->sellItem(hpup, player);
-    
+    Player* player = new Player("Player", 100, 100, 999, 3, inventory, 0, 0);
 
-
-
+    //Scene* battleScene = (Scene*) new ShopScene(player);
     Scene* battleScene = (Scene*) new RunnerSceneFirstLevel(player);
-    //Scene* battleScene = (Scene*) new RunnerSceneFirstLevel(player);
     battleScene->StartScene();
 
 
