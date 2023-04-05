@@ -28,6 +28,24 @@ public:
 		return m_name;
 	}
 
+
+	Assets* AssetsInstance = Assets::GetInstance();
+
+	std::vector<std::wstring> GetAssetsName(int num) {
+		if (num == 1) {
+			return AssetsInstance->GetAsset(Assets::AssetsName::Player1);
+		}
+		else if (num == 2) {
+			return AssetsInstance->GetAsset(Assets::AssetsName::Player2);
+		}
+		else if (num == 3) {
+			return AssetsInstance->GetAsset(Assets::AssetsName::Player3);
+		}
+		else {
+			return AssetsInstance->GetAsset(Assets::AssetsName::Player1);
+		}
+	}
+
 	int getMaxHP() {
 		return m_max_hp;
 	}
