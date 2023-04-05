@@ -8,6 +8,7 @@
 
 class Store {
 public:
+    Store() {}
     Store(int damageBoosts, int healthBoosts, int armorBoosts, int healthPotions)
         : damageBoosts(damageBoosts), healthBoosts(healthBoosts), armorBoosts(armorBoosts), healthPotions(healthPotions) {}
 
@@ -103,9 +104,32 @@ public:
         }
     }
 
+    void SetX(int _x) {
+        x = _x;
+    }
+
+    int GetX() {
+        return x;
+    }
+
+    void SetY(int _y) {
+        y = _y;
+    }
+
+    int GetY() {
+        return y;
+    }
+
+    void SetXY(int _x, int _y) {
+        x = _x;
+        y = _y;
+    }
+
 private:
     int damageBoosts;
     int healthBoosts;
     int armorBoosts;
     int healthPotions;
+    int x;
+    int y;
 };
