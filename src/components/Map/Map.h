@@ -78,7 +78,7 @@ public:
 				if ((field->GetCellState(e->GetY(), e->GetX() - 1) != wall) && (field->GetCellState(e->GetY(), e->GetX() - 1) != emptyC) && (field->GetCellState(e->GetY(), e->GetX() - 1) != player)) {
 					field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
 					e->SetX(e->GetX() - 1);
-					std::cout << e->GetX();
+					//std::cout << e->GetX();
 				}
 			}
 			else if (side == 'r') {
