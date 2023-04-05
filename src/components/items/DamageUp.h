@@ -5,7 +5,7 @@ protected:
     int m_damage;
 
 public:
-    DamageUp(std::string name, int id, int damage) : Item(name, id), m_damage(damage) {}
+    DamageUp(std::string name, int damage) : Item(name, ItemsName::damageUp), m_damage(damage) {}
 
     virtual ~DamageUp() {}
 

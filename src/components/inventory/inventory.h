@@ -9,16 +9,16 @@
 using namespace std;
 
 class Inventory {
-	private:
+private:
 
-	std::vector<Item> m_inventory;
+	std::vector<Item*> m_inventory;
 	int m_coins;
 
-	public:
-		Inventory(std::vector<Item> inventory, int coins) : m_inventory(inventory), m_coins(coins) {}
+public:
+	Inventory(std::vector<Item*> inventory, int coins) : m_inventory(inventory), m_coins(coins) {}
 
 	int getCoinsI() {
-			return m_coins;
+		return m_coins;
 	}
 
 	void addCoinsI(int coins) {
@@ -35,30 +35,32 @@ class Inventory {
 		}
 	}
 
-	bool addItemI(Item item) {
+	bool addItem(Item* item) {
+		if (item == 0) throw exception("Null item");
+
 		m_inventory.push_back(item);
-		return true;
+	}
+	bool removeItem(ItemsName itemName) {
+
+		for (int i = 0; i < m_inventory.size(); i++) {
+			if (m_inventory[i]->getId() == itemName) {
+				m_inventory.erase(m_inventory.begin() + i);
+				return true;
+			}
+		}
+		return false;
+
 	}
 
-	bool removeItemI(Item item) {
-		return false;;/////////////////////////////////////////;/////////////////////////////////////////
-		std::string target = item.getName();
-	
-		std::vector<Item>::iterator it;// = find(m_inventory.begin(), m_inventory.end(), target);
-	
-		if (it == m_inventory.end())
-			return false;
-		else
-			m_inventory.erase(it);
-			return true;
-	}
+	int getCount(ItemsName itemName) {
+		int count = 0;
 
-	int getCountI(Item item) {
-		return false;/////////////////////////////////////////;/////////////////////////////////////////
+		for (int i = 0; i < m_inventory.size(); i++) {
+			if (m_inventory[i]->getId() == itemName) {
+				count++;
+			}
+		}
 
-
-		int count = 0; // std::count(m_inventory.begin(), m_inventory.end(), item);
-	
 		return count;
 	}
 
