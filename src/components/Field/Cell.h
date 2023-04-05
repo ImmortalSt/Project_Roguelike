@@ -7,6 +7,7 @@ enum CellState {
 	pass = '.',
 	player = '@',
 	enemy = 'E',
+	enemy_dead = 'Ш',
 	shop = 'S',
 	emptyC = ' '
 };
