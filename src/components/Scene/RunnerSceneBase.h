@@ -49,6 +49,15 @@ public:
 			CharactComponent.lines[0] = L"Your hp : " + std::to_wstring(map.GetPlayer()->getCurHP());
 			CharactComponent.lines[1] = L"Your armor : " + std::to_wstring(map.GetCatchByEnemy());
 
+			for (int i = 0; i < (*map.GetEnemies()).size(); i++) {
+				if (abs(map.GetPlayer()->GetX() - map.GetEnemies()->at(i)->GetX()) <= map.GetEnemies()->at(i)->GetFOV()) {
+					map.MoveEnemy(i, map.GetEnemies()->at(i)->StepToGo(map.GetPlayer()->GetX(), map.GetPlayer()->GetY()));
+				}
+				else if (abs((map.GetPlayer()->GetY() - map.GetEnemies()->at(i)->GetY())) <= map.GetEnemies()->at(i)->GetFOV()) {
+					map.MoveEnemy(i, map.GetEnemies()->at(i)->StepToGo(map.GetPlayer()->GetX(), map.GetPlayer()->GetY()));
+				}
+			}
+
 			_display->printFrame(FrameNames::Main, components);
 
 			Sleep(100);
