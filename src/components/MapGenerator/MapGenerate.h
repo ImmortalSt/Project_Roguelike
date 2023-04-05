@@ -8,6 +8,7 @@
 #include "../enemies/common_zombie.h"
 #include "../enemies/weak_zombie.h"
 #include "../enemies/mutant_zombie.h"
+#include "../shop/shop.h"
 
 //void PrintField(Field* _field) {
 //	for (int i = 0; i < _field->GetHeight(); i++) {
@@ -22,6 +23,7 @@ class Map_gen {
 private:
 	vector<Enemy*>* enemies;
 	Field* pole;
+	Store store_;
 public:
 
 	vector<Enemy*>* GetEnemies() {
@@ -151,7 +153,8 @@ public:
 				ma->SetCell(k,l, enemy);
 			}
 		}
-
+		store_.SetXY(igrok->GetY() - 1, igrok->GetX());
+		ma->SetCell(igrok->GetY() - 1, igrok->GetX(), shop);
 		pole = ma;
 	}
 
