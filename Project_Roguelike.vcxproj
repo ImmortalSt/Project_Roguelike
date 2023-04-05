@@ -119,6 +119,7 @@
     <ClCompile Include="src\components\Player\Player.cpp" />
     <ClCompile Include="src\components\Screen\Assets\Assets.cpp" />
     <ClCompile Include="src\components\screen\display.cpp" />
+    <ClCompile Include="src\components\Sounds\sounds.cpp" />
     <ClCompile Include="src\components\utills\utils.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
@@ -135,6 +136,7 @@
     <ClInclude Include="src\components\items\DamageUp.h" />
     <ClInclude Include="src\components\items\HealthUp.h" />
     <ClInclude Include="src\components\items\items.h" />
+    <ClInclude Include="src\components\items\MedKit.h" />
     <ClInclude Include="src\components\json\nlohmann\include\nlohmann\adl_serializer.hpp" />
     <ClInclude Include="src\components\json\nlohmann\include\nlohmann\byte_container_with_subtype.hpp" />
     <ClInclude Include="src\components\json\nlohmann\include\nlohmann\detail\abi_macros.hpp" />
@@ -197,6 +199,7 @@
     <ClInclude Include="src\components\Screen\Frames\Main\MainFrame.h" />
     <ClInclude Include="src\components\screen\frames\test\TestFrame.h" />
     <ClInclude Include="src\components\shop\shop.h" />
+    <ClInclude Include="src\components\Sounds\sounds.h" />
     <ClInclude Include="src\components\utills\utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -54,7 +54,7 @@ public:
         case 4:
             if (healthPotions > 0) {
                 player->removeCoins(50);
-                player->Heal();
+                player->addItem(item);
                 healthPotions--;
                 return true;
             }

@@ -15,6 +15,7 @@
 #include "components/items/HealthUp.h"
 #include "components/items/ArmorUp.h"
 #include "components/items/DamageUp.h"
+#include "components/items/MedKit.h"
 
 BOOL ShowConsoleCursor(BOOL bShow)
 {
@@ -45,10 +46,14 @@ int main() {
     Store* store = new Store(2, 2, 2, 2);
     HealthUp* hpup = new HealthUp("healthup", 40);
     ArmorUp* armorUp = new ArmorUp("armorUp", 10);
+    Medkit* mkit = new Medkit("medkit");
     store->buyItem(hpup, player);
     store->buyItem(armorUp, player);
     store->sellItem(hpup, player);
-    
+    store->buyItem(mkit, player);
+    player->Heal(mkit);
+
+
 
 
 

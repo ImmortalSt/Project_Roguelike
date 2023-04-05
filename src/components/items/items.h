@@ -26,7 +26,9 @@ public:
     int getId() const {
         return m_id;
     }
+
     virtual int getParam() {
         return m_param;
     }
+
 };

@@ -36,7 +36,8 @@ public:
 		return m_cur_hp ;
 	}
 
-	void Heal() {
+	void Heal(Item* item) {
+		m_inventory.removeItem(item);
 		m_cur_hp = m_max_hp;
 	}
 
