@@ -5,7 +5,7 @@ public:
     Weak_Zombie(int x, int y) : Enemy(10, 3, 5, x, y) {}
 
     std::vector<std::wstring> GetSprite() override {
-        return Assets::GetAsset(Assets::AssetsName::Zombie_Waek);
+        return AssetsInstance->GetAsset(Assets::AssetsName::Zombie_Waek);
     }
 
     virtual void takeDamage(int damage) override {

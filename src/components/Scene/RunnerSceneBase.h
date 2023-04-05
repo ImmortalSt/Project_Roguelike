@@ -45,7 +45,7 @@ public:
 			}
 
 
-			fieldComponent.lines = RebuildFieldInStrings(&map.RebuildFieldWithFOV());
+			fieldComponent.lines = RebuildFieldInStrings(&map.RebuildFieldWithFOV(9));
 			//fieldComponent.lines = RebuildFieldInStrings(map.GetField());
 
 			CharactComponent.lines[0] = L"Your hp : " + std::to_wstring(map.GetPlayer()->getHP());

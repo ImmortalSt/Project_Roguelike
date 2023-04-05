@@ -4,6 +4,7 @@
 
 class Scene {
 public:
+	Assets* AssetsInstance = Assets::GetInstance();
 	virtual int StartScene() = 0;
 
 };

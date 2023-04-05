@@ -13,6 +13,7 @@ public:
 		_display = Display::getDisplay();
 
 		FrameComponent _playerComponent;
+		FrameComponent _EnemyComponent;
 		std::vector<FrameComponent*> components;
 
 		components.push_back(&_playerComponent);
@@ -21,7 +22,11 @@ public:
 
 			_playerComponent.x = 3;
 			_playerComponent.y = 23;
-			_playerComponent.lines = Assets::GetAsset(Assets::AssetsName::Player1);
+
+			_EnemyComponent.x = 100;
+			_EnemyComponent.y = 23;
+
+			_playerComponent.lines = _player->GetSprite();
 
 
 			_display->printFrame(FrameNames::Main, components);

@@ -11,6 +11,8 @@ protected:
     int y;
 
 public:
+    Assets* AssetsInstance = Assets::GetInstance();
+
     Enemy(int health, int attack, int defense, int _x, int _y) {
         m_damage = attack;
         m_armor = defense;

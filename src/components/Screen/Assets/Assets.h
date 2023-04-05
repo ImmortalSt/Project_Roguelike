@@ -1,17 +1,19 @@
 #pragma once
 
-#include "../../json/nlohmann/single_include/nlohmann/json.hpp"
 #include <fstream>
 #include <map>
 #include <codecvt>
+#include "../../json/nlohmann/single_include/nlohmann/json.hpp"
 
 class Assets {
 private:
-	static nlohmann::json _json;
-	static std::ifstream _file;
-	static std::vector<std::wstring> ReadAsset(std::string name);
+	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+	nlohmann::json _json;
+	std::ifstream _file;
+	
+	Assets();
+	std::vector<std::wstring> Assets::ReadAsset(std::string name);
 
-	static void Init();
 
 public:
 	enum class AssetsName {
@@ -23,8 +25,10 @@ public:
 		Medkit
 	};
 
-	static std::vector<std::wstring> GetAsset(AssetsName name);
+	static Assets* GetInstance();
+
+	std::vector<std::wstring> Assets::GetAsset(AssetsName name);
 
 private:
-	static std::map<AssetsName, std::vector<std::wstring>> _assets;
+	std::map<AssetsName, std::vector<std::wstring>> _assets;
 };

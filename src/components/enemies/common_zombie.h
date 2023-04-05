@@ -5,7 +5,7 @@ public:
     Common_Zombie(int x, int y) : Enemy(20, 6, 7, x, y) {}
 
     std::vector<std::wstring> GetSprite() override {
-        return Assets::GetAsset(Assets::AssetsName::Zombie_Common);
+        return AssetsInstance->GetAsset(Assets::AssetsName::Zombie_Common);
     }
 
     

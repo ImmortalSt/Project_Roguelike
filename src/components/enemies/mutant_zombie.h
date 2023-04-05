@@ -10,7 +10,7 @@ public:
     MutantZombie(int x, int y) : Enemy(30, 30, 10, x, y), m_hpMultiplier(1), m_damageMultiplier(1), m_armorMultiplier(1) {}
 
     std::vector<std::wstring> GetSprite() override {
-        return Assets::GetAsset(Assets::AssetsName::ZombieMutant);
+        return AssetsInstance->GetAsset(Assets::AssetsName::ZombieMutant);
     }
 
     virtual int getHp() const {
