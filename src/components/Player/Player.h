@@ -28,6 +28,21 @@ public:
 		return m_name;
 	}
 
+
+	Assets* AssetsInstance = Assets::GetInstance();
+
+	std::vector<std::wstring> GetSprite(int num) {
+		if (num == 1) {
+			return AssetsInstance->GetAsset(Assets::AssetsName::Player1);
+		}
+		else if (num == 2) {
+			return AssetsInstance->GetAsset(Assets::AssetsName::Player2);
+		}
+		else if (num == 3) {
+			return AssetsInstance->GetAsset(Assets::AssetsName::Player3);
+		}
+	}
+
 	int getMaxHP() {
 		return m_max_hp;
 	}
@@ -49,6 +64,7 @@ public:
 	int takeDamage(int damage) {
 		m_cur_hp -= damage;
 		if (m_cur_hp <= 0) {
+			m_cur_hp = 0;
 			return 1;
 		}
 		return 0;
@@ -105,11 +121,6 @@ public:
 
 	int getCoins() {
 		return m_inventory.getCoinsI();
-	}
-
-
-	void GetSprite() {
-		throw std::exception("It is not realized yet");
 	}
 
 	void SetX(int x) {

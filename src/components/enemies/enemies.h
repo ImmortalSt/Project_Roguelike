@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "../Screen/Assets/Assets.h"
+#include <cmath>
 
 class Enemy {
 protected:
@@ -35,12 +36,12 @@ public:
         if (actualDamage > 0) {
             m_hp -= actualDamage;
         }
+        if (m_hp < 0) m_hp = 0;
     }
 
-   /////////////////////////////// int MoveToPoint(int x, int y) {
-   ///////////////////////////////
-   /////////////////////////////// }
+    virtual int GetFOV() = 0;
 
+    virtual std::string GetName() = 0;
 
     virtual int getHp() const {
         return m_hp;
@@ -53,6 +54,35 @@ public:
     virtual int getArmor() const {
         return m_armor;
     }
+
+
+    char StepToGo(int _x, int _y) {
+        if (abs(x - _x) > abs(y - _y)) {
+            if (x - _x < 0) {
+                return 'r';
+            }
+            else if (x - _x > 0) {
+                return 'l';
+            }
+        }
+        else if (abs(x - _x) < abs(y - _y)) {
+            if (y - _y < 0) {
+                return 'd';
+            }
+            else if (y - _y > 0) {
+                return 'u';
+            }
+        }
+        else {
+            if (x - _x < 0) {
+                return 'r';
+            }
+            else if (x - _x > 0) {
+                return 'l';
+            }
+        }
+    }
+
 
     void SetX(int _x) {
         x = _x;

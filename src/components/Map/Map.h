@@ -29,6 +29,13 @@ public:
 		field = _field;
 		player_ = _player;
 		field_copy = *_field;
+		for (int i = 0; i < field_copy.GetHeight(); i++) {
+			for (int j = 0; j < field_copy.GetWidth(); j++) {
+				if (field_copy.GetCellState(i, j) == enemy) {
+					field_copy.SetCell(i, j, pass);
+				}
+			}
+		}
 		enemies = _enemies;
 		field->SetCell(player_->GetY(), player_->GetX(), player);
 		for (auto en : *enemies) {
@@ -78,7 +85,7 @@ public:
 				if ((field->GetCellState(e->GetY(), e->GetX() - 1) != wall) && (field->GetCellState(e->GetY(), e->GetX() - 1) != emptyC) && (field->GetCellState(e->GetY(), e->GetX() - 1) != player)) {
 					field->SetCell(e->GetY(), e->GetX(), field_copy.GetCellState(e->GetY(), e->GetX()));
 					e->SetX(e->GetX() - 1);
-					std::cout << e->GetX();
+					//std::cout << e->GetX();
 				}
 			}
 			else if (side == 'r') {

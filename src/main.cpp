@@ -41,7 +41,7 @@ int main() {
 
     Engine* engine = new Engine();
     Inventory inventory(std::vector<Item*>(), 500);
-    Player* player = new Player("Player", 100, 100, 11, 3, inventory, 0, 0);
+    Player* player = new Player("Player", 100, 100, 15, 3, inventory, 0, 0);
     Enemy* zombie = new Common_Zombie(0, 0);
     Store* store = new Store(2, 2, 2, 2);
     HealthUp* hpup = new HealthUp("healthup", 40);
@@ -57,9 +57,9 @@ int main() {
 
 
 
-    //Scene* battleScene = (Scene*) new BattleScene(player, zombie);
     Scene* battleScene = (Scene*) new RunnerSceneFirstLevel(player);
-    engine->StartScene(battleScene);
+    //Scene* battleScene = (Scene*) new RunnerSceneFirstLevel(player);
+    battleScene->StartScene();
 
 
     return 0;
