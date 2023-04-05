@@ -36,6 +36,7 @@ public:
         if (actualDamage > 0) {
             m_hp -= actualDamage;
         }
+        if (m_hp < 0) m_hp = 0;
     }
 
     virtual int GetFOV() = 0;
