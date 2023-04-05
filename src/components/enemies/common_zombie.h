@@ -8,7 +8,11 @@ public:
         return AssetsInstance->GetAsset(Assets::AssetsName::Zombie_Common);
     }
 
-    
+    int GetFOV() override { return 3; }
+
+    std::string GetName() override {
+        return "office worker";
+    }
 
     virtual void takeDamage(int damage) override {
         // Вызываем метод базового класса для вычисления получаемого урона

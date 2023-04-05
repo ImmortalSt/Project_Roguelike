@@ -13,6 +13,12 @@ public:
         return AssetsInstance->GetAsset(Assets::AssetsName::ZombieMutant);
     }
 
+    int GetFOV() override { return 11; }
+
+    std::string GetName() {
+        return "Nicado Avocado";
+    }
+
     virtual int getHp() const {
         return m_hp * m_hpMultiplier;
     }
