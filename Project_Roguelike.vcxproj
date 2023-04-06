@@ -182,6 +182,7 @@
     <ClInclude Include="src\components\json\nlohmann\include\nlohmann\thirdparty\hedley\hedley.hpp" />
     <ClInclude Include="src\components\json\nlohmann\include\nlohmann\thirdparty\hedley\hedley_undef.hpp" />
     <ClInclude Include="src\components\json\nlohmann\single_include\nlohmann\json.hpp" />
+    <ClInclude Include="src\components\log\log.h" />
     <ClInclude Include="src\components\MapGenerator\MapGenerate.h" />
     <ClInclude Include="src\components\Map\Map.h" />
     <ClInclude Include="src\components\Player\Player.h" />
