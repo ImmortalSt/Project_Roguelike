@@ -12,10 +12,7 @@
 #include <time.h>
 #include "components/Scene/BattleScene.h"
 #include "components/shop/shop.h"
-#include "components/items/HealthUp.h"
-#include "components/items/ArmorUp.h"
-#include "components/items/DamageUp.h"
-#include "components/Scene/ShopScene.h"
+
 
 BOOL ShowConsoleCursor(BOOL bShow)
 {
@@ -42,10 +39,11 @@ int main() {
     Engine* engine = new Engine();
     Inventory inventory(std::vector<Item*>(), 500);
     Player* player = new Player("Player", 100, 100, 999, 3, inventory, 0, 0);
+
     player->showInventory();
 
-    //Scene* battleScene = (Scene*) new ShopScene(player);
-    Scene* battleScene = (Scene*) new RunnerSceneFirstLevel(player);
+    Scene* battleScene = (Scene*) new ShopScene(player);
+    //Scene* battleScene = (Scene*) new RunnerSceneFirstLevel(player);
     battleScene->StartScene();
 
 
