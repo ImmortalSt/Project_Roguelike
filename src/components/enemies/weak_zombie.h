@@ -10,8 +10,8 @@ public:
 
     int GetFOV() override { return 6; }
 
-    std::string GetName() {
-        return "Strongest fighter in Redan";
+    std::wstring GetName() {
+        return L"Strongest fighter in Redan";
     }
  
     virtual void takeDamage(int damage) override {

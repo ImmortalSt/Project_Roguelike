@@ -1,5 +1,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
+#define FMT_HEADER_ONLY
 #include <iostream>
 #include <stdio.h>
 #include <vector>
@@ -7,6 +8,8 @@
 #include <algorithm>
 #include "../items/items.h"
 #include "../inventory/inventory.h"
+#include "include/fmt/core.h"
+#include "include/fmt/format.h"
 
 
 class Player {
@@ -51,7 +54,8 @@ public:
 		return m_cur_hp ;
 	}
 
-	void Heal() {
+	void Heal(Item* item) {
+		m_inventory.removeItem(item);
 		m_cur_hp = m_max_hp;
 	}
 
@@ -106,6 +110,32 @@ public:
 		int count = m_inventory.getCount(item);
 
 		return count;
+	}
+
+	void tokenize(std::string const& str, const char delim,
+		std::vector<std::string>& out)
+	{
+		size_t start;
+		size_t end = 0;
+
+		while ((start = str.find_first_not_of(delim, end)) != std::string::npos)
+		{
+			end = str.find(delim, start);
+			out.push_back(str.substr(start, end - start));
+		}
+	}
+
+	vector<string> showInventory() {
+		int countDamageUps = m_inventory.getCount(damageUp);
+		int countHealthUps = m_inventory.getCount(hpUp);
+		int countArmorUps = m_inventory.getCount(armorUp);
+		int countMedkits = m_inventory.getCount(medKit);
+		std::string show = fmt::format("DamageUps = {}*HealthUps = {}*ArmorUps = {}*Medkits = {}", countDamageUps, countHealthUps, countArmorUps, countMedkits);
+		const char delim = '*';
+		std::vector<std::string> out;
+		tokenize(show, delim, out);
+
+		return out;
 	}
 
 	bool removeCoins(int coins) {

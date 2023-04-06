@@ -44,7 +44,7 @@ void Display::printFrame(FrameNames name, std::vector<FrameComponent*> frameComp
     for (int i = 0; i < frame->HEIGHT; i++)
         _final_string.append(_currentFrame[i]);
     Clear();
-    fmt::print( L"{}", fmt::styled(_final_string, fmt::fg(fmt::color::green)));
+    fmt::print( L"{}", fmt::styled(_final_string, fmt::fg(fmt::color::aqua)));
     Sleep(freeze);
 }
 Display* Display::getDisplay(){
