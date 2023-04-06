@@ -10,6 +10,7 @@
 #include "../inventory/inventory.h"
 #include "include/fmt/core.h"
 #include "include/fmt/format.h"
+#include "include/fmt/xchar.h"
 
 
 class Player {
@@ -112,27 +113,28 @@ public:
 		return count;
 	}
 
-	void tokenize(std::string const& str, const char delim,
-		std::vector<std::string>& out)
+	void tokenize(std::wstring const& str, const char delim,
+		std::vector<std::wstring>& out)
 	{
 		size_t start;
 		size_t end = 0;
 
-		while ((start = str.find_first_not_of(delim, end)) != std::string::npos)
+		while ((start = str.find_first_not_of(delim, end)) != std::wstring::npos)
 		{
 			end = str.find(delim, start);
 			out.push_back(str.substr(start, end - start));
 		}
 	}
 
-	vector<string> showInventory() {
+	vector<wstring> showInventory() {
 		int countDamageUps = m_inventory.getCount(damageUp);
 		int countHealthUps = m_inventory.getCount(hpUp);
 		int countArmorUps = m_inventory.getCount(armorUp);
 		int countMedkits = m_inventory.getCount(medKit);
-		std::string show = fmt::format("DamageUps = {}*HealthUps = {}*ArmorUps = {}*Medkits = {}", countDamageUps, countHealthUps, countArmorUps, countMedkits);
+		int countCoins = m_inventory.getCoinsI();
+		std::wstring show = fmt::format(L"Your items:*DamageUps = {}*HealthUps = {}*ArmorUps = {}*Medkits = {}*Money: {}", countDamageUps, countHealthUps, countArmorUps, countMedkits, countCoins);
 		const char delim = '*';
-		std::vector<std::string> out;
+		std::vector<std::wstring> out;
 		tokenize(show, delim, out);
 
 		return out;
