@@ -150,7 +150,7 @@ public:
         case 4:
             if (healthPotions < 5) {
                 player->removeItem(item);
-                player->addCoins(50);
+                player->addCoins(25);
                 healthPotions++;
                 return true;
             }

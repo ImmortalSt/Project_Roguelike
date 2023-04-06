@@ -31,16 +31,16 @@ public:
 		FrameComponent itemsComponent = { 20, 9, _items};
 		FrameComponent BuyComponent = { 89, 19, std::vector<std::wstring>{L"     BUY      ", 
 																	      L"--------------",
-																		  L"Med Kit  = 10m",L"",
-																		  L"DamageUp = 10m",L"",
-																		  L"HpUp     = 10m",L"",
-																		  L"ArmorUp  = 10m"}};
+																		  L"Med Kit  = 100",L"",
+																		  L"DamageUp = 100",L"",
+																		  L"HpUp     = 100",L"",
+																		  L"ArmorUp  = 50"}};
 		FrameComponent SellComponent = { 116, 19, std::vector<std::wstring>{L"     SELL    ",
 																		  L"--------------",
-																		  L"Med Kit  = 10m",L"",
-																		  L"DamageUp = 10m",L"",
-																		  L"HpUp     = 10m",L"",
-																		  L"ArmorUp  = 10m"} };
+																		  L"Med Kit  = 50",L"",
+																		  L"DamageUp = 50",L"",
+																		  L"HpUp     = 50",L"",
+																		  L"ArmorUp  = 25"} };
 
 		FrameComponent boxComponent = { 88, 20, std::vector<std::wstring>{L"█", L"████████"} };
 
