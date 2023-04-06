@@ -33,7 +33,8 @@ BOOL ShowConsoleCursor(BOOL bShow)
 
 int main() {
     srand(time(0));
-
+    setlocale(LC_ALL, "");
+    std::system("chcp 65001");
     ShowConsoleCursor(FALSE);
     ShowCursor(FALSE);
     _setmode(_fileno(stdout), _O_U16TEXT);
