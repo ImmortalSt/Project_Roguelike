@@ -40,6 +40,7 @@ public:
 
 		m_inventory.push_back(item);
 	}
+
 	bool removeItem(Item* item) {
 		int ID = item->getId();
 		for (int i = 0; i < m_inventory.size(); i++) {
