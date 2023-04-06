@@ -1,6 +1,8 @@
 ﻿#ifndef CELL_H
 #define CELL_H
 #include <iostream>
+
+
 enum CellState {
 	wall = 'W',
 	tunnel = '`',

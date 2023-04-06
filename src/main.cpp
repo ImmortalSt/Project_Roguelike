@@ -42,7 +42,9 @@ int main() {
     _setmode(_fileno(stdout), _O_U16TEXT);
 
     Engine* engine = new Engine();
-    
+    Inventory inventory(std::vector<Item*>(), 500);
+    Player* player = new Player("Player", 100, 100, 999, 3, inventory, 0, 0);
+    player->showInventory();
 
     //Scene* battleScene = (Scene*) new ShopScene(player);
     Scene* battleScene;
