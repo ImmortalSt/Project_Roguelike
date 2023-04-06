@@ -63,9 +63,25 @@ public:
 			CharactComponent.lines[2] = L"Your damage : " + std::to_wstring(map.GetPlayer()->getDamage());
 
 			for (int i = 0; i < (*map.GetEnemies()).size() && timeOut == 0; i++) {
-				if (abs(map.GetPlayer()->GetX() - map.GetEnemies()->at(i)->GetX()) +
-					abs((map.GetPlayer()->GetY() - map.GetEnemies()->at(i)->GetY())) <= pow(map.GetEnemies()->at(i)->GetFOV(), 2)) {
+				if (pow(map.GetPlayer()->GetX() - map.GetEnemies()->at(i)->GetX(), 2) + pow(map.GetPlayer()->GetY() - map.GetEnemies()->at(i)->GetY(), 2) <= pow(map.GetEnemies()->at(i)->GetFOV(), 2)) {
 					map.MoveEnemy(i, map.GetEnemies()->at(i)->StepToGo(map.GetPlayer()->GetX(), map.GetPlayer()->GetY()));
+				}
+				else  {
+					int ad = rand() % 4;
+					switch (ad) {
+					case 0:
+						map.MoveEnemy(i, 'r');
+						break;
+					case 1:
+						map.MoveEnemy(i, 'u');
+						break;
+					case 2:
+						map.MoveEnemy(i, 'l');
+						break;
+					case 3:
+						map.MoveEnemy(i, 'd');
+						break;
+					}
 				}
 			}
 
