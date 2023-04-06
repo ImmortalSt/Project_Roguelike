@@ -41,7 +41,7 @@ public:
 
     virtual int GetFOV() = 0;
 
-    virtual std::string GetName() = 0;
+    virtual std::wstring GetName() = 0;
 
     virtual int getHp() const {
         return m_hp;
