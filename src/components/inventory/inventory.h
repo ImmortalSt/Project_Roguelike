@@ -46,6 +46,7 @@ public:
 		for (int i = 0; i < m_inventory.size(); i++) {
 			if (m_inventory[i]->getId() == ID) {
 				m_inventory.erase(m_inventory.begin() + i);
+				break;
 			}
 		}
 	}
