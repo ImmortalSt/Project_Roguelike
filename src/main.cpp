@@ -47,8 +47,6 @@ int main() {
     //Scene* battleScene = (Scene*) new ShopScene(player);
     Scene* battleScene;
     int level = 1;
-    Player* player;
-    Inventory inventory();
     while (level <= 3) {
         if (level == 1) {
             Inventory inventory(std::vector<Item*>(), 500);
