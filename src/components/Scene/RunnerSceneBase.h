@@ -48,6 +48,9 @@ public:
 				}
 				else if (result == 0) {
 					map.KillEnemy(map.GetCatchByEnemy());
+					if (map.CheckEnemies() == 0) {
+						return 2;
+					}
 				}
 			}
 
