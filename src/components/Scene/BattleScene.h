@@ -50,7 +50,7 @@ public:
 			_playerParameters.lines[1] = L"HP: " + std::to_wstring(_player->getCurHP());
 			_playerParameters.lines[2] = L"Armor: " + std::to_wstring(_player->getArmor());
 			_playerParameters.lines[3] = L"Damege: " + std::to_wstring(_player->getDamage());
-			_enemyParameters.lines[0] = L"Write A Zombie Name";
+			_enemyParameters.lines[0] = _enemy->GetName();
 			_enemyParameters.lines[1] = L"Armor: " + std::to_wstring(_enemy->getArmor());
 			_enemyParameters.lines[2] = L"HP: " + std::to_wstring(_enemy->getHp());
 			_enemyParameters.lines[3] = L"Damage: " + std::to_wstring(_enemy->getDamage());

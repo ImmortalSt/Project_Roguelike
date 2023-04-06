@@ -10,8 +10,8 @@ public:
 
     int GetFOV() override { return 3; }
 
-    std::string GetName() override {
-        return "office worker";
+    std::wstring GetName() override {
+        return L"office worker";
     }
 
     virtual void takeDamage(int damage) override {

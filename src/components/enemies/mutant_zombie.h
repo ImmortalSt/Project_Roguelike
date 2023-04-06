@@ -15,8 +15,8 @@ public:
 
     int GetFOV() override { return 7; }
 
-    std::string GetName() {
-        return "Nicado Avocado";
+    std::wstring GetName() {
+        return L"Nicado Avocado";
     }
 
     virtual int getHp() const {
