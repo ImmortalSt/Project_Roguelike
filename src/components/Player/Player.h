@@ -55,9 +55,14 @@ public:
 		return m_cur_hp ;
 	}
 
-	void Heal(Item* item) {
-		m_inventory.removeItem(item);
+	bool Heal() {
+		if (m_inventory.getCount(medKit) == 0) {
+			return false;
+		}
+		m_inventory.eatMedkit();
 		m_cur_hp = m_max_hp;
+
+		return true;
 	}
 
 	void addHP(int hp) {
@@ -124,6 +129,13 @@ public:
 			end = str.find(delim, start);
 			out.push_back(str.substr(start, end - start));
 		}
+	}
+
+	wstring getMedkits() {
+		int countMed = m_inventory.getCount(medKit);
+		std::wstring show = fmt::format(L"Medkits: {}", countMed);
+
+		return show;
 	}
 
 	vector<wstring> showInventory() {

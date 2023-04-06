@@ -18,11 +18,11 @@ public:
 	// 2 - Умер
 	int StartScene() override {
 		_display = Display::getDisplay();
-
+		//FrameComponent _med
 		FrameComponent _playerComponent;
 		FrameComponent _enemyComponent;
 		std::vector<FrameComponent*> components;
-		FrameComponent _playerParameters = { 50, 6, std::vector<std::wstring>(4)};
+		FrameComponent _playerParameters = { 50, 7, std::vector<std::wstring>(5)};
 		FrameComponent _enemyParameters = { 80, 6, std::vector<std::wstring>(4) };
 		FrameComponent _choiceComponent = { 52, 20, std::vector<std::wstring>{L"Attack", L"", L"Use medkit", L"", L"Run away"}};
 		FrameComponent _boxComponent = { 50, 21, std::vector<std::wstring>{L"████████████", L"█", L"████████████"} };
@@ -49,7 +49,8 @@ public:
 			_playerParameters.lines[0] = L"Player";
 			_playerParameters.lines[1] = L"HP: " + std::to_wstring(_player->getCurHP());
 			_playerParameters.lines[2] = L"Armor: " + std::to_wstring(_player->getArmor());
-			_playerParameters.lines[3] = L"Damege: " + std::to_wstring(_player->getDamage());
+			_playerParameters.lines[3] = L"Damage: " + std::to_wstring(_player->getDamage());
+			_playerParameters.lines[4] = _player->getMedkits();
 			_enemyParameters.lines[0] = _enemy->GetName();
 			_enemyParameters.lines[1] = L"Armor: " + std::to_wstring(_enemy->getArmor());
 			_enemyParameters.lines[2] = L"HP: " + std::to_wstring(_enemy->getHp());
@@ -70,7 +71,9 @@ public:
 
 				if (choice == 0) return 1;
 				else if (choice == 1) {
-					
+					_player->Heal();
+					_playerParameters.lines[4] = _player->getMedkits();
+
 				}
 				else if (choice == 2) {
 					_playerComponent.x = 15;
