@@ -126,10 +126,10 @@ public:
     }
 
 private:
+    int x;
+    int y;
     int damageBoosts;
     int healthBoosts;
     int armorBoosts;
     int healthPotions;
-    int x;
-    int y;
 };

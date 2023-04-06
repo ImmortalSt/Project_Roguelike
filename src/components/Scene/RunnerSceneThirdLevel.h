@@ -13,7 +13,7 @@ public:
 		Map_gen* map_gen = new Map_gen();
 		map_gen->Generate(10, _player, 2, 8, 5);
 
-		Map* map = new Map(map_gen->GetField(), _player, map_gen->GetEnemies());
+		Map* map = new Map(map_gen->GetField(), _player, map_gen->GetEnemies(), map_gen->GetStore());
 
 		return map;
 	}

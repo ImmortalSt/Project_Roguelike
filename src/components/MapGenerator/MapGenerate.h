@@ -23,8 +23,11 @@ class Map_gen {
 private:
 	vector<Enemy*>* enemies;
 	Field* pole;
-	Store store_;
+	Store* store_;
 public:
+	Store* GetStore() {
+		return store_;
+	}
 
 	vector<Enemy*>* GetEnemies() {
 		return enemies;
@@ -153,7 +156,8 @@ public:
 				ma->SetCell(k,l, enemy);
 			}
 		}
-		store_.SetXY(igrok->GetY() - 1, igrok->GetX());
+		store_ = new Store();
+		store_->SetXY(igrok->GetX(), igrok->GetY() - 1);
 		ma->SetCell(igrok->GetY() - 1, igrok->GetX(), shop);
 		pole = ma;
 	}

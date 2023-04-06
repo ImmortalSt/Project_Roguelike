@@ -191,6 +191,7 @@
     <ClInclude Include="src\components\Scene\RunnerSceneSecondLevel.h" />
     <ClInclude Include="src\components\Scene\RunnerSceneThirdLevel.h" />
     <ClInclude Include="src\components\Scene\Scene.h" />
+    <ClInclude Include="src\components\Scene\ShopScene.h" />
     <ClInclude Include="src\components\Screen\Assets\Assets.h" />
     <ClInclude Include="src\components\screen\display.h" />
     <ClInclude Include="src\components\screen\FrameComponent.h" />
