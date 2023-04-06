@@ -9,6 +9,8 @@
 #include "components/Engine/Engine.h"
 #include "components/MapGenerator/MapGenerate.h"
 #include "components/Scene/RunnerSceneFirstLevel.h"
+#include "components/Scene/RunnerSceneSecondLevel.h"
+#include "components/Scene/RunnerSceneThirdLevel.h"
 #include <time.h>
 #include "components/Scene/BattleScene.h"
 #include "components/shop/shop.h"
@@ -42,10 +44,29 @@ int main() {
 
     player->showInventory();
 
-    Scene* battleScene = (Scene*) new ShopScene(player);
-    //Scene* battleScene = (Scene*) new RunnerSceneFirstLevel(player);
-    battleScene->StartScene();
-
+    //Scene* battleScene = (Scene*) new ShopScene(player);
+    Scene* battleScene;
+    int level = 1;
+    while (level <= 3) {
+        if (level == 1) {
+            Inventory inventory(std::vector<Item*>(), 500);
+            player = new Player("Player", 100, 50, 999, 3, inventory, 0, 0);
+            battleScene = (Scene*) new RunnerSceneFirstLevel(player);
+        }
+        else if (level == 2) {
+            battleScene = (Scene*) new RunnerSceneSecondLevel(player);
+        }
+        else if (level == 3) {
+            battleScene = (Scene*) new RunnerSceneThirdLevel(player);
+        }
+        auto result = battleScene->StartScene();
+        if (result == 1) {
+            level = 1;
+        }
+        else if (result == 2) {
+            level++;
+        }
+    }
 
     return 0;
 }
