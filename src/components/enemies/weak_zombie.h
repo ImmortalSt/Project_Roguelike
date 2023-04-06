@@ -8,7 +8,7 @@ public:
         return AssetsInstance->GetAsset(Assets::AssetsName::Zombie_Waek);
     }
 
-    int GetFOV() override { return 3; }
+    int GetFOV() override { return 6; }
 
     std::string GetName() {
         return "Strongest fighter in Redan";
