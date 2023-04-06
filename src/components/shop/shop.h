@@ -70,7 +70,9 @@ public:
         switch (id) {
         case 1:
             if (damageBoosts > 0) {
-                player->removeCoins(100);
+                if (player->removeCoins(100) == false) {
+                    return false;
+                }
                 player->addItem(item);
                 damageBoosts--;
                 return true;
@@ -79,7 +81,9 @@ public:
 
         case 2:
             if (healthBoosts > 0) {
-                player->removeCoins(100);
+                if (player->removeCoins(100) == false) {
+                    return false;
+                }
                 player->addItem(item);
                 healthBoosts--;
                 return true;
@@ -88,7 +92,9 @@ public:
 
         case 3:
             if (armorBoosts > 0) {
-                player->removeCoins(100);
+                if (player->removeCoins(100) == false) {
+                    return false;
+                }
                 player->addItem(item);
                 armorBoosts--;
                 return true;
@@ -97,7 +103,9 @@ public:
 
         case 4:
             if (healthPotions > 0) {
-                player->removeCoins(50);
+                if (player->removeCoins(50) == false) {
+                    return false;
+                }
                 player->addItem(item);
                 healthPotions--;
                 return true;
@@ -142,7 +150,7 @@ public:
         case 4:
             if (healthPotions < 5) {
                 player->removeItem(item);
-                player->addCoins(50);
+                player->addCoins(25);
                 healthPotions++;
                 return true;
             }

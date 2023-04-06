@@ -22,7 +22,7 @@ public:
 	}
 
 	void addCoinsI(int coins) {
-		coins += m_coins;
+		m_coins += coins;
 	}
 
 	bool removeCoinsI(int coins) {

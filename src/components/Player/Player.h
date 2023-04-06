@@ -142,7 +142,7 @@ public:
 
 	bool removeCoins(int coins) {
 		if (m_inventory.removeCoinsI(coins) == false)
-			throw exception("Not enough money");
+			return false;
 		return true;
 	}
 
