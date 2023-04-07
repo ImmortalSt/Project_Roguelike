@@ -17,13 +17,6 @@ public:
         : damageBoosts(damageBoosts), healthBoosts(healthBoosts), armorBoosts(armorBoosts), healthPotions(healthPotions) {}
 
     virtual ~Store() {};
-    //void showItems() const {
-    //    std::cout << "Available items:" << std::endl;
-    //    std::cout << "- Damage boost x1 (ID: 1, price: 100, remaining: " << damageBoosts << ")" << std::endl;
-    //    std::cout << "- Health boost x1 (ID: 2, price: 50, remaining: " << healthBoosts << ")" << std::endl;
-    //    std::cout << "- Armor boost x1 (ID: 3, price: 75, remaining: " << armorBoosts << ")" << std::endl;
-    //    std::cout << "- Health potion x1 (ID: 4, price: 25, remaining: " << healthPotions << ")" << std::endl;
-    //}
 
     void tokenize(std::wstring const& str, const char delim,
         std::vector<std::wstring>& out)
@@ -38,18 +31,6 @@ public:
         }
     }
 
-    //vector<wstring> showInventory() {
-    //    int countDamageUps = m_inventory.getCount(damageUp);
-    //    int countHealthUps = m_inventory.getCount(hpUp);
-    //    int countArmorUps = m_inventory.getCount(armorUp);
-    //    int countMedkits = m_inventory.getCount(medKit);
-    //    int countCoins = m_inventory.getCoinsI();
-    //    std::wstring show = fmt::format(L"Your items:*DamageUps = {}*HealthUps = {}*ArmorUps = {}*Medkits = {}*Money: {}", countDamageUps, countHealthUps, countArmorUps, countMedkits, countCoins);
-    //    const char delim = '*';
-    //    std::vector<std::wstring> out;
-    //    tokenize(show, delim, out);
-
-    //    return out;
 
     std::vector<wstring> countItems() {
         int countDamage = damageBoosts;
@@ -113,7 +94,7 @@ public:
             return false;
 
         default:
-            return false;  // Товар не найден
+            return false; 
         }
     }
 
@@ -157,7 +138,7 @@ public:
             return false;
 
         default:
-            return false;  // Товар не найден
+            return false; 
         }
     }
 

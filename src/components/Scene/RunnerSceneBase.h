@@ -1,8 +1,10 @@
 #pragma once
+#pragma comment(lib, "user32")
 #include "Scene.h"
 #include "BattleScene.h"
 #include "ShopScene.h"
-
+#include <limits>
+#include <Windows.h>
 class RunnerSceneBase : Scene
 {
 public:

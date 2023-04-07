@@ -63,14 +63,14 @@ public:
 			playerComponent.lines = _player->showInventory();;
 			_display->printFrame(FrameNames::Main, components);
 
-			char key = _getchar();
+			//char key = _getchar();
 
-			if (key == 'w' && choice < 7) choice++;
-			if (key == 's' && choice > 0) choice--;
-			if (key == 'a' && choice > 3) choice -= 4;
-			if (key == 'd' && choice < 4) choice += 4;
-			if (key == '\x1b') return 0;
-			if (key == VK_RETURN) {
+			if ((GetAsyncKeyState('W') & 0x8000) && choice < 7) choice++;
+			if ((GetAsyncKeyState('S') & 0x8000) && choice > 0) choice--;
+			if ((GetAsyncKeyState('A') & 0x8000) && choice > 3) choice -= 4;
+			if ((GetAsyncKeyState('D') & 0x8000) && choice < 4) choice += 4;
+			if ((GetAsyncKeyState(VK_ESCAPE) & 0x8000)) return 0;
+			if ((GetAsyncKeyState(VK_RETURN) & 0x8000)) {
 				if (choice == 0) {
 					ArmorUp* armup1 = new ArmorUp("armup1", 5);
 					shop1->buyItem(armup1, _player);

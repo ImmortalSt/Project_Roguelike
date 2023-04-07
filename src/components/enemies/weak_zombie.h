@@ -15,9 +15,7 @@ public:
     }
  
     virtual void takeDamage(int damage) override {
-        // Вызываем метод базового класса для вычисления получаемого урона
         Enemy::takeDamage(damage);
     }
 
-    // Дополнительные методы и свойства, уникальные для зомби
 };
