@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-
+#include <Windows.h>
 #include "Scene.h"
 
 class BattleScene : Scene {
@@ -17,6 +17,7 @@ public:
 	// 1 - Убежал
 	// 2 - Умер
 	int StartScene() override {
+
 		_display = Display::getDisplay();
 		//FrameComponent _med
 		FrameComponent _playerComponent;
@@ -58,15 +59,14 @@ public:
 
 
 			_display->printFrame(FrameNames::Main, components);
-			
-			char key = _getchar();
+			//char key = _getchar();
 
-			if (key == 'w' && choice < 2) choice++;
-			if (key == 's' && choice > 0) choice--;
+			if ((GetAsyncKeyState('W') & 0x8000) && choice < 2) choice++;
+			if ((GetAsyncKeyState('S') & 0x8000) && choice > 0) choice--;
 
 			_boxComponent.y = 21 - 2 * choice;
 
-			if (key == VK_RETURN) {
+			if (GetAsyncKeyState(VK_RETURN) & 0x8000) {
 				Sleep(300);
 
 				if (choice == 0) return 1;

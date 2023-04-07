@@ -1,8 +1,10 @@
 #pragma once
+#pragma comment(lib, "user32")
 #include "Scene.h"
 #include "BattleScene.h"
 #include "ShopScene.h"
-
+#include <limits>
+#include <Windows.h>
 class RunnerSceneBase : Scene
 {
 public:
@@ -38,6 +40,27 @@ public:
 			}
 
 			if (map.GetCatchByEnemy() != -1 && timeOut == 0) {
+				/*char str[200];
+				fgets(str, 200, stdin);
+				fflush(stdin);*/
+				//OutputString(L"Sending 'Win-D'\r\n");
+				//INPUT inputs[2] = {};
+				//ZeroMemory(inputs, sizeof(inputs));
+
+				//inputs[0].type = INPUT_KEYBOARD;
+				//inputs[0].ki.wVk = VK_RETURN;
+
+				//inputs[2].type = INPUT_KEYBOARD;
+				//inputs[2].ki.wVk = VK_RETURN;
+				//inputs[2].ki.dwFlags = KEYEVENTF_KEYUP;
+
+				//UINT uSent = SendInput(ARRAYSIZE(inputs), inputs, sizeof(INPUT));
+				//std::getline(std::cin, str);
+				//if (cin.fail()) {
+				//	cin.clear();
+				//	//cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				//}
+				////std::cin.ignore(std::numeric_limits<std::streamsize>::max());
 				auto _battleScene = new BattleScene(map.GetPlayer(), map.GetEnemies()->at(map.GetCatchByEnemy()));
 				auto result = _battleScene->StartScene();
 				if (result == 1) {
