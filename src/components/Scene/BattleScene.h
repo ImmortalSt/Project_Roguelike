@@ -59,7 +59,6 @@ public:
 
 
 			_display->printFrame(FrameNames::Main, components);
-			//char key = _getchar();
 
 			if ((GetAsyncKeyState('W') & 0x8000) && choice < 2) choice++;
 			if ((GetAsyncKeyState('S') & 0x8000) && choice > 0) choice--;
