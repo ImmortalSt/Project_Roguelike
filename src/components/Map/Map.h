@@ -141,6 +141,9 @@ public:
 		field->SetCell(en->GetY(), en->GetX(), enemy_dead);
 		field_copy.SetCell(en->GetY(), en->GetX(), enemy_dead);
 		enemies->erase(enemies->begin() + id);
+		srand(time(NULL));
+		int coins = 30 + rand() % (51);
+		player_->addCoins(coins);
 	}
 
 	int GetCatchByEnemy() {
